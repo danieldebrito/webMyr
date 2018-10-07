@@ -1,0 +1,58 @@
+<!-- nav bar bootstrap -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+
+  <a class="navbar-brand myLogo img-responsive" routerLink="/home"><img src="../../../../assets/images/icons/logo-04.png" /></a>
+
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+    data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link" routerLink="/home">Inicio</a>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link" routerLink="/catalog">Catalogo</a>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>Dto. Técnico</a>
+        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+          <a class="dropdown-item" href="#">Blog de Preguntas Frecuentes</a>
+          <a class="dropdown-item" href="#">Info. de Apriete Tapa de Cilindros</a>
+          <a class="dropdown-item" href="#">Retenes</a>
+          <a class="dropdown-item" href="#">Tornillos</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="id02" ngbDropdownToggle>Nosotros</a>
+        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+          <a class="dropdown-item" href="#">Nuestra Historia</a>
+          <a class="dropdown-item" href="#">Politicas y Certificaciones</a>
+          <a class="dropdown-item" href="#">Planta y Tecnologia</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link" id="id01">Contacto</a>
+      </li>
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Creá tu Cuenta</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Ingresá</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Ayuda</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Car</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Fav</a></li>
+    </ul>
+
+  </div>
+</nav>

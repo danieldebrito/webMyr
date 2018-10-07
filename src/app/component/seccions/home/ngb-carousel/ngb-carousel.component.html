@@ -1,0 +1,35 @@
+<div class="jumbotron homebg">
+  <div class="ngbcarousel container text-center">
+    <ngb-carousel *ngIf="images">
+  
+        <ng-template ngbSlide>
+          <img [src]="images[0]" alt="Random first slide" class="img-responsive" >
+          <div class="carousel-caption">
+            <h1>Nuestros Productos</h1>
+            <h3>Catalogo Online</h3>
+            <button pButton type="button" label="Buscar" class="ui-button-rounded ui-button-danger"></button>
+          </div>
+        </ng-template>
+  
+        <ng-template ngbSlide>
+          <img [src]="images[1]" alt="Random second slide" class="img-responsive" >
+          <div class="carousel-caption">
+            <h3>Compra Online</h3>
+            <p>e-Shop</p>
+            <button pButton type="button" label="Comprar" class="ui-button-rounded ui-button-danger"></button>
+          </div>
+        </ng-template>
+  
+        <ng-template ngbSlide>
+          <img [src]="images[2]"  alt="Random third slide" class="img-responsive" >
+          <div class="carousel-caption">
+            <h3>Desde 1946 Tecnologia e Inovacion</h3>
+            <p>Nuestros Productos</p>
+            <button pButton type="button" label="Ver" class="ui-button-rounded ui-button-danger"></button>
+          </div>
+        </ng-template>
+  
+      </ngb-carousel>
+  </div>
+
+</div>

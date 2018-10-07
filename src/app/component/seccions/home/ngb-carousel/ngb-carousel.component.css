@@ -1,0 +1,23 @@
+.img-responsive {
+    opacity: 0;
+}
+
+.carousel-caption {
+        color: rgb(151, 8, 8);
+        font-weight: bold;   
+}
+
+.jumbotron {
+    padding-top: 30px;
+    position: sticky;
+}
+
+.homebg {
+    background-image: url("../../../../../assets/images/slides/slide-02.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
