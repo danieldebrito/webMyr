@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 // services
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
@@ -68,6 +69,7 @@ import { RecupPasswordComponent } from './component/seccions/users/recup-passwor
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     AngularFontAwesomeModule
   ],
 providers: [],
