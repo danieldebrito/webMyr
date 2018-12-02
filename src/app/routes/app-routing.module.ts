@@ -7,17 +7,23 @@ import { PageNotFoundComponent } from '../component/seccions/page-not-found/page
 import { HomeComponent } from '../component/seccions/home/home/home.component';
 import { CatalogoComponent } from '../component/seccions/catalogo/catalogo.component';
 import { QuienSoyComponent } from '../component/seccions/quien-soy/quien-soy.component';
+import { ContactComponent } from '../component/seccions/contact/contact.component';
+import { DtoTecnicoComponent } from '../component/seccions/dto-tecnico/dto-tecnico.component';
+import { LoginComponent } from '../component/seccions/users/login/login.component';
+import { RegistroComponent } from '../component/seccions/users/registro/registro.component';
+import { RecupPasswordComponent } from '../component/seccions/users/recup-password/recup-password.component';
 
-// juegos
-import { AdivinaElNumeroComponent } from '../component/games/adivina-el-numero/adivina-el-numero.component';
-import { MostrarPaisesComponent } from '../component/games/mostrar-paises/mostrar-paises.component';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalog', component: CatalogoComponent },
-  { path: 'p', component: MostrarPaisesComponent },
-  { path: 'adivinaNro', component: AdivinaElNumeroComponent },
   { path: 'about', component: QuienSoyComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'blog', component: DtoTecnicoComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'recupPass', component: RecupPasswordComponent },
   {
     path: '',
     redirectTo: '/home',

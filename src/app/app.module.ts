@@ -15,44 +15,48 @@ import { BootstrapModule } from './styles/ngBootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './styles/material';
 import { PrimeNGModule } from './styles/primeNG';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // layout
 import { NavbarComponent } from './component/layout/navbar/navbar.component';
 import { BodyComponent } from './component/layout/body/body.component';
-import { AsideComponent } from './component/layout/aside/aside.component';
 import { FooterComponent } from './component/layout/footer/footer.component';
 
 // seccions
 import { NgbCarouselComponent } from './component/seccions/home/ngb-carousel/ngb-carousel.component';
 import { HomeComponent } from './component/seccions/home/home/home.component';
 import { PageNotFoundComponent } from './component/seccions/page-not-found/page-not-found.component';
-import { AdivinaElNumeroComponent } from './component/games/adivina-el-numero/adivina-el-numero.component';
-import { MostrarPaisesComponent } from './component/games/mostrar-paises/mostrar-paises.component';
 import { QuienSoyComponent } from './component/seccions/quien-soy/quien-soy.component';
-import { AdivinaLaCapitalComponent } from './component/games/adivina-la-capital/adivina-la-capital.component';
-import { PreFooterComponent } from './component/layout/pre-footer/pre-footer.component';
+import { PreFooterComponent } from './component/layout/footer/pre-footer/pre-footer.component';
 import { CatalogoComponent } from './component/seccions/catalogo/catalogo.component';
-import { CardComponent } from './component/seccions/catalogo/card/card.component';
 import { FiltroComponent } from './component/seccions/catalogo/filtro/filtro.component';
+import { PreNavComponent } from './component/layout/navbar/pre-nav/pre-nav.component';
+import { ContactComponent } from './component/seccions/contact/contact.component';
+import { DtoTecnicoComponent } from './component/seccions/dto-tecnico/dto-tecnico.component';
+import { LoginComponent } from './component/seccions/users/login/login.component';
+import { RegistroComponent } from './component/seccions/users/registro/registro.component';
+import { RecupPasswordComponent } from './component/seccions/users/recup-password/recup-password.component';
+
 
 @NgModule({
   declarations: [
     NavbarComponent,
     BodyComponent,
-    AsideComponent,
     FooterComponent,
     AppComponent,
     NgbCarouselComponent,
     HomeComponent,
     PageNotFoundComponent,
-    AdivinaElNumeroComponent,
-    MostrarPaisesComponent,
     QuienSoyComponent,
-    AdivinaLaCapitalComponent,
     PreFooterComponent,
     CatalogoComponent,
-    CardComponent,
-    FiltroComponent
+    FiltroComponent,
+    PreNavComponent,
+    ContactComponent,
+    DtoTecnicoComponent,
+    LoginComponent,
+    RegistroComponent,
+    RecupPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +67,10 @@ import { FiltroComponent } from './component/seccions/catalogo/filtro/filtro.com
     PrimeNGModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    AngularFontAwesomeModule
   ],
-  providers: [],
+providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AllArticulosService } from '../../../services/articulo/consultas-articulos.service';
+import { Articulo } from '../../../clases/articulo';
 
 @Component({
   selector: 'app-catalogo',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor() { }
+  public items: Articulo[];
+  artService: AllArticulosService;
 
-  ngOnInit() {
+  constructor(servicioArt: AllArticulosService) {
+    this.artService = servicioArt;
   }
 
+  ngOnInit() {
+    this.artService.listar()
+      .then(datos => {
+        this.items = datos;
+      });
+  }
 }

@@ -1,0 +1,16 @@
+.filtro {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+select {
+    width:200px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+select {
+    padding: 2%;
+}

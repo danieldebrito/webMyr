@@ -1,3 +1,14 @@
 .bgd {
-    background-color: black;
+    background-color:  #f2f3f4;
 }
+
+th {
+    background-color:red;
+    color: white;
+}
+
+.example-card {
+    /* padding: 5%; */
+
+}
+  

@@ -1,3 +1,3 @@
-# ngMeyro
-web page with shopping cart, Angular 6
-juntas MEYRO
+# TP_LAB_4_2018
+TP de laboratorio 4
+utn - fra
