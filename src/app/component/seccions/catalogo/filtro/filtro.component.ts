@@ -69,26 +69,39 @@ export class FiltroComponent implements OnInit {
         this.isCollapsed3 = false;
     }
 
-    public todos () {
-        this.artService.listarObserv().subscribe(
-            result => {
-                this.allItems = result;
+    public Listar() {
+        this.artService.ListarO().subscribe( response => {
+            // console.log(response);
+            this.allItems = response;
             },
             error => {
-                console.log(<any>error);
-            }
-        );
+            console.error(error);
+            });
     }
 
-    filtroP () {
-    this.artService.filtrar(this.marca, this.modelo)
-        .then(datos => {
-            this.filtroItems = datos;
-        });
+    public Limpiar() {
+        this.artService.ListarO().subscribe( response => {
+            // console.log(response);
+            this.filtroItems = response;
+
+            this.linea = '';
+            this.marca = '';
+            this.combustible = '';
+            this.motor = '';
+            this.modelo = '';
+            this.cilindrada = '';
+            this.competicion = '';
+            this.producto = '';
+            this.aplicacion = '';
+
+            },
+            error => {
+            console.error(error);
+            });
     }
 
-    public filtro () {
-        this.artService.filtrarO(
+    public Filtrar () {
+        this.artService.FiltrarP(
             this.linea,
             this.marca,
             this.combustible,
@@ -97,97 +110,40 @@ export class FiltroComponent implements OnInit {
             this.cilindrada,
             this.competicion,
             this.producto,
-            this.aplicacion
-            ).subscribe(
-            result => {
-                console.log('ohaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' + this.allItems);
-                 this.allItems = result;
-                 console.log(this.allItems);
-            },
-            error => {
-                 console.log(error + 'error respuesta del servidor');
-            }
-        );
+            this.aplicacion).then(
+                response => {
+                // console.log('RESPONSE DESDE COMPONENTE: ', response);
+                 this.filtroItems = response;
+                }
+              )
+              .catch(
+                error => {
+                  console.error('ERROR DEL SERVIDOR', error);
+                }
+              );
     }
 
-    public colunmas () {
+    public Colunmas (data: any[]) {
+
+        const array = JSON.stringify(data);
+        const marcas = [];
+        const tam = array.length ;
+
+        for (let i = 0 ; i < tam ; i++) {
+            if (!marcas.includes(data[i].marca)) {
+                marcas.push(data[i].marca);
+            }
+        }
+
+        console.log(marcas);
+
     }
+
 
     ngOnInit() {
-        this.todos();
+        this.Listar();
 
-        this.filtroP();
+        this.Colunmas(this.filtroItems);
     }
-}  ////////////////////////////////////////// end //////////////////////////////////////////
-
-
-
-    /*public cargarMarcaObserv(value: string) {
-
-        const arr: Articulo[] = [];
-
-        this.artService.listarObserv().subscribe(
-            result => {
-
-                for (let i = 0 ; i < result.length; i++) {
-
-                    if (this.allItems[i].marca === value) {
-                        console.log(this.allItems[i].marca);
-                        arr.push(this.allItems[i]);
-                    }
-                }
-                // console.log(arr);
-                this.marcaItems = arr;
-
-               // console.log(this.allItems);
-            },
-            error => {
-                console.log(<any>error);
-            }
-        );
-    }
-
-    cargarBaseCompleta() {
-        this.artService.listar()
-            .then(datos => {
-                // console.log(datos);
-                this.allItems = datos;
-            });
-    }
-
-    filtrarColumna (nombreColumna: string) {
-        this.artService.listarPorColumna(nombreColumna)
-        .then(datos => {
-            // console.log(datos);
-            this.marcaItems = datos;
-        });
-
-    }
-
-
-    cargarListaObserv() {
-        this.artService.listarObserv().subscribe(
-            result => {
-                this.allItems = result;
-               // console.log(this.allItems);
-            },
-            error => {
-                console.log(<any>error);
-            }
-        );
-    }
-
-    cargarSelects () {
-    }
-
-        filtro (linea: string, marca: string ) {
-        this.artService.filtrar(linea, marca)
-        .then(datos => {
-            // console.log(datos);
-            this.allItems = datos;
-            console.log('filtro all items' + this.allItems);
-        });
-    }
-
-*/
+}
 

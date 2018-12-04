@@ -9,17 +9,24 @@ import { Articulo } from '../../../clases/articulo';
 })
 export class CatalogoComponent implements OnInit {
 
-  public items: Articulo[];
+  public allItems: Articulo[];
   artService: AllArticulosService;
 
   constructor(servicioArt: AllArticulosService) {
     this.artService = servicioArt;
   }
 
-  ngOnInit() {
-    this.artService.listar()
-      .then(datos => {
-        this.items = datos;
+  public Listar() {
+    this.artService.ListarO().subscribe( response => {
+       // console.log(response);
+        this.allItems = response;
+      },
+      error => {
+        console.error(error);
       });
+    }
+
+  ngOnInit() {
+    this.Listar();
   }
 }

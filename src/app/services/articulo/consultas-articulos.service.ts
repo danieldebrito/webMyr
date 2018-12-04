@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ArticuloService } from './articulo.service';
+import { Articulo } from '../../clases/articulo';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +11,9 @@ export class AllArticulosService {
 
   constructor(public miHttp: ArticuloService) { }
 
-  public listar(): Promise<Array<any>> {
+  public ListarP(): Promise<Array<any>> {
     return this.miHttp.httpGetP('/all')
       .then(data => {
-        // console.log(data);
         return data;
       })
       .catch(err => {
@@ -20,32 +22,11 @@ export class AllArticulosService {
       });
   }
 
-  public listarPorColumna(columna: string): Promise<Array<any>> {
-    return this.miHttp.httpGetP('/all/' + columna)
-      .then(data => {
-        return data;
-      })
-      .catch(err => {
-        console.log(err);
-        return null;
-      });
+  public ListarO(): Observable<Articulo[]> {
+    return this.miHttp.httpGetO<Articulo[]>('/all');
   }
 
-  public listarObserv() {
-    return this.miHttp.httpGetO('/all');
-  }
-
-  // filtrar promise
-  public filtrar(linea: string, marca: string): Promise<Object> {
-    const request: Object = {
-      linea: linea,
-      marca: marca
-    };
-    return this.miHttp.httpPostP('/filtro', request);
-  }
-
-  // filtrar observable
-  public filtrarO(
+  public FiltrarP(
     linea: string,
     marca: string,
     combustible: string,
@@ -55,35 +36,25 @@ export class AllArticulosService {
     competicion: string,
     producto: string,
     aplicacion: string
-    ) {
-    const Request: Object = {
-      linea: linea,
-      marca: marca,
-      combustible: combustible,
-      motor: motor,
-      modelo: modelo,
-      cilindrada: cilindrada,
-      competicion: competicion,
-      producto: producto,
-      aplicacion: aplicacion
-    };
+    ): Promise<Object> {
 
-    return this.miHttp.httpPostO('/filtro', Request);
-  }
+      const request: Object = {
 
-
-    // filtrar observable
-    public f(
-      linea: string,
-      marca: string,
-      ) {
-      const Request: Object = {
-        linea: linea,
-        marca: marca
+        linea: linea == null ? '' : linea,
+        marca: marca == null ? '' : marca,
+        combustible: combustible == null ? '' : combustible,
+        motor: motor == null ? '' : motor,
+        modelo: modelo == null ? '' : modelo,
+        cilindrada: cilindrada == null ? '' : cilindrada,
+        competicion: competicion == null ? '' : competicion,
+        producto: producto == null ? '' : producto,
+        aplicacion: aplicacion == null ? '' : aplicacion
       };
 
-      return this.miHttp.httpPostO('/filtro', Request);
+      console.log('request desde el servicio: ' +  request);
+
+      return this.miHttp.httpPostP('/filtrar', request);
     }
 
+  }
 
-}

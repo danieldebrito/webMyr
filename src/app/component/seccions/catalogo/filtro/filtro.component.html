@@ -48,7 +48,7 @@
   <div id="collapseExample" [ngbCollapse]="isCollapsed">
     <div class="card">
       <div class="card-body">
-        <form #f="ngForm" name="f" (click)="filtro()">
+        <form #f="ngForm" name="f" (change)="Filtrar()">
           <div class="row" >
             <div class="col-sm-3">
               <!--  ////////////////////////////columna 1 ////////////////////////////////////////////////////////-->
@@ -69,7 +69,7 @@
                   <div>
                     <select [(ngModel)]="marca" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione la Marca</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.marca }}
                       </option>
                     </select>
@@ -80,7 +80,7 @@
                   <div>
                     <select [(ngModel)]="combustible" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione el Combustible</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                           {{ art.combustible }}
                         </option>
                     </select>
@@ -96,7 +96,7 @@
                   <div>
                     <select [(ngModel)]="motor" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione el Motor</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.motor }}
                       </option>
                     </select>
@@ -107,7 +107,7 @@
                   <div>
                     <select [(ngModel)]="modelo" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione el Modelo</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.modelo }}
                       </option>
                     </select>
@@ -118,7 +118,7 @@
                   <div>
                     <select [(ngModel)]="cilindrada" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione la Cilindrada</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.cilindrada }}
                       </option>
                     </select>
@@ -134,7 +134,7 @@
                   <div>
                     <select [(ngModel)]="competicion" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione Estandard / Competicion </option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.competicion }}
                       </option>
                     </select>
@@ -145,7 +145,7 @@
                   <div>
                     <select [(ngModel)]="producto" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione el Producto</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.producto }}
                       </option>
                     </select>
@@ -156,7 +156,7 @@
                   <div>
                     <select [(ngModel)]="aplicacion" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione la Aplicacion</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                         {{ art.aplicacion }}
                       </option>
                     </select>
@@ -183,7 +183,7 @@
                   </li>
                   <hr>
                   <li>
-                    <button class="btn btn-sm btn-outline-danger mr-2" (click)="filtroPromise ()">Limpiar Filtros</button>
+                    <button class="btn btn-sm btn-outline-danger mr-2" (click)="Limpiar()">Limpiar Filtros</button>
                     <button class="btn btn-sm btn-outline-danger mr-2" (click)="isCollapsed = !isCollapsed">Cerrar Menu</button>
                   </li>
                 </div>

@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 // services
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+
 
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
@@ -68,7 +68,6 @@ import { RecupPasswordComponent } from './component/seccions/users/recup-passwor
     PrimeNGModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
     AngularFontAwesomeModule
   ],
