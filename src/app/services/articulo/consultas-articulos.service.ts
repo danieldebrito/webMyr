@@ -39,7 +39,6 @@ export class AllArticulosService {
     ): Promise<Object> {
 
       const request: Object = {
-
         linea: linea == null ? '' : linea,
         marca: marca == null ? '' : marca,
         combustible: combustible == null ? '' : combustible,

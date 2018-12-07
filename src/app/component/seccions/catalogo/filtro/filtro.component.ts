@@ -46,6 +46,7 @@ export class FiltroComponent implements OnInit {
     public isCollapsed2 = true;
     public isCollapsed3 = true;
 
+
     constructor(servicio: AllArticulosService) {
         this.artService = servicio;
 
@@ -81,7 +82,6 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.artService.ListarO().subscribe( response => {
-            // console.log(response);
             this.filtroItems = response;
 
             this.linea = '';
@@ -123,27 +123,16 @@ export class FiltroComponent implements OnInit {
               );
     }
 
-    public Colunmas (data: any[]) {
+    public Colunmas () { }
 
-        const array = JSON.stringify(data);
-        const marcas = [];
-        const tam = array.length ;
-
-        for (let i = 0 ; i < tam ; i++) {
-            if (!marcas.includes(data[i].marca)) {
-                marcas.push(data[i].marca);
-            }
-        }
-
-        console.log(marcas);
-
-    }
-
+    public Enviar() { }
 
     ngOnInit() {
-        this.Listar();
+      //  this.Listar();
+        this.Limpiar();
 
-        this.Colunmas(this.filtroItems);
+        this.Colunmas();
+
     }
 }
 

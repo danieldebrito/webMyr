@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllArticulosService } from '../../../services/articulo/consultas-articulos.service';
+
 import { Articulo } from '../../../clases/articulo';
 
 @Component({
@@ -10,6 +11,7 @@ import { Articulo } from '../../../clases/articulo';
 export class CatalogoComponent implements OnInit {
 
   public allItems: Articulo[];
+
   artService: AllArticulosService;
 
   constructor(servicioArt: AllArticulosService) {
@@ -24,6 +26,10 @@ export class CatalogoComponent implements OnInit {
       error => {
         console.error(error);
       });
+    }
+
+    public RecibeData(e) {
+      this.allItems = e;
     }
 
   ngOnInit() {

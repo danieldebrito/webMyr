@@ -48,7 +48,7 @@
   <div id="collapseExample" [ngbCollapse]="isCollapsed">
     <div class="card">
       <div class="card-body">
-        <form #f="ngForm" name="f" (change)="Filtrar()">
+        <form #f="ngForm" name="f" (change)="Filtrar()" (change)="Enviar()" >
           <div class="row" >
             <div class="col-sm-3">
               <!--  ////////////////////////////columna 1 ////////////////////////////////////////////////////////-->
@@ -58,7 +58,7 @@
                   <div>
                     <select [(ngModel)]="linea" [ngModelOptions]="{standalone: true}">
                       <option value="" disabled>Selecione la Linea</option>
-                      <option *ngFor="let art of allItems">
+                      <option *ngFor="let art of filtroItems">
                           {{ art.linea }}
                       </option>
                     </select>
@@ -174,7 +174,7 @@
                     </strong>
                   </li>
                   <li>
-                    <button class="btn btn-sm btn-outline-danger mr-2">Motor</button>
+                    <button class="btn btn-sm btn-outline-danger mr-2" (click)="Colunmas()">Motor</button>
                     <button class="btn btn-sm btn-outline-danger mr-2">Modelo</button>
                   </li><br>
                   <li>
