@@ -12,10 +12,9 @@ export class RegistroComponent implements OnInit {
 
 
   constructor() {
-    this.mensaje = "";
+    this.mensaje = '';
    }
 
-   
 
   ngOnInit() {
   }

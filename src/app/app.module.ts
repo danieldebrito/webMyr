@@ -29,7 +29,7 @@ import { HomeComponent } from './component/seccions/home/home/home.component';
 import { PageNotFoundComponent } from './component/seccions/page-not-found/page-not-found.component';
 import { QuienSoyComponent } from './component/seccions/quien-soy/quien-soy.component';
 import { PreFooterComponent } from './component/layout/footer/pre-footer/pre-footer.component';
-import { CatalogoComponent } from './component/seccions/catalogo/catalogo.component';
+import { CatalogoComponent } from './component/seccions/catalogo/grilla/catalogo.component';
 import { FiltroComponent } from './component/seccions/catalogo/filtro/filtro.component';
 import { PreNavComponent } from './component/layout/navbar/pre-nav/pre-nav.component';
 import { ContactComponent } from './component/seccions/contact/contact.component';
@@ -37,6 +37,7 @@ import { DtoTecnicoComponent } from './component/seccions/dto-tecnico/dto-tecnic
 import { LoginComponent } from './component/seccions/users/login/login.component';
 import { RegistroComponent } from './component/seccions/users/registro/registro.component';
 import { RecupPasswordComponent } from './component/seccions/users/recup-password/recup-password.component';
+import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { RecupPasswordComponent } from './component/seccions/users/recup-passwor
     DtoTecnicoComponent,
     LoginComponent,
     RegistroComponent,
-    RecupPasswordComponent
+    RecupPasswordComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,

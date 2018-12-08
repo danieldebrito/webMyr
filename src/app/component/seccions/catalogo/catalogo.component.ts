@@ -8,7 +8,7 @@ import { Articulo } from '../../../clases/articulo';
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })
-export class CatalogoComponent implements OnInit {
+export class CatalogoComponent implements OnInit {  // PADRE   ///////////////////////////////////////
 
   public allItems: Articulo[];
 

@@ -39,6 +39,7 @@ export class AllArticulosService {
     ): Promise<Object> {
 
       const request: Object = {
+
         linea: linea == null ? '' : linea,
         marca: marca == null ? '' : marca,
         combustible: combustible == null ? '' : combustible,
@@ -50,10 +51,12 @@ export class AllArticulosService {
         aplicacion: aplicacion == null ? '' : aplicacion
       };
 
-      console.log('request desde el servicio: ' +  request);
+     // console.log('request desde el servicio: ', request);
 
       return this.miHttp.httpPostP('/filtrar', request);
     }
+
+
 
   }
 
