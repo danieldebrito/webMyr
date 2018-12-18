@@ -10,9 +10,9 @@ sitio web responsive
   - retenes de motor, informacion tecnica
   - bulones de tapa de cilindro, informacion tecnica
 * informacion institucional
- - historia
- - politica y certificaciones
- - planta y tecnilogia
+  - Historia
+  - politica y certificaciones
+  - planta y tecnilogia
 * formulario de contacto
 * ayuda
 
