@@ -38,6 +38,7 @@ import { LoginComponent } from './component/seccions/users/login/login.component
 import { RegistroComponent } from './component/seccions/users/registro/registro.component';
 import { RecupPasswordComponent } from './component/seccions/users/recup-password/recup-password.component';
 import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
+import { CarritoComponent } from './component/seccions/carrito/carrito.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.
     LoginComponent,
     RegistroComponent,
     RecupPasswordComponent,
-    DetalleComponent
+    DetalleComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

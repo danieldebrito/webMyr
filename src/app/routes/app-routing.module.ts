@@ -6,16 +6,21 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from '../component/seccions/page-not-found/page-not-found.component';
 import { HomeComponent } from '../component/seccions/home/home/home.component';
 import { FiltroComponent } from '../component/seccions/catalogo/filtro/filtro.component';
+import { DetalleComponent } from '../component/seccions/catalogo/detalle/detalle.component';
 import { QuienSoyComponent } from '../component/seccions/quien-soy/quien-soy.component';
 import { ContactComponent } from '../component/seccions/contact/contact.component';
 import { DtoTecnicoComponent } from '../component/seccions/dto-tecnico/dto-tecnico.component';
 import { LoginComponent } from '../component/seccions/users/login/login.component';
 import { RegistroComponent } from '../component/seccions/users/registro/registro.component';
 import { RecupPasswordComponent } from '../component/seccions/users/recup-password/recup-password.component';
+import { CarritoComponent } from '../component/seccions/carrito/carrito.component';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'catalog', component: FiltroComponent },
+  { path: 'catalogo', component: FiltroComponent },
+  { path: 'detalle', component: DetalleComponent },
+  { path: 'carrito', component: CarritoComponent },
   { path: 'about', component: QuienSoyComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: DtoTecnicoComponent },

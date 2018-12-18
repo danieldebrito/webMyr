@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 
 import { Articulo } from '../../../../clases/articulo';
@@ -11,11 +11,18 @@ import { Articulo } from '../../../../clases/articulo';
 export class CatalogoComponent implements OnInit {
 
   @Input() allItems: Articulo[];
+  @Output() showValue = new EventEmitter();
 
   artService: AllArticulosService;
 
   constructor(servicioArt: AllArticulosService) {
     this.artService = servicioArt;
+  }
+
+  public cambiarVista(art: Articulo) {
+    this.artService.artDetalle = art;
+    this.artService.show = false;
+    this.showValue.emit({show: this.artService.show});
   }
 
   ngOnInit() {

@@ -9,6 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class AllArticulosService {
 
+  public artDetalle: Articulo;
+  public show: boolean; // true, muestra grilla, false, muestra detalle de art
+
   constructor(public miHttp: ArticuloService) { }
 
   public ListarP(): Promise<Array<any>> {
@@ -24,6 +27,10 @@ export class AllArticulosService {
 
   public ListarO(): Observable<Articulo[]> {
     return this.miHttp.httpGetO<Articulo[]>('/all');
+  }
+
+  public traerUno(): Observable<Articulo> {
+    return this.miHttp.httpGetO<Articulo>('/' + '"' + this.artDetalle.id + '"');
   }
 
   public FiltrarP(
@@ -51,12 +58,7 @@ export class AllArticulosService {
         aplicacion: aplicacion == null ? '' : aplicacion
       };
 
-     // console.log('request desde el servicio: ', request);
-
       return this.miHttp.httpPostP('/filtrar', request);
-    }
-
-
-
   }
+}
 

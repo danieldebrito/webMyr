@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AllArticulosService } from '../../../services/articulo/consultas-articulos.service';
 
 import { Articulo } from '../../../clases/articulo';
@@ -8,7 +8,11 @@ import { Articulo } from '../../../clases/articulo';
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })
-export class CatalogoComponent implements OnInit {  // PADRE   ///////////////////////////////////////
+export class CatalogoComponent implements OnInit {
+
+  @Output() cambiaShowValue = new EventEmitter();
+
+  public showValue: boolean;
 
   public allItems: Articulo[];
 
@@ -16,6 +20,7 @@ export class CatalogoComponent implements OnInit {  // PADRE   /////////////////
 
   constructor(servicioArt: AllArticulosService) {
     this.artService = servicioArt;
+    this.showValue =  false;
   }
 
   public Listar() {
@@ -30,6 +35,10 @@ export class CatalogoComponent implements OnInit {  // PADRE   /////////////////
 
     public RecibeData(e) {
       this.allItems = e;
+    }
+
+    public cambiaGrillaPorDetalle (event) {
+      this.cambiaShowValue.emit({ showValue: this.showValue});
     }
 
   ngOnInit() {

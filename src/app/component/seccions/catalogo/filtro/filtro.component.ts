@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 import { Articulo } from '../../../../clases/articulo';
-
-// rxjs
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+// import { CatalogoComponent } from '../grilla/catalogo.component';
 
 @Component({
     selector: 'app-filtro',
@@ -13,7 +10,11 @@ import { filter, map } from 'rxjs/operators';
 })
 export class FiltroComponent implements OnInit {
 
-    // valores de los selects
+    // anternar entre grilla y detalle, true muestra grilla.
+    public show: boolean;
+    public showValue: boolean;
+
+    // valores de los selects.
     public linea: string;
     public marca: string;
     public combustible: string;
@@ -24,24 +25,24 @@ export class FiltroComponent implements OnInit {
     public producto: string;
     public aplicacion: string;
 
-    public allItems: Articulo[];  // todos
+    public allItems: Articulo[];  // todos.
     public filtroItems;
 
-    // columnas sin repeticion
-    public lineatems: Articulo[];
-    public marcaItems: Articulo[];
-    public combustibleItems: Articulo[];
-    public motorItems: Articulo[];
-    public modeloItems: Articulo[];
-    public cilindradaItems: Articulo[];
-    public competicionItems: Articulo[];
-    public productoItems: Articulo[];
-    public aplicacionItems: Articulo[];
+    // columnas sin repeticion.
+    public columnaLinea: string[];
+    public columnaMarca: string[];
+    public columnaComb: string[];
+    public columnaMotor: string[];
+    public columnaModelo: string[];
+    public columnaCilind: string[];
+    public columnaStd: string[];
+    public columnaProd: string[];
+    public columnaApp: string[];
 
-    // servicio
+    // servicio.
     artService: AllArticulosService;
 
-    // para colapsar menues de filtros
+    // para colapsar menues de filtros.
     public isCollapsed = false;
     public isCollapsed2 = true;
     public isCollapsed3 = true;
@@ -49,8 +50,12 @@ export class FiltroComponent implements OnInit {
 
     constructor(servicio: AllArticulosService) {
         this.artService = servicio;
+        this.show = true;
+    }
 
-    } // end constructor.
+    public cambiaVista () {
+        this.show = this.artService.show;
+    }
 
     colapsar1() {
         this.isCollapsed = false;
@@ -71,17 +76,17 @@ export class FiltroComponent implements OnInit {
     }
 
     public Listar() {
-        this.artService.ListarO().subscribe( response => {
+        this.artService.ListarO().subscribe(response => {
             // console.log(response);
             this.allItems = response;
-            },
+        },
             error => {
-            console.error(error);
+                console.error(error);
             });
     }
 
     public Limpiar() {
-        this.artService.ListarO().subscribe( response => {
+        this.artService.ListarO().subscribe(response => {
             this.filtroItems = response;
 
             this.linea = '';
@@ -94,13 +99,28 @@ export class FiltroComponent implements OnInit {
             this.producto = '';
             this.aplicacion = '';
 
-            },
+            this.LimpiaColumnas();
+        },
             error => {
-            console.error(error);
+                console.error(error);
             });
     }
 
-    public Filtrar () {
+    public LimpiaColumnas () {
+        this.columnaLinea = [];
+        this.columnaMarca = [];
+        this.columnaComb = [];
+        this.columnaMotor = [];
+        this.columnaModelo = [];
+        this.columnaCilind = [];
+        this.columnaStd = [];
+        this.columnaProd = [];
+        this.columnaApp = [];
+
+        this.Colunmas(this.filtroItems);
+    }
+
+    public Filtrar() {
         this.artService.FiltrarP(
             this.linea,
             this.marca,
@@ -112,27 +132,126 @@ export class FiltroComponent implements OnInit {
             this.producto,
             this.aplicacion).then(
                 response => {
-                // console.log('RESPONSE DESDE COMPONENTE: ', response);
-                 this.filtroItems = response;
+                    // console.log('RESPONSE DESDE COMPONENTE: ', response);
+                    this.filtroItems = response;
+
+                    this.allItems = this.filtroItems;
+                    this.Colunmas(this.allItems);
                 }
-              )
-              .catch(
+            )
+            .catch(
                 error => {
-                  console.error('ERROR DEL SERVIDOR', error);
+                    console.error('ERROR DEL SERVIDOR', error);
                 }
-              );
+            );
     }
 
-    public Colunmas () { }
+    public Colunmas(items: Articulo[]) {
 
-    public Enviar() { }
+        let arrayAuxLinea: string[] = [];
+        let arrayAuxMarca: string[] = [];
+        let arrayAuxComb: string[] = [];
+        let arrayAuxMotor: string[] = [];
+        let arrayAuxModelo: string[] = [];
+        let arrayAuxCilind: string[] = [];
+        let arrayAuxStd: string[] = [];
+        let arrayAuxProd: string[] = [];
+        let arrayAuxApp: string[] = [];
+
+        const arrayRetLinea: string[] = [];
+        const arrayRetMarca: string[] = [];
+        const arrayRetComb: string[] = [];
+        const arrayRetMotor: string[] = [];
+        const arrayRetModelo: string[] = [];
+        const arrayRetCilind: string[] = [];
+        const arrayRetStd: string[] = [];
+        const arrayRetProd: string[] = [];
+        const arrayRetApp: string[] = [];
+
+        if (items) {
+            const tam = items.length;
+
+            for (let i = 0; i < tam; i++) {
+                arrayAuxLinea.push(items[i].linea);
+                arrayAuxMarca.push(items[i].marca);
+                arrayAuxComb.push(items[i].combustible);
+                arrayAuxMotor.push(items[i].motor);
+                arrayAuxModelo.push(items[i].modelo);
+                arrayAuxCilind.push(items[i].cilindrada);
+                arrayAuxStd.push(items[i].combustible);
+                arrayAuxProd.push(items[i].producto);
+                arrayAuxApp.push(items[i].aplicacion);
+            }
+
+            arrayAuxLinea = arrayAuxLinea.sort();
+            arrayAuxMarca = arrayAuxMarca.sort();
+            arrayAuxComb = arrayAuxComb.sort();
+            arrayAuxMotor = arrayAuxMotor.sort();
+            arrayAuxModelo = arrayAuxModelo.sort();
+            arrayAuxCilind = arrayAuxCilind.sort();
+            arrayAuxStd = arrayAuxStd.sort();
+            arrayAuxProd = arrayAuxProd.sort();
+            arrayAuxApp = arrayAuxApp.sort();
+
+            for (let i = 0; i < tam; i++) {
+
+                if (arrayAuxLinea[i] === arrayAuxLinea[i] && arrayAuxLinea[i] !== arrayAuxLinea[i - 1]) {
+                   arrayRetLinea.push(arrayAuxLinea[i]);
+                }
+
+                if (arrayAuxMarca[i] === arrayAuxMarca[i] && arrayAuxMarca[i] !== arrayAuxMarca[i - 1]) {
+                    arrayRetMarca.push(arrayAuxMarca[i]);
+                }
+
+                if (arrayAuxComb[i] === arrayAuxComb[i] && arrayAuxComb[i] !== arrayAuxComb[i - 1]) {
+                    arrayRetComb.push(arrayAuxComb[i]);
+                }
+
+                if (arrayAuxMotor[i] === arrayAuxMotor[i] && arrayAuxMotor[i] !== arrayAuxMotor[i - 1]) {
+                    arrayRetMotor.push(arrayAuxMotor[i]);
+                }
+
+                if (arrayAuxModelo[i] === arrayAuxModelo[i] && arrayAuxModelo[i] !== arrayAuxModelo[i - 1]) {
+                    arrayRetModelo.push(arrayAuxModelo[i]);
+                }
+
+                if (arrayAuxCilind[i] === arrayAuxCilind[i] && arrayAuxCilind[i] !== arrayAuxCilind[i - 1]) {
+                    arrayRetCilind.push(arrayAuxCilind[i]);
+                }
+
+                if (arrayAuxStd[i] === arrayAuxStd[i] && arrayAuxStd[i] !== arrayAuxStd[i - 1]) {
+                    arrayRetStd.push(arrayAuxStd[i]);
+                }
+
+                if (arrayAuxProd[i] === arrayAuxProd[i] && arrayAuxProd[i] !== arrayAuxProd[i - 1]) {
+                    arrayRetProd.push(arrayAuxProd[i]);
+                }
+
+                if (arrayAuxApp[i] === arrayAuxApp[i] && arrayAuxApp[i] !== arrayAuxApp[i - 1]) {
+                    arrayRetApp.push(arrayAuxApp[i]);
+                }
+            }
+
+            this.columnaLinea = arrayRetLinea;
+            this.columnaMarca = arrayRetMarca;
+            this.columnaComb = arrayRetComb;
+            this.columnaMotor = arrayRetMotor;
+            this.columnaModelo = arrayRetModelo;
+            this.columnaCilind = arrayRetCilind;
+            this.columnaStd = arrayRetStd;
+            this.columnaProd = arrayRetProd;
+            this.columnaApp = arrayRetApp;
+
+            console.log(arrayRetComb);
+        }
+    }
+
+
 
     ngOnInit() {
-      //  this.Listar();
         this.Limpiar();
-
-        this.Colunmas();
-
+        this.Filtrar();
     }
 }
+
 

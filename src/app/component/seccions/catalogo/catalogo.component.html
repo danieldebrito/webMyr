@@ -1,7 +1,4 @@
 <div class="bgd">
-
-  <app-filtro></app-filtro>
-
   <div class="container-fluid bg-3 text-center">
     <br><br>
     <div class="row">
@@ -66,7 +63,7 @@
 
           <mat-card-actions>
             <button type="button" class="btn btn-danger">Comprar</button> &nbsp;
-            <button type="button" class="btn btn-danger">Art. Relacionados</button>
+            <button type="button" class="btn btn-danger" (click)="cambiaGrillaPorDetalle($event)">Art. Relacionados</button>
           </mat-card-actions>
         </mat-card>
         <br>

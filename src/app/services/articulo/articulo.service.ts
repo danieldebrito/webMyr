@@ -37,7 +37,6 @@ export class ArticuloService {
     return this.http.post( this.urlBase + url, request).toPromise();
   }
 
-  // tslint:disable-next-line:no-shadowed-variable
   public httpGetO<T>( url: string) {
     return this.http.get<T>( this.urlBase + url );
   }

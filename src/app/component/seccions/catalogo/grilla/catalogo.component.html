@@ -1,5 +1,5 @@
 <div class="container-fluid bg-3 text-center">
-  <br><br>
+  <br>
   <div class="row">
     <div class="col-sm-4" *ngFor="let art of allItems">
       <mat-card class="example-card">
@@ -61,9 +61,10 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button type="button" class="btn btn-danger">Comprar</button> &nbsp;
-          <button type="button" class="btn btn-danger">&nbsp;&nbsp; Detalle &nbsp;&nbsp;</button>
+          <button type="button" class="btn btn-outline-danger">Comprar</button> &nbsp;
+          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >&nbsp;&nbsp; Detalle &nbsp;&nbsp;</button>
         </mat-card-actions>
+
       </mat-card>
       <br>
     </div>
