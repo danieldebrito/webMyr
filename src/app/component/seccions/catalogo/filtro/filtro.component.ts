@@ -132,9 +132,7 @@ export class FiltroComponent implements OnInit {
             this.producto,
             this.aplicacion).then(
                 response => {
-                    // console.log('RESPONSE DESDE COMPONENTE: ', response);
                     this.filtroItems = response;
-
                     this.allItems = this.filtroItems;
                     this.Colunmas(this.allItems);
                 }
