@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ClienteService } from '../cliente/cliente.service';
-
+import { Cliente } from 'src/app/clases/cliente';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +27,11 @@ export class ConsultasClientesService {
         email: email,
         clave: clave
     };
-
-    console.log('SERVICIO CLIENTES REQUEST =>', request);
-
     return this.miHttp.httpPostP('/', request);
   }
+
+  public traerUno(id: string): Observable<Cliente> {
+    return this.miHttp.httpGetO<Cliente>('/' + '"' + id + '"');
+  }
 }
+

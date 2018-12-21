@@ -30,12 +30,10 @@ export class DetalleComponent implements OnInit {
 
   }
 
-
   public traerUno() {
     this.artService.traerUno().subscribe(response => {
 
         this.art = response;
-        console.log(this.art);
     },
         error => {
             console.error(error);
