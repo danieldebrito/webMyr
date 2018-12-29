@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
     this.login = new Login('', '');
   }
 
-  public traerUno(id: string) {
+  public cargaLocalStorage(id: string) {
     this.consultaClientesService.traerUno(id).subscribe(response => {
 
       this.identity = response;
-      console.log(response);
+      localStorage.setItem('identity', JSON.stringify(this.identity));
     },
       error => {
         console.error(error);
@@ -46,18 +46,15 @@ export class LoginComponent implements OnInit {
       .then(
         response => {
 
-          // console.log('response => ', response);
           if (response['Estado'] === 'OK') {
             if (!this.authService.redirectUrl) {
               this.authService.redirectUrl = '/catalogo';
               this.message = response['Mensaje'];
             }
 
-            this.traerUno(this.login.id);  // carga el usuario logueado
-            this.cargarLocalStorage();     // carga el localStorage
-
-            this.router.navigate([this.authService.redirectUrl]);
-
+            this.cargaLocalStorage(this.login.id);                 // carga el usuario logueado
+            this.error = false;                                    // alterna la vista
+            this.router.navigate([this.authService.redirectUrl]);  // redirige a catalo en caso de logueo exitoso
           } else {
             this.error = true;
             this.message = response['Mensaje'];
@@ -77,11 +74,6 @@ export class LoginComponent implements OnInit {
 
   cambiaVista() {
     this.error = !this.error;
-  }
-
-  cargarLocalStorage() {
-    this.identity.clave = '';
-    localStorage.setItem('identity', JSON.stringify(this.identity));
   }
 
   ngOnInit() {

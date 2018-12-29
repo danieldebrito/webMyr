@@ -10,10 +10,12 @@ import { DetalleComponent } from '../component/seccions/catalogo/detalle/detalle
 import { QuienSoyComponent } from '../component/seccions/quien-soy/quien-soy.component';
 import { ContactComponent } from '../component/seccions/contact/contact.component';
 import { DtoTecnicoComponent } from '../component/seccions/dto-tecnico/dto-tecnico.component';
-import { LoginComponent } from '../component/seccions/users/login/login.component';
-import { RegistroComponent } from '../component/seccions/users/registro/registro.component';
-import { RecupPasswordComponent } from '../component/seccions/users/recup-password/recup-password.component';
+import { LoginComponent } from '../component/seccions/clientes/login/login.component';
+import { RegistroComponent } from '../component/seccions/clientes/registro/registro.component';
+import { RecupPasswordComponent } from '../component/seccions/clientes/recup-password/recup-password.component';
+import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-datos.component';
 import { CarritoComponent } from '../component/seccions/carrito/carrito.component';
+import { PedidosComponent } from '../component/seccions/pedidos/pedidos.component';
 
 
 const appRoutes: Routes = [
@@ -21,12 +23,14 @@ const appRoutes: Routes = [
   { path: 'catalogo', component: FiltroComponent },
   { path: 'detalle', component: DetalleComponent },
   { path: 'carrito', component: CarritoComponent },
+  { path: 'pedidos', component: PedidosComponent },
   { path: 'about', component: QuienSoyComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: DtoTecnicoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'recupPass', component: RecupPasswordComponent },
+  { path: 'misDatos', component: MisDatosComponent },
   {
     path: '',
     redirectTo: '/home',

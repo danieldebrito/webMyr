@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { Cliente } from 'src/app/clases/cliente';
+import { AuthService } from '../../../services/cliente/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +9,18 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  public identity: Cliente;
+
   isNavbarCollapsed = true;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  logout() {
+    this.authService.logout();
+  }
 
   ngOnInit() {
+    this.identity = this.authService.getIdentityLocalStorage();
   }
 
 }

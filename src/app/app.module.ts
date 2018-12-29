@@ -34,11 +34,15 @@ import { FiltroComponent } from './component/seccions/catalogo/filtro/filtro.com
 import { PreNavComponent } from './component/layout/navbar/pre-nav/pre-nav.component';
 import { ContactComponent } from './component/seccions/contact/contact.component';
 import { DtoTecnicoComponent } from './component/seccions/dto-tecnico/dto-tecnico.component';
-import { LoginComponent } from './component/seccions/users/login/login.component';
-import { RegistroComponent } from './component/seccions/users/registro/registro.component';
-import { RecupPasswordComponent } from './component/seccions/users/recup-password/recup-password.component';
+import { LoginComponent } from './component/seccions/clientes/login/login.component';
+import { RegistroComponent } from './component/seccions/clientes/registro/registro.component';
+import { RecupPasswordComponent } from './component/seccions/clientes/recup-password/recup-password.component';
 import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
 import { CarritoComponent } from './component/seccions/carrito/carrito.component';
+import { PedidosComponent } from './component/seccions/pedidos/pedidos.component';
+import { MisDatosComponent } from './component/seccions/clientes/mis-datos/mis-datos.component';
+import { RegistroUsersComponent } from './component/seccions/users/registro-users/registro-users.component';
+import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
 
 
 @NgModule({
@@ -61,7 +65,11 @@ import { CarritoComponent } from './component/seccions/carrito/carrito.component
     RegistroComponent,
     RecupPasswordComponent,
     DetalleComponent,
-    CarritoComponent
+    CarritoComponent,
+    PedidosComponent,
+    MisDatosComponent,
+    RegistroUsersComponent,
+    PanelControlComponent
   ],
   imports: [
     BrowserModule,
