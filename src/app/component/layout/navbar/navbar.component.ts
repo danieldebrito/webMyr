@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Cliente } from 'src/app/clases/cliente';
 import { AuthService } from '../../../services/cliente/auth.service';
 
@@ -20,6 +20,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.identity = this.authService.getIdentityLocalStorage();
+  }
+
+
+  DoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();
   }
 
