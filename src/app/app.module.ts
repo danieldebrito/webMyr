@@ -43,6 +43,8 @@ import { PedidosComponent } from './component/seccions/pedidos/pedidos.component
 import { MisDatosComponent } from './component/seccions/clientes/mis-datos/mis-datos.component';
 import { RegistroUsersComponent } from './component/seccions/users/registro-users/registro-users.component';
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
+import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
+import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { PanelControlComponent } from './component/seccions/users/panel-control/
     PedidosComponent,
     MisDatosComponent,
     RegistroUsersComponent,
-    PanelControlComponent
+    PanelControlComponent,
+    AbmExpresosComponent,
+    LoginUsuarioComponent
   ],
   imports: [
     BrowserModule,

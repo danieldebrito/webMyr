@@ -16,6 +16,9 @@ import { RecupPasswordComponent } from '../component/seccions/clientes/recup-pas
 import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-datos.component';
 import { CarritoComponent } from '../component/seccions/carrito/carrito.component';
 import { PedidosComponent } from '../component/seccions/pedidos/pedidos.component';
+import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
+import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
+
 
 
 const appRoutes: Routes = [
@@ -31,6 +34,8 @@ const appRoutes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'recupPass', component: RecupPasswordComponent },
   { path: 'misDatos', component: MisDatosComponent },
+  { path: 'control', component: PanelControlComponent },
+  { path: 'loginUsr', component: LoginUsuarioComponent },
   {
     path: '',
     redirectTo: '/home',

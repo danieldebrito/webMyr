@@ -7,7 +7,7 @@ import { AuthService } from '../../../services/cliente/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
 
   public identity: Cliente;
 
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  DoCheck() {
+  ngDoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();
   }
 

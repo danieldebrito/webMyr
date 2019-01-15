@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-sm-3">
+      <h2>Ingreso de Usuarios</h2>
+  
+    </div>
+    <div class="col-sm-6">
+  
+      <div *ngIf="!error">
+  
+        <form #formProducto="ngForm" (ngSubmit)="onSubmit()" id="form-producto1">
+                
+          <label for="fname">¡Hola! Ingrese su Nombre de Usuario</label>
+          <input type="text" name="id" #nombre="ngModel" [(ngModel)]="login.id" placeholder="Usuario..." required>
+  
+          <label for="fname"> Contraseña :</label>
+          <input type="password" name="clave: " #nombre="ngModel" [(ngModel)]="login.clave" placeholder="Contraseña..." required>
+  
+          <input type="submit" value="Login">
+        </form>
+  
+      </div>
+  
+      <div *ngIf="error">
+  
+            <p><strong>
+              <h1>Usuario o Contraseña incorrecta!!</h1>
+            </strong></p>
+            
+        </div>
+  
+    </div>
+    <div class="col-sm-3">
+  
+    </div>
+  </div>

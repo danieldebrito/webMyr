@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteSucursal } from '../../../../clases/clienteSucursal';
+import { Cliente } from '../../../../clases/cliente';
+
 
 @Component({
   selector: 'app-mis-datos',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisDatosComponent implements OnInit {
 
+  public direccion: ClienteSucursal;
+  public cliente: Cliente;
+
   constructor() { }
+
+  onSubmit () {}
 
   ngOnInit() {
   }

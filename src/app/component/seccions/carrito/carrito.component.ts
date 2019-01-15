@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
+  public direccion: string;
+  public expreso: string;
+
   constructor() { }
 
   ngOnInit() {
