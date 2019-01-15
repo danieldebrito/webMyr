@@ -18,6 +18,8 @@ import { CarritoComponent } from '../component/seccions/carrito/carrito.componen
 import { PedidosComponent } from '../component/seccions/pedidos/pedidos.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
+import { AbmSucursalesComponent } from '../component/seccions/clientes/abm-sucursales/abm-sucursales.component';
+
 
 
 
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'misDatos', component: MisDatosComponent },
   { path: 'control', component: PanelControlComponent },
   { path: 'loginUsr', component: LoginUsuarioComponent },
+  { path: 'sucursal', component: AbmSucursalesComponent },
   {
     path: '',
     redirectTo: '/home',

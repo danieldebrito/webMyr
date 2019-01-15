@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteSucursal } from '../../../../clases/clienteSucursal';
 import { Cliente } from '../../../../clases/cliente';
+import { AuthService } from '../../../../services/cliente/auth.service';
+
 
 
 @Component({
@@ -13,11 +15,13 @@ export class MisDatosComponent implements OnInit {
   public direccion: ClienteSucursal;
   public cliente: Cliente;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+  }
 
   onSubmit () {}
 
   ngOnInit() {
+    this.cliente = this.authService.getIdentityLocalStorage();
   }
 
 }

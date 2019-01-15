@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-2">
-    <h2 class="text-left">Mis Datos</h2>
+    <h2 class="text-left">Mis Sucursales</h2>
   </div>
   <div class="col-sm-5">
     <div>
@@ -14,7 +14,7 @@
         <label for="lname">e-mail :</label>
         <input type="email" name="email" #nombre="ngModel" [(ngModel)]="cliente.email" placeholder="Ingrese su e-mail..." required>
         <br> <br>
-        <button routerLink="/sucursal">Ingresar Dirección y/o Sucursales</button>
+        <button routerLink="/misDatos">Volver a Mis Datos</button>
       </form>
     </div>
   </div>
@@ -28,7 +28,7 @@
           <input type="text" name="comprador" #nombre="ngModel" [(ngModel)]="cliente.comprador" placeholder="Ingrese Nombre de Responsable de Compras..." required>
   
           <label for="lname">Clave</label>
-          <input type="password" name="clave" #nombre="ngModel" [(ngModel)]="cliente.clave" placeholder="Ingrese Clave de 6 caracteres..." required>
+          <input type="text" name="clave" #nombre="ngModel" [(ngModel)]="cliente.clave" placeholder="Ingrese Clave de 6 caracteres..." required>
 
           <br> <br>
           <input type="submit" value="Modificar Datos">
@@ -36,6 +36,3 @@
       </div>
     </div>
 </div>
-
-
-

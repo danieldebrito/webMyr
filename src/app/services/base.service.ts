@@ -9,7 +9,8 @@ export class BaseService {
   public urlBase: string;
 
   constructor(public http: HttpClient) {
-    this.urlBase = 'http://juntasmeyro.000webhostapp.com/api/index.php';
+    // this.urlBase = 'http://juntasmeyro.000webhostapp.com/api/index.php';
+    this.urlBase = 'http://localhost/api_meyro/index.php';
   }
 
 

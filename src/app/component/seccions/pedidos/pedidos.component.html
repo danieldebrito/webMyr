@@ -13,16 +13,18 @@
               <th nowrap>Sucursal</th>
               <th nowrap>Expreso</th>
               <th nowrap>Estado</th>
+              <th >Detalle</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody  *ngFor="let pedido of allPedidos">
             <tr>
-              <td >Fecha</td>
-              <td nowrap>Nro de Pedido</td>
-              <td nowrap>Codigo Cliente</td>
-              <td nowrap>Sucursal</td>
-              <td nowrap>Expreso</td>
-              <td nowrap>Estado</td>
+              <td >{{ pedido.fecha }}</td>
+              <td nowrap>{{ pedido.id_pedido }}</td>
+              <td nowrap>{{ pedido.id_cliente }}</td>
+              <td nowrap>{{ pedido.id_sucursal }}</td>
+              <td nowrap>{{ pedido.id_expreso }}</td>
+              <td nowrap>{{ pedido.estado }}</td>
+              <td nowrap><button type="button" class="btn btn-danger">Ver Detalle</button></td>
             </tr>
           </tbody>
         </table>

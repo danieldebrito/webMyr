@@ -34,4 +34,8 @@ export class AbmPedidosService {
     return this.miHttp.httpGetO<Pedido>('/pedido/' + '"' + id + '"');
   }
 
+  public ListarO(id_cliente): Observable<Pedido[]> {
+    return this.miHttp.httpGetO<Pedido[]>('/pedido/cliente/' + id_cliente);
+  }
+
 }

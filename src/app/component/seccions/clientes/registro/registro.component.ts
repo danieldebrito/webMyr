@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../../clases/cliente';
 import { ConsultasClientesService } from '../../../../services/cliente/consultas-clientes.service';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Router } from '@angular/router';
 
 @Component({
@@ -40,7 +39,7 @@ export class RegistroComponent implements OnInit {
         ).then(
             response => {
                 this.mensaje = response;  //  agregar, no hay nada en el response
-                this.router.navigate(['home']);
+                this.router.navigate(['home']);  //  redirecciona a HOME
             }
         )
         .catch(

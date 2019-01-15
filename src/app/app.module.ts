@@ -45,6 +45,7 @@ import { RegistroUsersComponent } from './component/seccions/users/registro-user
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
 import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
+import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/
     RegistroUsersComponent,
     PanelControlComponent,
     AbmExpresosComponent,
-    LoginUsuarioComponent
+    LoginUsuarioComponent,
+    AbmSucursalesComponent
   ],
   imports: [
     BrowserModule,

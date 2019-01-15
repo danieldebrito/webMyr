@@ -1,4 +1,4 @@
-export class Pedido {
+export class PedidoDetalle {
     constructor(
         public id_pedido: number,
         public id_articulo: string,
