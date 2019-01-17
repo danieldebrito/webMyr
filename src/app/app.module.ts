@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 // services
 import {HttpClientModule} from '@angular/common/http';
 
-
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
 
@@ -38,15 +37,14 @@ import { LoginComponent } from './component/seccions/clientes/login/login.compon
 import { RegistroComponent } from './component/seccions/clientes/registro/registro.component';
 import { RecupPasswordComponent } from './component/seccions/clientes/recup-password/recup-password.component';
 import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
-import { CarritoComponent } from './component/seccions/carrito/carrito.component';
-import { PedidosComponent } from './component/seccions/pedidos/pedidos.component';
+import { CarritoComponent } from './component/seccions/pedidos_/carrito/carrito.component';
+import { PedidosComponent } from './component/seccions/pedidos_/pedidos/pedidos.component';
 import { MisDatosComponent } from './component/seccions/clientes/mis-datos/mis-datos.component';
 import { RegistroUsersComponent } from './component/seccions/users/registro-users/registro-users.component';
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
 import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
-
 
 @NgModule({
   declarations: [

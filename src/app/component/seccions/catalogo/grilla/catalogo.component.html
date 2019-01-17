@@ -60,9 +60,11 @@
           </table>
         </mat-card-content>
 
-        <mat-card-actions>
-          <button type="button" class="btn btn-outline-danger">Comprar</button> &nbsp;
-          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >&nbsp;&nbsp; Detalle &nbsp;&nbsp;</button>
+        <mat-card-actions class="matCard">
+          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >&nbsp;&nbsp; Detalle &nbsp;&nbsp;</button>&nbsp;
+          <strong>Cantidad: </strong>
+          <input type="number" class="inputCantidad">&nbsp;
+          <button type="button" class="btn btn-outline-danger"><i class="fas fa-cart-plus"></i></button>
         </mat-card-actions>
 
       </mat-card>

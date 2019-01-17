@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbmPedidosService } from '../../../services/pedidos/abm-pedidos.service';
+import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
 import { Cliente } from 'src/app/clases/cliente';
-import { AuthService } from '../../../services/cliente/auth.service';
+import { AuthService } from '../../../../services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
 
 @Component({
@@ -11,7 +11,7 @@ import { Pedido } from 'src/app/clases/pedido';
 })
 export class PedidosComponent implements OnInit {
 
-  public pedidosService: AbmPedidosService;
+  // public pedidosService: AbmPedidosService;
 
   // public id_cliente: string;
   public cliente: Cliente;
@@ -21,12 +21,9 @@ export class PedidosComponent implements OnInit {
   public observ: string;
 
   public mensaje: string;
-
   public allPedidos: Pedido[];
 
-  constructor(servicio: AbmPedidosService, private authService: AuthService) {
-    this.pedidosService = servicio;
-  }
+  constructor(public pedidosService: AbmPedidosService, private authService: AuthService) { }
 
   public altaPedido() {
     this.pedidosService.altaPedido(

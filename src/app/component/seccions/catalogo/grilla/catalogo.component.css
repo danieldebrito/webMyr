@@ -18,3 +18,7 @@ th {
 .card-header {
     text-align: left;
 }
+
+.inputCantidad {
+    width: 15%;
+}

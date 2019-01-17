@@ -32,10 +32,14 @@ export class AbmPedidosService {
 
   public traerUno(id: string): Observable<Pedido> {
     return this.miHttp.httpGetO<Pedido>('/pedido/' + '"' + id + '"');
-  }
+  } // trae un pedido por id
+
+  public traerIDpedido(id_cliente: string): Observable<Pedido> {
+    return this.miHttp.httpGetO<Pedido>('/pedido/abierto/' + '"' + id_cliente + '"');
+  } // pedido de un mismo cliente abierto
 
   public ListarO(id_cliente): Observable<Pedido[]> {
     return this.miHttp.httpGetO<Pedido[]>('/pedido/cliente/' + id_cliente);
-  }
+  } // lista todos los pedidos de un cliente
 
 }
