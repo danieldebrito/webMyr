@@ -67,3 +67,7 @@ textarea {
     width: 100%;
     padding: 1%;
 }
+
+.btn {
+    margin: 3px;
+}

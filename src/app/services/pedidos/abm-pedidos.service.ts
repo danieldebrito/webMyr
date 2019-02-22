@@ -28,7 +28,7 @@ export class AbmPedidosService {
         observ: observ
     };
     return this.miHttp.httpPostP('/pedido/', request);
-  }
+  } // alta pedido
 
   public traerUno(id: string): Observable<Pedido> {
     return this.miHttp.httpGetO<Pedido>('/pedido/' + '"' + id + '"');
@@ -41,5 +41,4 @@ export class AbmPedidosService {
   public ListarO(id_cliente): Observable<Pedido[]> {
     return this.miHttp.httpGetO<Pedido[]>('/pedido/cliente/' + id_cliente);
   } // lista todos los pedidos de un cliente
-
 }

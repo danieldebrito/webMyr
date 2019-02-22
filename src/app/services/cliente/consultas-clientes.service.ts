@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ClienteService } from '../cliente/cliente.service';
+import { BaseService } from '../base.service';
 import { Cliente } from 'src/app/clases/cliente';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ConsultasClientesService {
 
-  constructor(public miHttp: ClienteService) { }
+  constructor(public miHttp: BaseService) { }
 
   public altaCliente(
     id: string,
@@ -27,11 +27,11 @@ export class ConsultasClientesService {
         email: email,
         clave: clave
     };
-    return this.miHttp.httpPostP('/', request);
+    return this.miHttp.httpPostP('/cliente/', request);
   }
 
   public traerUno(id: string): Observable<Cliente> {
-    return this.miHttp.httpGetO<Cliente>('/' + '"' + id + '"');
+    return this.miHttp.httpGetO<Cliente>('/cliente/' + '"' + id + '"');
   }
 }
 

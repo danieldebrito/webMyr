@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../services/base.service';
 import { PedidoDetalle } from 'src/app/clases/pedido_detalle';
-
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -22,9 +21,9 @@ export class AbmPedidoDetalleService {
         cantidad: cantidad
     };
     return this.miHttp.httpPostP('/pedido_detalle/', request);
-  }
+  }  // alta
 
   public traerUno(id: string): Observable<PedidoDetalle> {
     return this.miHttp.httpGetO<PedidoDetalle>('/pedido_detalle/' + '"' + id + '"');
-  }
+  }  // trae uno por id
 }

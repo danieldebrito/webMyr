@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ArticuloService } from './articulo.service';
 import { Articulo } from '../../clases/articulo';
+import { BaseService } from '../base.service';
 import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AllArticulosService {
 
   public artDetalle: Articulo;
   public show: boolean; // true, muestra grilla, false, muestra detalle de art
 
-  constructor(public miHttp: ArticuloService) { }
+  constructor(public miHttp: BaseService) { }
 
   public ListarP(): Promise<Array<any>> {
-    return this.miHttp.httpGetP('/all')
+    return this.miHttp.httpGetP('/art/all')
       .then(data => {
         return data;
       })
@@ -26,11 +26,11 @@ export class AllArticulosService {
   }
 
   public ListarO(): Observable<Articulo[]> {
-    return this.miHttp.httpGetO<Articulo[]>('/all');
+    return this.miHttp.httpGetO<Articulo[]>('/art/all');
   }
 
   public traerUno(): Observable<Articulo> {
-    return this.miHttp.httpGetO<Articulo>('/' + '"' + this.artDetalle.id + '"');
+    return this.miHttp.httpGetO<Articulo>('/art/' + '"' + this.artDetalle.id + '"');
   }
 
   public FiltrarP(
@@ -58,7 +58,7 @@ export class AllArticulosService {
         aplicacion: aplicacion == null ? '' : aplicacion
       };
 
-      return this.miHttp.httpPostP('/filtrar', request);
+      return this.miHttp.httpPostP('/art/filtrar', request);
   }
 }
 

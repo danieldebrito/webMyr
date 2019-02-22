@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Login } from '../../clases/login';
-import { ClienteService } from '../cliente/cliente.service';
+// import { ClienteService } from '../cliente/cliente.service';
+import { BaseService } from '../base.service';
 import { Cliente } from 'src/app/clases/cliente';
 
 @Injectable({
@@ -13,12 +14,12 @@ export class AuthService {
 
     public identity: Cliente;
 
-  constructor(public miHttp: ClienteService) { }
+    constructor(public miHttp: BaseService) { }
 
   Loguear(dataLogin: Login) {
     const request: JSON = JSON.parse(JSON.stringify(dataLogin));
 
-    return this.miHttp.httpPostP('/login', request);
+    return this.miHttp.httpPostP('/cliente/login', request);
   }
 
   public getIdentityLocalStorage () {

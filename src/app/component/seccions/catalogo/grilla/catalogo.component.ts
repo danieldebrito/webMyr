@@ -1,13 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
-
 import { Articulo } from '../../../../clases/articulo';
+import { PedidosComponent } from '../../pedidos_/pedidos/pedidos.component';
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })
+
 export class CatalogoComponent implements OnInit {
 
   @Input() allItems: Articulo[];
@@ -25,7 +26,5 @@ export class CatalogoComponent implements OnInit {
     this.showValue.emit({show: this.artService.show});
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 }

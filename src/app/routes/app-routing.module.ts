@@ -20,9 +20,6 @@ import { PanelControlComponent } from '../component/seccions/users/panel-control
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from '../component/seccions/clientes/abm-sucursales/abm-sucursales.component';
 
-
-
-
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalogo', component: FiltroComponent },
