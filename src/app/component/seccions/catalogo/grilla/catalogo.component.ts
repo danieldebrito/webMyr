@@ -13,6 +13,8 @@ export class CatalogoComponent implements OnInit {
 
   @Input() allItems: Articulo[];
   @Output() showValue = new EventEmitter();
+  @Output() sendArtPedido = new EventEmitter();
+
 
   artService: AllArticulosService;
 

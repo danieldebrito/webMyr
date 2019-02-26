@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 import { Articulo } from '../../../../clases/articulo';
-// import { CatalogoComponent } from '../grilla/catalogo.component';
 
 @Component({
     selector: 'app-filtro',
