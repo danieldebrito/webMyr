@@ -18,6 +18,8 @@ export class CatalogoComponent implements OnInit {
 
   artService: AllArticulosService;
 
+  pedidos = PedidosComponent;
+
   constructor(servicioArt: AllArticulosService) {
     this.artService = servicioArt;
   }
@@ -26,6 +28,10 @@ export class CatalogoComponent implements OnInit {
     this.artService.artDetalle = art;
     this.artService.show = false;
     this.showValue.emit({show: this.artService.show});
+  }
+
+  public nuevoPedido () {
+
   }
 
   ngOnInit() { }
