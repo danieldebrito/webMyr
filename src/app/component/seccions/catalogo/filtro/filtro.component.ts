@@ -76,7 +76,6 @@ export class FiltroComponent implements OnInit {
 
     public Listar() {
         this.artService.ListarO().subscribe(response => {
-            // console.log(response);
             this.allItems = response;
         },
             error => {
