@@ -9,7 +9,7 @@ import { Cliente } from 'src/app/clases/cliente';
 })
 
 export class AuthService {
-    // para redireccionar de acuerdo al resultado del login
+    // link para redireccionar de acuerdo al resultado del login
     redirectUrl: string;
 
     public identity: Cliente;

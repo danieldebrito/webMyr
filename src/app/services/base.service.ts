@@ -9,7 +9,7 @@ export class BaseService {
   public urlBase: string;
 
   constructor(public http: HttpClient) {
-    // hostinguer  test hosting
+    // hostinger test hosting
     // this.urlBase = 'http://juntasmeyro.000webhostapp.com/api/index.php';
 
     // localhost
