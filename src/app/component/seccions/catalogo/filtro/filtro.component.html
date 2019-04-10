@@ -25,6 +25,14 @@
         Busqueda Libre
         <i class="fas fa-search"></i>
       </button>
+
+      &nbsp;
+
+      <button type="button" class="btn btn-outline-danger" (click)="colapsar3()" [attr.aria-expanded]="isCollapsed3"
+        aria-controls="collapseExample3" routerLink="/carrito">
+        Ir a Carrito
+        <i class="fas fa-cart-plus"></i>
+      </button>
     </p>
 
     <div id="collapseExample2" [ngbCollapse]="isCollapsed2">

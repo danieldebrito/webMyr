@@ -22,7 +22,7 @@ export class CatalogoComponent implements OnInit {
   public cambiarVista(art: Articulo) {
     this.artService.artDetalle = art;
     this.artService.show = false;
-    this.showValue.emit({show: this.artService.show});
+    this.showValue.emit({show: this.artService.show});  // true, muestra grilla, false, muestra detalle de art
   }
 
   ngOnInit() { }
