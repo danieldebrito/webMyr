@@ -17,7 +17,7 @@ export class AbmPedidosService {
     id_expreso: string,
     // estado: string, // DEFAULT => 'abierto'
     fecha: string,
-    observ: string
+    observaciones: string
   ): Promise<Object> {
 
       const request: Object = {
@@ -25,7 +25,7 @@ export class AbmPedidosService {
         id_sucursal: id_sucursal,
         id_expreso: id_expreso,
         fecha: fecha,
-        observ: observ
+        observaciones: observaciones
     };
     return this.miHttp.httpPostP('/pedido/', request);
   } // alta pedido
@@ -34,8 +34,8 @@ export class AbmPedidosService {
     return this.miHttp.httpGetO<Pedido>('/pedido/' + '"' + id + '"');
   } // trae un pedido por id
 
-  public traerIDpedido(id_cliente: string): Observable<Pedido> {
-    return this.miHttp.httpGetO<Pedido>('/pedido/abierto/' + '"' + id_cliente + '"');
+  public traerIDpedidoAbierto(id_cliente: string): Observable<Pedido> {
+    return this.miHttp.httpGetO<Pedido>('/pedido/abierto/' + id_cliente );
   } // pedido de un mismo cliente abierto
 
   public ListarO(id_cliente): Observable<Pedido[]> {

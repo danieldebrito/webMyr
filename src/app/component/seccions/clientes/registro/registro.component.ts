@@ -15,14 +15,6 @@ export class RegistroComponent implements OnInit {
 
   public clienteService: ConsultasClientesService;
 
-  public id: string;
-  public cuit: string;
-  public razonSocial: string;
-  public comprador: string;
-  public email: string;
-  public clave: string;
-  public estado: string;
-
   constructor(servicio: ConsultasClientesService, private router: Router) {
     this.clienteService = servicio;
     this.cliente = new Cliente ('', '', '', '', '', '', '');
@@ -49,11 +41,9 @@ export class RegistroComponent implements OnInit {
         );
 }
 
-
    onSubmit() {
     this.altaCliente();
 }
-
 
   ngOnInit() {
   }

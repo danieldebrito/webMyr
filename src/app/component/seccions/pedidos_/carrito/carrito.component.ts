@@ -50,7 +50,7 @@ export class CarritoComponent implements OnInit {
 
     // trae id de pedido abierto, si no hay genera uno nuevo
     public getIdPedido() {
-        this.pedidosService.traerIDpedido(this.clienteLogueado.id).subscribe(response => {
+        this.pedidosService.traerIDpedidoAbierto(this.clienteLogueado.id).subscribe(response => {
             console.log(response.id_pedido);
             return response.id_pedido;
         },
