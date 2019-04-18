@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { isUndefined } from 'util';
 
 // entidades
 import { Pedido } from 'src/app/clases/pedido';
 import { Articulo } from 'src/app/clases/articulo';
 import { Cliente } from 'src/app/clases/cliente';
 
-import { PedidosComponent } from '../pedidos/pedidos.component';
-
 // services
 import { AuthService } from '../../../../services/cliente/auth.service';
 import { AbmPedidoDetalleService } from '../../../../services/pedidos/abm-pedido-detalle.service';
 import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
+import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -18,59 +18,68 @@ import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.serv
   styleUrls: ['./carrito.component.css']
 })
 
-export class CarritoComponent implements OnInit {
+export class CarritoComponent implements OnInit, DoCheck {
 
-  constructor(public pedidosService: AbmPedidosService, private authService: AuthService, public carritoServ: AbmPedidoDetalleService ) { }
+// artService: AllArticulosService;
+public mensaje: any;
+public identity: Cliente;
+public pedidoAbierto: Pedido;
 
-    public mensaje: string;
-    public clienteLogueado;
+constructor(
+  public artService: AllArticulosService,
+  public pedidosService: AbmPedidosService,
+  private authService: AuthService
+) {
+  // this.artService = servicioArt;
+  this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
+}
 
-    public cargaCarrito(id_articulo: string, cantidad: number ) {
-
-        // trae id de pedido abierto, si no hay genera uno nuevo
-        const id_pedido = this.getIdPedido();
-
-        if (cantidad) {
-            this.carritoServ.altaPedidoDetalle(id_pedido, id_articulo, cantidad).then(
-                response => {
-                    //  agregar, no hay nada en el response
-                    // this.router.navigate(['home']);
-                    return response;
-                }
-            )
-            .catch(
-                error => {
-                    console.error('ERROR DEL SERVIDOR', error);
-                }
-            );
-        } else {
-            this.mensaje = 'Debe especificar la cantidad';
-        }
+public altaPedido() {
+  this.pedidosService.altaPedido(
+    this.identity.id,
+    '',
+    '',
+    this.pedidosService.getfecha(),
+    ''
+  ).then(
+    response => {
+      this.mensaje = response;  //  agregar, no hay nada en el response
+      // this.router.navigate(['home']);  //  redirecciona a HOME
     }
-
-    // trae id de pedido abierto, si no hay genera uno nuevo
-    public getIdPedido() {
-        this.pedidosService.traerIDpedidoAbierto(this.clienteLogueado.id).subscribe(response => {
-            console.log(response.id_pedido);
-            return response.id_pedido;
-        },
-            error => {
-                console.error(error);
-            });
+  ).catch(
+    error => {
+      console.error('ERROR DEL SERVIDOR', error);
     }
+  );
+  this.traeAbierto();
+}
 
+public traeAbierto() {
+  this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
+    this.pedidoAbierto = response;
+    console.log(this.pedidoAbierto);
+  },
+    error => {
+      console.error(error);
+    });
+}
 
-    /*
-    public Listar() {
-    this.pedidosService.ListarO(this.cliente.id).subscribe(response => {
-        // console.log(response);
-        this.allPedidos = response;
-    },
-        error => {
-            console.error(error);
-        });
-    }
-*/
+public traeCreaAbierto () {
+  this.traeAbierto();
+  if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
+    this.altaPedido();
+    this.traeAbierto();
+  } else {
+    // this.traeAbierto();
+  }
+}
 
-  ngOnInit() {}
+ngOnInit() {
+  this.identity = this.authService.getIdentityLocalStorage();
+  this.traeAbierto();
+}
+
+ngDoCheck() {
+  this.identity = this.authService.getIdentityLocalStorage();
+}
 }

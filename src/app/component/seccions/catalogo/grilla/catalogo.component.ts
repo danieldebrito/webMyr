@@ -20,19 +20,17 @@ export class CatalogoComponent implements OnInit, DoCheck {
   @Input() allItems: Articulo[];
   @Output() showValue = new EventEmitter();
 
-  artService: AllArticulosService;
+  // artService: AllArticulosService;
   public mensaje: any;
   public identity: Cliente;
-  public fecha: string;
-  public hora: string;
   public pedidoAbierto: Pedido;
 
   constructor(
-    servicioArt: AllArticulosService,
+    public artService: AllArticulosService,
     public pedidosService: AbmPedidosService,
     private authService: AuthService
   ) {
-    this.artService = servicioArt;
+    // this.artService = servicioArt;
     this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
   }
 
@@ -42,28 +40,12 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.showValue.emit({ show: this.artService.show });  // true, muestra grilla, false, muestra detalle de art
   }
 
-  getfecha() {
-    const fechaActual = new Date();
-    const dia = fechaActual.getDate().toString();
-    const mes = (fechaActual.getMonth() + 1).toString();
-    const anio = fechaActual.getFullYear().toString();
-    const hora = fechaActual.getHours().toString();
-    const minutos = fechaActual.getMinutes().toString();
-    const segundos = fechaActual.getSeconds().toString();
-    this.fecha = anio + '/' + mes + '/' + dia;
-    this.hora = hora + ':' + minutos + ':' + segundos;
-
-    const ret = this.fecha;
-
-    return ret;
-  }
-
   public altaPedido() {
     this.pedidosService.altaPedido(
       this.identity.id,
       '',
       '',
-      this.getfecha(),
+      this.pedidosService.getfecha(),
       ''
     ).then(
       response => {
