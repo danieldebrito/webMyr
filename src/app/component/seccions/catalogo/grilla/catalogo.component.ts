@@ -82,6 +82,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public traeAbierto() {
     this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
       this.pedidoAbierto = response;
+      console.log('abierto ::::::::::::::::::::::' + this.pedidoAbierto[0].id_pedido );
     },
       error => {
         console.error(error);
