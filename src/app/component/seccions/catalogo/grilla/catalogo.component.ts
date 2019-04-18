@@ -6,6 +6,7 @@ import { AllArticulosService } from '../../../../services/articulo/consultas-art
 import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
 import { AuthService } from '../../../../services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
+import { isUndefined } from 'util';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
     private authService: AuthService
   ) {
     this.artService = servicioArt;
+    this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
   }
 
   public cambiarVista(art: Articulo) {
@@ -57,9 +59,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
   }
 
   public altaPedido() {
-
-    this.traeAbierto();
-
     this.pedidosService.altaPedido(
       this.identity.id,
       '',
@@ -71,26 +70,37 @@ export class CatalogoComponent implements OnInit, DoCheck {
         this.mensaje = response;  //  agregar, no hay nada en el response
         // this.router.navigate(['home']);  //  redirecciona a HOME
       }
-    )
-      .catch(
-        error => {
-          console.error('ERROR DEL SERVIDOR', error);
-        }
-      );
+    ).catch(
+      error => {
+        console.error('ERROR DEL SERVIDOR', error);
+      }
+    );
+    this.traeAbierto();
   }
 
   public traeAbierto() {
     this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
       this.pedidoAbierto = response;
-      console.log('abierto ::::::::::::::::::::::' + this.pedidoAbierto[0].id_pedido );
+      console.log(this.pedidoAbierto);
     },
       error => {
         console.error(error);
       });
   }
 
+  public traeCreaAbierto () {
+    this.traeAbierto();
+    if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
+      this.altaPedido();
+      this.traeAbierto();
+    } else {
+      // this.traeAbierto();
+    }
+  }
+
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
+    this.traeAbierto();
   }
 
   ngDoCheck() {
