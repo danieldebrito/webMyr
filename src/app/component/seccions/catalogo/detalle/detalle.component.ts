@@ -18,7 +18,7 @@ export class DetalleComponent implements OnInit {
 
   public art: Articulo;
 
-  // img carrousel
+  // img carousel
 
   images = ['../../../../../assets/images/juntas/tc-01.jpg',
     '../../../../../assets/images/juntas/tc-02.jpg',
