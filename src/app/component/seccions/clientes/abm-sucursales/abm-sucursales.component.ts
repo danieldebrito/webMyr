@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/clases/cliente';
+
 
 @Component({
   selector: 'app-abm-sucursales',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbmSucursalesComponent implements OnInit {
 
+  public cliente: Cliente;
+
+
   constructor() { }
+
+
+  onSubmit() {}
 
   ngOnInit() {
   }

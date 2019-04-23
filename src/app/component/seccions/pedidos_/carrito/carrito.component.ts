@@ -74,6 +74,8 @@ public traeCreaAbierto () {
   }
 }
 
+public nuevoPedido () {}
+
 ngOnInit() {
   this.identity = this.authService.getIdentityLocalStorage();
   this.traeAbierto();

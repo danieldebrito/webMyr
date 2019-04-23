@@ -9,6 +9,8 @@ export class PanelControlComponent implements OnInit {
 
   constructor() { }
 
+  public onSubmit() {}
+
   ngOnInit() {
   }
 
