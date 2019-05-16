@@ -45,6 +45,7 @@ import { PanelControlComponent } from './component/seccions/users/panel-control/
 import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
+import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/especificacion-tecnica/especificacion-tecnica.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucurs
     PanelControlComponent,
     AbmExpresosComponent,
     LoginUsuarioComponent,
-    AbmSucursalesComponent
+    AbmSucursalesComponent,
+    EspecificacionTecnicaComponent
   ],
   imports: [
     BrowserModule,

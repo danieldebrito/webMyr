@@ -7,6 +7,8 @@ import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.serv
 import { AuthService } from '../../../../services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
 import { isUndefined } from 'util';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -28,7 +30,8 @@ export class CatalogoComponent implements OnInit, DoCheck {
   constructor(
     public artService: AllArticulosService,
     public pedidosService: AbmPedidosService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     // this.artService = servicioArt;
     this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
@@ -38,6 +41,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.artService.artDetalle = art;
     this.artService.show = false;
     this.showValue.emit({ show: this.artService.show });  // true, muestra grilla, false, muestra detalle de art
+    this.router.navigate(['especificacion']);
   }
 
   public altaPedido() {
