@@ -10,7 +10,7 @@ export class BaseService {
 
   constructor(public http: HttpClient) {
     // hostinger test hosting
-    this.urlBase = 'http://juntasmeyro.000webhostapp.com/api/index.php';
+    // this.urlBase = 'http://juntasmeyro.000webhostapp.com/api/index.php';
 
     // localhost
     this.urlBase = 'http://localhost/api_meyro_web/index.php';
