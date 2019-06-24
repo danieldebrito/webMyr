@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
 // services
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
@@ -46,6 +46,7 @@ import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/ab
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
 import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/especificacion-tecnica/especificacion-tecnica.component';
+import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/es
     AbmExpresosComponent,
     LoginUsuarioComponent,
     AbmSucursalesComponent,
-    EspecificacionTecnicaComponent
+    EspecificacionTecnicaComponent,
+    CarouselDetailComponent
   ],
   imports: [
     BrowserModule,

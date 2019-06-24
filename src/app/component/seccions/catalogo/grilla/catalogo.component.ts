@@ -9,6 +9,9 @@ import { Pedido } from 'src/app/clases/pedido';
 import { isUndefined } from 'util';
 import { Router } from '@angular/router';
 
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/carousel-detail/carousel-detail.component';
+
 
 
 @Component({
@@ -28,6 +31,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public pedidoAbierto: Pedido;
 
   constructor(
+    public modalService: NgbModal,
     public artService: AllArticulosService,
     public pedidosService: AbmPedidosService,
     private authService: AuthService,
@@ -82,6 +86,11 @@ export class CatalogoComponent implements OnInit, DoCheck {
     } else {
       // this.traeAbierto();
     }
+  }
+
+  open() {
+    const modalRef = this.modalService.open(CarouselDetailComponent);
+    modalRef.componentInstance.name = 'World';
   }
 
   ngOnInit() {
