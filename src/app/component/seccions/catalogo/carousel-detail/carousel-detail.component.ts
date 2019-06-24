@@ -1,18 +1,29 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel-detail',
   templateUrl: './carousel-detail.component.html',
   styleUrls: ['./carousel-detail.component.css']
 })
-export class CarouselDetailComponent implements OnInit {
+export class CarouselDetailComponent implements OnInit{
 
-  @Input() name;
+  constructor(private modalService: NgbModal) {}
 
-  constructor(public activeModal: NgbActiveModal) { }
-
-  ngOnInit() {
+  open(content) {
+    this.modalService.open(content, { size: 'lg' });
   }
 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+  ngOnInit() { }
 }
+
