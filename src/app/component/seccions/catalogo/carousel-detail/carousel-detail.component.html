@@ -5,29 +5,29 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  
-<!--  //////////////////////////////////////////////////////////////////// -->
-<div class="modal-body">
 
-<ngb-carousel >
+  <!--  //////////////////////////////////////////////////////////////////// -->
+  <div class="modal-body">
 
-    <ng-template ngbSlide>
+    <ngb-carousel>
+
+      <ng-template ngbSlide>
         <img src="../../../../../assets/juntas_grandes/01-2870_web.jpg" class="responsive" alt="">
-    </ng-template>
-    <ng-template ngbSlide>
+      </ng-template>
+      <ng-template ngbSlide>
         <img src="../../../../../assets/juntas_grandes/05-3180_web.jpg" class="responsive" alt="">
 
-    </ng-template>
-    <ng-template ngbSlide>
+      </ng-template>
+      <ng-template ngbSlide>
         <img src="../../../../../assets/juntas_grandes/06-2900_web.jpg" class="responsive" alt="">
-    </ng-template>
+      </ng-template>
 
-  </ngb-carousel>
+    </ngb-carousel>
 
-</div>
-<!--  //////////////////////////////////////////////////////////////////// -->
+  </div>
+  <!--  //////////////////////////////////////////////////////////////////// -->
 
 </ng-template>
 
-<button class="btn btn-lg btn-outline-danger" (click)="open(content)">Agrandar Imagen</button>
 
+<img src= '{{ art.img_peq_url }}' alt="" srcset="" (click)="open(content)" ngbTooltip="Click para agrandar imagen">

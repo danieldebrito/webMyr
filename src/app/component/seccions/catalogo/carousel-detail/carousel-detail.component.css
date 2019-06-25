@@ -2,3 +2,12 @@
   max-width: 100%;
   height: auto;
 }
+
+.my-custom-class .tooltip-inner {
+  background-color: red;
+  font-size: 125%;
+}
+.my-custom-class .arrow::before {
+  border-top-color: red;
+}
+
