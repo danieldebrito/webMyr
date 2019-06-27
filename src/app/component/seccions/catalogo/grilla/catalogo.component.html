@@ -64,7 +64,7 @@
         </mat-card-content>
 
         <mat-card-actions class="matCard">
-          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Más Información</button>&nbsp;
+          <button type="button" class="btn btn-outline-danger" routerLink="/detalle" >Más Información</button>&nbsp;
           <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Info. Tecnica</button>&nbsp;
           <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Ir a Carrito</button>&nbsp;<br><br>
           <button type="button" class="btn btn-outline-danger" >Cantidad: <input type="number" class="inputCantidad" value="{{ art.pack_venta }}">  </button>&nbsp;
