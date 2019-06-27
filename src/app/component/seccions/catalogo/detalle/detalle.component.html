@@ -1,217 +1,107 @@
-<div class="bgd">
+<div class="py-2">
+  <section id="clientes">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Imagenes</h4>
+            </div>
 
-  <div class="row">
-    <div class="col-sm-12">&nbsp;</div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-sm-4">
-
-      <img src="../../../../../assets/juntas/05-2380.jpg" alt="" srcset="">
-
-      <hr>
-
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Cant.</th>
-            <th scope="col">Codigo</th>
-            <th scope="col">Aplicacion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td nowrap>01-2000 S</td>
-            <td nowrap>Junta Para Tapa de Cilindro</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td nowrap>02-1940 N</td>
-            <td nowrap>Multiple de Admision y Escape</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td nowrap>04-1940 N</td>
-            <td nowrap>Salida Caño de Escape Escape</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-sm-4">
-      <table class="table-responsive table-bordered">
-        <thead>
-          <tr>
-            <th colspan="3">Marca y Modelo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <b>{{ art.marca }} :</b> {{ art.modelo }}
-            </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th>cm3</th>
-            <th colspan="2">Motor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {{ art.cilindrada }}
-            </td>
-            <td colspan="2">
-              {{ art.motor }}
-            </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th colspan="3">Articulos Relacionados</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <div>
-                <select>
-                  <option value="" disabled>Selecione el Articulo</option>
-                  <option>
-
-                  </option>
-                </select>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th colspan="3">Imagen</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <img src="../../../../../assets/images/juntas/tc-03.jpg" alt="" srcset="">
-            </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th nowrap>Codigo Meyro</th>
-            <th nowrap>Precio de Lista</th>
-            <th nowrap>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> {{ art.id }} </td>
-            <td> {{ art.precio_lista }} </td>
-            <td> {{ art.stock }} </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th colspan="3">Material</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <div>
-                <select>
-                  <option value="" disabled>Seleccione el Material</option>
-                  <option>
-
-                  </option>
-                </select>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-        <thead>
-          <tr>
-            <th colspan="2">Cantidad</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="2">
-              <input type="number">
-            </td>
-            <td>
-              <button class="btn btn-sm btn-outline-danger mr-2">Comprar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-sm-4">
-
-      <div>
-        <button class="btn btn-sm btn-outline-danger mr-2" (click)="cambiarVista()">Catalogo</button>
-        <button class="btn btn-sm btn-outline-danger mr-2" routerLink="/carrito">Carrito</button>
-      </div>
-
-      <hr>
-
-      <div>
-        <table class="table-responsive table-bordered">
-          <thead>
-            <tr>
-              <th colspan="4">
-                <img src="../../../../../assets/carrito/miCarrito.jpg" alt="" srcset="">
-              </th>
-            </tr>
-            <tr>
-              <th nowrap>Codigo</th>
-              <th nowrap>Cant.</th>
-              <th nowrap>Precio</th>
-              <th nowrap>Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td nowrap> 01-2870 S </td>
-              <td nowrap> 15 </td>
-              <td nowrap> $ 195.69 </td>
-              <td nowrap> $ 2935.35 </td>
-            </tr>
-            <tr>
-              <td nowrap> 01-2870 S </td>
-              <td nowrap> 15 </td>
-              <td nowrap> $ 195.69 </td>
-              <td nowrap> $ 2935.35 </td>
-            </tr>
-            <tr>
-              <td nowrap colspan="2" class="carritoTotales"> Descuento Cliente: <input type="text" class="carritoInput">
-                <b>%</b> </td>
-              <td nowrap> ($ 256.32) </td>
-              <td nowrap> $ 29235.35 </td>
-            </tr>
-            <tr>
-              <td nowrap colspan="2" class="carritoTotales"> Dto. Pago a 30 dias: <input type="text" value=10
-                  class="carritoInput">
-                <b>%</b> </td>
-              <td nowrap> ($ 256.32) </td>
-              <td nowrap> $ 29235.35 </td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th nowrap colspan="3" class="carritoTotales"> Total: &nbsp; </th>
-              <th nowrap> $ 29235.35 </th>
-            </tr>
-          </thead>
-        </table>
+            <div class="card-body">
+              <img src="../../../../../assets/juntas/01-2870_web.jpg" alt="" srcset="">
+            </div>
+  
+            <!--   /////////////  IMG  ////////////////   -->
+  
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Junta para tapa de Cilindro</h4>
+            </div>
+  
+            <table class="table-responsive table-bordered">
+              <thead>
+                <tr>
+                  <th>Codigo</th>
+                  <th>Material</th>
+                  <th>Espesor</th>
+                  <th>Carrito</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01-2870 S</td>
+                  <td nowrap>FIBRA - CHAPA - FIBRA</td>
+                  <td nowrap> 1.42 mm</td>
+                  <td nowrap>
+                    <a href="">
+                      <button type="button" class="btn btn-outline-danger"><i class="fas fa-cart-plus"></i></button>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  
+  <section id="clientes">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Motores</h4>
+            </div>
+            <table class="table-responsive table-bordered">
+              <thead>
+                <tr>
+                  <th>Motor</th>
+                  <th>cm3</th>
+                  <th>Ø Junta</th>
+                  <th>Ø Motor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4>Modelos</h4>
+            </div>
+  
+            <table class="table-responsive table-bordered">
+              <thead>
+                <tr>
+                  <th>Marca</th>
+                  <th>Modelos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

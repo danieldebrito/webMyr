@@ -41,3 +41,8 @@ select {
 .carritoTotales {
     text-align: right;
 }
+
+table{
+    table-layout: fixed;
+    width: auto;
+}
