@@ -45,4 +45,5 @@ select {
 table{
     table-layout: fixed;
     width: auto;
+    font-size: small;
 }
