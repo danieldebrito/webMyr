@@ -22,3 +22,7 @@ th {
 .inputCantidad {
     width: 15%;
 }
+
+table {
+    border: red 2px solid;
+  }
