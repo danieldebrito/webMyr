@@ -64,11 +64,17 @@
         </mat-card-content>
 
         <mat-card-actions class="matCard">
-          <button type="button" class="btn btn-outline-danger" routerLink="/detalle" >Ver mas </button>&nbsp;
+          <!-- 
           <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Info. Tecnica</button>&nbsp;
-          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Ir a Carrito</button>&nbsp;<br><br>
-          <button type="button" class="btn btn-outline-danger" >Cantidad: <input type="number" class="inputCantidad" value="{{ art.pack_venta }}">  </button>&nbsp;
-          <button type="button" class="btn btn-outline-danger" (click)="traeCreaAbierto()"><i class="fas fa-cart-plus"></i></button>
+          -->
+          <nav class="nav nav-pills flex-column flex-sm-row p-4">
+            <button type="button" class="btn btn-outline-danger" routerLink="/detalle">Más Información</button>
+            <input class="col-sm-4" type="number" placeholder="Cantidad">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-danger"><i class="fas fa-cart-plus"></i></button>
+            </div>
+          </nav>
+
         </mat-card-actions>
       </mat-card>
       <br>
