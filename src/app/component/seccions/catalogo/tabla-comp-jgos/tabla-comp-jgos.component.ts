@@ -12,8 +12,6 @@ export class TablaCompJgosComponent implements OnInit {
   @Input() allItems: Articulo[];
   @Output() showValue = new EventEmitter();
 
-  show = true;
-
   constructor( private articulosService: AllArticulosService ) {
 
   }

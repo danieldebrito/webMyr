@@ -26,7 +26,7 @@ export class DetalleComponent implements OnInit {
   }
 
   cambiaVista() {
-    this.showDetail = true;
+    this.showDetail = !this.showDetail;
   }
 
   /* public traerUno() {
