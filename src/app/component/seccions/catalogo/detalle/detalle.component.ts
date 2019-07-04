@@ -11,11 +11,7 @@ export class DetalleComponent implements OnInit {
 
   @Output() showValue = new EventEmitter();
 
-  public show: boolean;
-
-  // servicio
-  artService: AllArticulosService;
-
+  public showDetail: boolean;
   public art: Articulo;
 
   // img carousel
@@ -24,30 +20,27 @@ export class DetalleComponent implements OnInit {
     '../../../../../assets/images/juntas/tc-02.jpg',
     '../../../../../assets/images/juntas/tc-03.jpg'];
 
-  constructor(servicio: AllArticulosService) {
-    this.artService = servicio;
+  constructor(private artService: AllArticulosService) {
+    this.showDetail = false;
     this.art = new Articulo('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-
   }
 
-  public traerUno() {
-    this.artService.traerUno().subscribe(response => {
+  cambiaVista() {
+    this.showDetail = true;
+  }
 
-        this.art = response;
-    },
-        error => {
-            console.error(error);
-        });
-}
+  /* public traerUno() {
+     this.artService.traerUno().subscribe(response => {
+         this.art = response;
+     },
+         error => {
+             console.error(error);
+         });
+ }*/
 
-public cambiarVista() {
-  this.artService.show = true;
-  this.showValue.emit({show: this.artService.show});
-}
+
 
   ngOnInit() {
-    this.traerUno();
-
-    console.log('art => ',  this.art);
+    //  this.traerUno();
   }
 }

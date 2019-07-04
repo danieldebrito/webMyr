@@ -9,7 +9,7 @@ import { Pedido } from 'src/app/clases/pedido';
 import { isUndefined } from 'util';
 import { Router } from '@angular/router';
 
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/carousel-detail/carousel-detail.component';
 
 

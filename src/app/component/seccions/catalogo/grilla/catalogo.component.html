@@ -55,7 +55,7 @@
             </thead>
             <tbody>
               <tr>
-                <td> {{ art.id }} </td>
+                <td><b> {{ art.id }} </b></td>
                 <td> {{ art.precio_lista }} </td>
                 <td> {{ art.stock }} </td>
               </tr>
@@ -63,19 +63,22 @@
           </table>
         </mat-card-content>
 
-        <mat-card-actions class="matCard">
-          <!-- 
-          <button type="button" class="btn btn-outline-danger" (click)="cambiarVista(art)" >Info. Tecnica</button>&nbsp;
-          -->
-          <nav class="nav nav-pills flex-column flex-sm-row p-4">
-            <button type="button" class="btn btn-outline-danger" routerLink="/detalle">Más Información</button>
-            <input class="col-sm-4" type="number" placeholder="Cantidad">
-            <div class="input-group-append">
-              <button type="button" class="btn btn-outline-danger"><i class="fas fa-cart-plus"></i></button>
-            </div>
-          </nav>
+        <hr>
 
-        </mat-card-actions>
+        <div class="container">
+          <div class="row">
+            <input routerLink="/detalle" type="button" value="Detalle de Producto"
+              class="col-sm-6 form-control btn btn-outline-danger">
+            &nbsp;
+            <input class="col-sm-3 form-control" id="ex1" type="number" placeholder="Cant.">
+            &nbsp;
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-danger"><i
+                    class="fas fa-cart-plus"></i></button>
+              </div>
+          </div>
+        </div>
+
       </mat-card>
       <br>
     </div>
