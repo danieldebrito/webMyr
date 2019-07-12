@@ -47,6 +47,8 @@ import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/
 import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
 import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/especificacion-tecnica/especificacion-tecnica.component';
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
+import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
+import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-
     LoginUsuarioComponent,
     AbmSucursalesComponent,
     EspecificacionTecnicaComponent,
-    CarouselDetailComponent
+    CarouselDetailComponent,
+    TablaProdVersionComponent,
+    TablaCompJgosComponent
   ],
   imports: [
     BrowserModule,
