@@ -17,7 +17,7 @@ export class AllArticulosService {
   constructor(public miHttp: BaseService) { }
 
   public ListarP(): Promise<Array<any>> {
-    return this.miHttp.httpGetP('/art/all')
+    return this.miHttp.httpGetP('/art_mar_mod_mot/')
       .then(data => {
         return data;
       })
@@ -28,7 +28,7 @@ export class AllArticulosService {
   }
 
   public ListarO(): Observable<Articulo[]> {
-    return this.miHttp.httpGetO<Articulo[]>('/art/all');
+    return this.miHttp.httpGetO<Articulo[]>('/art_mar_mod_mot/');
   }
 
   public traerUno(): Observable<Articulo> {
@@ -60,7 +60,7 @@ export class AllArticulosService {
         aplicacion: aplicacion == null ? '' : aplicacion
       };
 
-      return this.miHttp.httpPostP('/art/filtrar', request);
+      return this.miHttp.httpPostP('/art_mar_mod_mot/filtrar', request);
   }
 }
 
