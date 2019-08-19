@@ -1,18 +1,16 @@
 import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
 import { Articulo } from '../../../../clases/articulo';
 import { Cliente } from 'src/app/clases/cliente';
-
+import { AplicacionesService } from 'src/app/services/aplicaciones/aplicaciones.service';
 import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
 import { AuthService } from '../../../../services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
 import { isUndefined } from 'util';
 import { Router } from '@angular/router';
-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/carousel-detail/carousel-detail.component';
-
-
+import { Aplicacion } from 'src/app/clases/aplicacion';
 
 @Component({
   selector: 'app-catalogo',
@@ -25,9 +23,9 @@ export class CatalogoComponent implements OnInit, DoCheck {
   @Input() allItems: Articulo[];
   @Output() showValue = new EventEmitter();
 
-  // artService: AllArticulosService;
   public mensaje: any;
   public identity: Cliente;
+  public app: Aplicacion;
   public pedidoAbierto: Pedido;
 
   constructor(
@@ -35,10 +33,19 @@ export class CatalogoComponent implements OnInit, DoCheck {
     public artService: AllArticulosService,
     public pedidosService: AbmPedidosService,
     private authService: AuthService,
+    private appService: AplicacionesService,
     private router: Router
   ) {
-    // this.artService = servicioArt;
     this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
+  }
+
+  public readAppID(id: string) {
+    this.appService.readOneApp(id).subscribe( response => {
+      return response.aplicacion;
+    },
+      error => {
+          console.error(error);
+      });
   }
 
   public cambiarVista(art: Articulo) {

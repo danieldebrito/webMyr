@@ -49,6 +49,7 @@ import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/es
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
+import { AppPipe } from './pipes/app.pipe';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp
     EspecificacionTecnicaComponent,
     CarouselDetailComponent,
     TablaProdVersionComponent,
-    TablaCompJgosComponent
+    TablaCompJgosComponent,
+    AppPipe
   ],
   imports: [
     BrowserModule,
