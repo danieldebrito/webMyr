@@ -32,7 +32,7 @@ export class AllArticulosService {
   }
 
   public traerUno(): Observable<Articulo> {
-    return this.miHttp.httpGetO<Articulo>('/art/' + '"' + this.artDetalle.id_articulo + '"');
+    return this.miHttp.httpGetO<Articulo>('/art/' + '"' + this.artDetalle.id + '"');
   }
 
   public FiltrarP(

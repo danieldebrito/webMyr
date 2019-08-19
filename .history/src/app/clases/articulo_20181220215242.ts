@@ -1,14 +1,14 @@
 export class Articulo {
     constructor(
-        public id_articulo: string,
+        public id: string,
         public material: string,
         public descripcion_corta: string,
-        public id_producto: string,
-        public id_aplicacion: string,
+        public producto: string,
+        public aplicacion: string,
         public linea: string,
         public marca: string,
         public combustible: string,
-        public id_motor: string,
+        public motor: string,
         public modelo: string,
         public cilindrada: string,
         public lts: string,

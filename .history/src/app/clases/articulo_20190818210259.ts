@@ -1,6 +1,6 @@
 export class Articulo {
     constructor(
-        public id_articulo: string,
+        public id: string,
         public material: string,
         public descripcion_corta: string,
         public id_producto: string,

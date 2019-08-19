@@ -171,12 +171,12 @@ export class FiltroComponent implements OnInit {
                 arrayAuxLinea.push(items[i].linea);
                 arrayAuxMarca.push(items[i].marca);
                 arrayAuxComb.push(items[i].combustible);
-                arrayAuxMotor.push(items[i].id_motor);
+                arrayAuxMotor.push(items[i].motor);
                 arrayAuxModelo.push(items[i].modelo);
                 arrayAuxCilind.push(items[i].cilindrada);
                 arrayAuxStd.push(items[i].combustible);
-                arrayAuxProd.push(items[i].id_producto);
-                arrayAuxApp.push(items[i].id_aplicacion);
+                arrayAuxProd.push(items[i].producto);
+                arrayAuxApp.push(items[i].aplicacion);
             }
 
             arrayAuxLinea = arrayAuxLinea.sort();
