@@ -17,7 +17,7 @@ export class BaseService {
     // this.urlBase = 'http://localhost/api_meyro_web/index.php';
 
     // localhost
-    this.urlBase = 'http://localhost/api_myr_web_test/app';
+    this.urlBase = 'http://localhost/api_myr_web/app/index.php';
   }
 
 

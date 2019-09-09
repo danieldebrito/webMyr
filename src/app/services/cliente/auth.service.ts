@@ -19,7 +19,7 @@ export class AuthService {
   Loguear(dataLogin: Login) {
     const request: JSON = JSON.parse(JSON.stringify(dataLogin));
 
-    return this.miHttp.httpPostP('/cliente/login', request);
+    return this.miHttp.httpPostP('/clientes/login', request);
   }
 
   public getIdentityLocalStorage () {
