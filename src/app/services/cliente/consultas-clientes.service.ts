@@ -27,11 +27,11 @@ export class ConsultasClientesService {
         email: email,
         clave: clave
     };
-    return this.miHttp.httpPostP('/cliente/', request);
+    return this.miHttp.httpPostP('/clientes/', request);
   }
 
   public traerUno(id: string): Observable<Cliente> {
-    return this.miHttp.httpGetO<Cliente>('/cliente/' + '"' + id + '"');
+    return this.miHttp.httpGetO<Cliente>('/clientes/' + '"' + id + '"');
   }
 }
 
