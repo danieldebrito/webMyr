@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
-import { Articulo } from '../../../../clases/articulo';
+// services
+import { AllArticulosService } from 'src/app/services/articulo/consultas-articulos.service';
+import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
+// classes
+import { Articulo } from 'src/app/clases/articulo';
+import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 
 @Component({
     selector: 'app-filtro',
@@ -14,17 +18,18 @@ export class FiltroComponent implements OnInit {
     public showValue: boolean;
 
     // valores de los selects.
-    public linea: string;
-    public marca: string;
-    public combustible: string;
-    public motor: string;
+    public id_linea: string;
+    public id_marca: string;
+    public id_combustible: string;
+    public id_motor: string;
     public modelo: string;
     public cilindrada: string;
     public competicion: string;
-    public producto: string;
-    public aplicacion: string;
+    public id_producto: string;
+    public id_aplicacion: string;
 
-    public allItems: Articulo[];  // todos.
+    // public allItems: Articulo[];  // todos.
+    public allItems: ArtMarModMot[];
     public filtroItems;
 
     // columnas sin repeticion.
@@ -38,17 +43,15 @@ export class FiltroComponent implements OnInit {
     public columnaProd: string[];
     public columnaApp: string[];
 
-    // servicio.
-    artService: AllArticulosService;
-
     // para colapsar menues de filtros.
     public isCollapsed = false;
     public isCollapsed2 = true;
     public isCollapsed3 = true;
 
-
-    constructor(servicio: AllArticulosService) {
-        this.artService = servicio;
+    constructor(
+        private artService: AllArticulosService,
+        private ammmService: ArtMarModMotService
+        ) {
         this.show = true;
     }
 
@@ -75,7 +78,7 @@ export class FiltroComponent implements OnInit {
     }
 
     public Listar() {
-        this.artService.ListarO().subscribe(response => {
+        this.ammmService.ListarO().subscribe(response => {
             this.allItems = response;
         },
             error => {
@@ -84,18 +87,18 @@ export class FiltroComponent implements OnInit {
     }
 
     public Limpiar() {
-        this.artService.ListarO().subscribe(response => {
+        this.ammmService.ListarO().subscribe(response => {
             this.filtroItems = response;
 
-            this.linea = '';
-            this.marca = '';
-            this.combustible = '';
-            this.motor = '';
+            this.id_linea = '';
+            this.id_marca = '';
+            this.id_combustible = '';
+            this.id_motor = '';
             this.modelo = '';
             this.cilindrada = '';
             this.competicion = '';
-            this.producto = '';
-            this.aplicacion = '';
+            this.id_producto = '';
+            this.id_aplicacion = '';
 
             this.LimpiaColumnas();
         },
@@ -119,16 +122,16 @@ export class FiltroComponent implements OnInit {
     }
 
     public Filtrar() {
-        this.artService.FiltrarP(
-            this.linea,
-            this.marca,
-            this.combustible,
-            this.motor,
+        this.ammmService.FiltrarP(
+            this.id_linea,
+            this.id_marca,
+            this.id_combustible,
+            this.id_motor,
             this.modelo,
             this.cilindrada,
             this.competicion,
-            this.producto,
-            this.aplicacion).then(
+            this.id_producto,
+            this.id_aplicacion).then(
                 response => {
                     this.filtroItems = response;
                     this.allItems = this.filtroItems;
@@ -137,13 +140,12 @@ export class FiltroComponent implements OnInit {
             )
             .catch(
                 error => {
-                    console.error('ERROR DEL SERVIDOR', error);
+                    console.error('ERROR DEL SERVIDOR, FILTRO COMPONENT.TS => ', error);
                 }
             );
     }
 
-    public Colunmas(items: Articulo[]) {
-
+    public Colunmas(items: ArtMarModMot[]) {
         let arrayAuxLinea: string[] = [];
         let arrayAuxMarca: string[] = [];
         let arrayAuxComb: string[] = [];
@@ -168,13 +170,13 @@ export class FiltroComponent implements OnInit {
             const tam = items.length;
 
             for (let i = 0; i < tam; i++) {
-                arrayAuxLinea.push(items[i].linea);
-                arrayAuxMarca.push(items[i].marca);
-                arrayAuxComb.push(items[i].combustible);
+                arrayAuxLinea.push(items[i].id_linea);
+                arrayAuxMarca.push(items[i].id_marca);
+                arrayAuxComb.push(items[i].id_combustible);
                 arrayAuxMotor.push(items[i].id_motor);
                 arrayAuxModelo.push(items[i].modelo);
                 arrayAuxCilind.push(items[i].cilindrada);
-                arrayAuxStd.push(items[i].combustible);
+                arrayAuxStd.push(items[i].id_combustible);
                 arrayAuxProd.push(items[i].id_producto);
                 arrayAuxApp.push(items[i].id_aplicacion);
             }
@@ -237,12 +239,8 @@ export class FiltroComponent implements OnInit {
             this.columnaStd = arrayRetStd;
             this.columnaProd = arrayRetProd;
             this.columnaApp = arrayRetApp;
-
-            console.log(arrayRetComb);
         }
     }
-
-
 
     ngOnInit() {
         this.Limpiar();
