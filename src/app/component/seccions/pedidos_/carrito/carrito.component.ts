@@ -34,6 +34,7 @@ constructor(
   this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
 }
 
+/*
 public altaPedido() {
   this.pedidosService.altaPedido(
     this.identity.id,
@@ -52,7 +53,7 @@ public altaPedido() {
     }
   );
   this.traeAbierto();
-}
+}*/
 
 public traeAbierto() {
   this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
@@ -67,7 +68,7 @@ public traeAbierto() {
 public traeCreaAbierto () {
   this.traeAbierto();
   if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
-    this.altaPedido();
+    // this.altaPedido();
     this.traeAbierto();
   } else {
     // this.traeAbierto();

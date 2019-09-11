@@ -1,16 +1,19 @@
 import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
-import { Articulo } from '../../../../clases/articulo';
-import { Cliente } from 'src/app/clases/cliente';
-import { AplicacionesService } from 'src/app/services/aplicaciones/aplicaciones.service';
-import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
-import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
-import { AuthService } from '../../../../services/cliente/auth.service';
-import { Pedido } from 'src/app/clases/pedido';
-import { isUndefined } from 'util';
+import { AuthService } from 'src/app/services/cliente/auth.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/carousel-detail/carousel-detail.component';
+
+// class
+import { Articulo } from 'src/app/clases/articulo';
+import { Cliente } from 'src/app/clases/cliente';
+import { Pedido } from 'src/app/clases/pedido';
 import { Aplicacion } from 'src/app/clases/aplicacion';
+
+// services
+import { AplicacionesService } from 'src/app/services/aplicaciones/aplicaciones.service';
+import { AllArticulosService } from 'src/app/services/articulo/consultas-articulos.service';
+import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -55,6 +58,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.router.navigate(['especificacion']);
   }
 
+  /*
   public altaPedido() {
     this.pedidosService.altaPedido(
       this.identity.id,
@@ -73,7 +77,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
       }
     );
     this.traeAbierto();
-  }
+  }*/
 
   public traeAbierto() {/*
     this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
@@ -87,8 +91,8 @@ export class CatalogoComponent implements OnInit, DoCheck {
 
   public traeCreaAbierto () {
     this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
-      this.altaPedido();
+    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
+      // this.altaPedido();
       this.traeAbierto();
     } else {
       // this.traeAbierto();

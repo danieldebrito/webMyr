@@ -17,34 +17,69 @@ export class AbmPedidosService {
   public identity: Cliente;
   public mensaje: any;
   public pedidoAbierto: Pedido;
+  public pedido: Pedido;
 
-  constructor(public miHttp: BaseService, private authService: AuthService) {
-    this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
-   }
+  constructor(public miHttp: BaseService, private authService: AuthService) { }
 
-  public altaPedido(
-    // id_pedido: number,  // AI
+  public Listar(): Observable<Pedido[]> {
+    return this.miHttp.httpGetO<Pedido[]>('/pedidos/');
+  }
+
+  public Baja(id: string): Promise<object> {
+    return this.miHttp.httpDeleteP('/pedidos/' + '"' + id + '"');
+  }
+
+  public TraerUno(id: string): Observable<Pedido> {
+    return this.miHttp.httpGetO<Pedido>('/pedidos/' + '"' + id + '"');
+  }
+
+  public Alta(
     id_cliente: string,
     id_sucursal: string,
     id_expreso: string,
-    // estado: string, // DEFAULT => 'abierto'
+    estado: string,
+    envio: string,
     fecha: string,
     observaciones: string
-  ): Promise<Object> {
-
-    const request: Object = {
-      id_cliente: id_cliente,
-      id_sucursal: id_sucursal,
-      id_expreso: id_expreso,
-      fecha: fecha,
-      observaciones: observaciones
+  ): Promise<object> {
+    const request: object = {
+      id_cliente,
+      id_sucursal,
+      id_expreso,
+      estado,
+      envio,
+      fecha,
+      observaciones
     };
-    return this.miHttp.httpPostP('/pedido/', request);
-  } // alta pedido
+    return this.miHttp.httpPostP('/pedidos/', request);
+  }
 
-  public traerUno(id: string): Observable<Pedido> {
-    return this.miHttp.httpGetO<Pedido>('/pedido/' + '"' + id + '"');
-  } // trae un pedido por id
+  public Update(
+    id_pedido: string,
+    id_cliente: string,
+    id_sucursal: string,
+    id_expreso: string,
+    estado: string,
+    envio: string,
+    fecha: string,
+    observaciones: string
+    ): Promise<object> {
+    const request: object = {
+      id_pedido,
+      id_cliente,
+      id_sucursal,
+      id_expreso,
+      estado,
+      envio,
+      fecha,
+      observaciones
+    };
+    return this.miHttp.httpPostP('/pedidos/update', request);
+  }
+
+
+
+
 
   public traerIDpedidoAbierto(id_cliente: string): Observable<Pedido> {
     return this.miHttp.httpGetO<Pedido>('/pedido/abierto/' + id_cliente);
@@ -70,25 +105,7 @@ export class AbmPedidosService {
     return ret;
   }
 
-  public altaPedidoP() {
-    this.altaPedido(
-      this.identity.id,
-      '',
-      '',
-      this.getfecha(),
-      ''
-    ).then(
-      response => {
-        this.mensaje = response;  //  agregar, no hay nada en el response
-        // this.router.navigate(['home']);  //  redirecciona a HOME
-      }
-    ).catch(
-      error => {
-        console.error('ERROR DEL SERVIDOR', error);
-      }
-    );
-    this.traeAbierto();
-  }
+
 
   public traeAbierto() {
     this.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
@@ -100,11 +117,45 @@ export class AbmPedidosService {
       });
   }
 
-  public traeCreaAbierto () {
+  public traeCreaAbierto() {
     this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined ) {
-      this.altaPedidoP();
+    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
+    //  this.altaPedidoP();
       this.traeAbierto();
     }
   }
 }
+
+
+/*
+
+  public Listar(): Observable<MaquinaRepuesto[]> {
+    return this.miHttp.httpGetO<MaquinaRepuesto[]>('/maquinaRepuestos/');
+  }
+  public Baja(id: string): Promise<object> {
+    return this.miHttp.httpDeleteP('/maquinaRepuestos/' + '"' + id + '"');
+  }
+  public TraerUno(id: string): Observable<MaquinaRepuesto> {
+    return this.miHttp.httpGetO<MaquinaRepuesto>('/maquinaRepuestos/' + '"' + id + '"');
+  }
+  public Alta( detalle: string, marca: string, codigo: string ): Promise<object> {
+      const request: object = {
+        detalle,
+        marca,
+        codigo
+    };
+      return this.miHttp.httpPostP('/maquinaRepuestos/', request);
+  }
+  public Update( idRepuesto: string, detalle: string, marca: string, codigo: string ): Promise<object> {
+      const request: object = {
+        idRepuesto,
+        detalle,
+        marca,
+        codigo
+    };
+      return this.miHttp.httpPostP('/maquinaRepuestos/update', request);
+  }
+
+
+
+*/

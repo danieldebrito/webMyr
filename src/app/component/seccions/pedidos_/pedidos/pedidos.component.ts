@@ -5,7 +5,6 @@ import { AuthService } from '../../../../services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
@@ -29,8 +28,7 @@ export class PedidosComponent implements OnInit {
     private authService: AuthService,
     private router: Router) { }
 
-  public altaPedido() {
-
+ /* public altaPedido() {
     if (this.identity) {
       this.pedidosService.altaPedido(
         this.identity.id,
@@ -54,11 +52,10 @@ export class PedidosComponent implements OnInit {
       this.authService.redirectUrl = '/loginUsr';
       this.router.navigate([this.authService.redirectUrl]);  // redirige a login si no esta logueado
     }
-  }
+  }*/
 
   public Listar() {
     this.pedidosService.ListarO(this.identity.id).subscribe(response => {
-      // console.log(response);
       this.allPedidos = response;
     },
       error => {
