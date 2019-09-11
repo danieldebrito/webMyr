@@ -21,7 +21,7 @@ export class FiltroComponent implements OnInit {
     public id_linea: string;
     public id_marca: string;
     public id_combustible: string;
-    public id_motor: string;
+    public motor: string;
     public modelo: string;
     public cilindrada: string;
     public competicion: string;
@@ -93,7 +93,7 @@ export class FiltroComponent implements OnInit {
             this.id_linea = '';
             this.id_marca = '';
             this.id_combustible = '';
-            this.id_motor = '';
+            this.motor = '';
             this.modelo = '';
             this.cilindrada = '';
             this.competicion = '';
@@ -122,11 +122,22 @@ export class FiltroComponent implements OnInit {
     }
 
     public Filtrar() {
+        /*alert(
+            this.id_linea +
+            this.id_marca +
+            this.id_combustible +
+            this.motor +
+            this.modelo +
+            this.cilindrada +
+            this.competicion +
+            this.id_producto +
+            this.id_aplicacion
+        );*/
         this.ammmService.FiltrarP(
             this.id_linea,
             this.id_marca,
             this.id_combustible,
-            this.id_motor,
+            this.motor,
             this.modelo,
             this.cilindrada,
             this.competicion,
@@ -173,7 +184,7 @@ export class FiltroComponent implements OnInit {
                 arrayAuxLinea.push(items[i].id_linea);
                 arrayAuxMarca.push(items[i].id_marca);
                 arrayAuxComb.push(items[i].id_combustible);
-                arrayAuxMotor.push(items[i].id_motor);
+                arrayAuxMotor.push(items[i].motor);
                 arrayAuxModelo.push(items[i].modelo);
                 arrayAuxCilind.push(items[i].cilindrada);
                 arrayAuxStd.push(items[i].id_combustible);

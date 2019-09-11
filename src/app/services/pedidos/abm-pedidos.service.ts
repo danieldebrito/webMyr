@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from '../../services/base.service';
-import { Pedido } from 'src/app/clases/pedido';
 import { Observable } from 'rxjs';
-
-import { AuthService } from '../../services/cliente/auth.service';
+// class
 import { Cliente } from 'src/app/clases/cliente';
-import { isUndefined } from 'util';
-
-
+import { Pedido } from 'src/app/clases/pedido';
+// services
+import { AuthService } from 'src/app/services/cliente/auth.service';
+import { BaseService } from 'src/app/services/base.service';
 
 @Injectable({
   providedIn: 'root'
@@ -72,8 +70,7 @@ export class AbmPedidosService {
     return ret;
   }
 
-  public altaPedidoP(
-  ) {
+  public altaPedidoP() {
     this.altaPedido(
       this.identity.id,
       '',
@@ -105,7 +102,7 @@ export class AbmPedidosService {
 
   public traeCreaAbierto () {
     this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
+    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined ) {
       this.altaPedidoP();
       this.traeAbierto();
     }

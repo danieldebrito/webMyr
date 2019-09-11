@@ -75,14 +75,14 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.traeAbierto();
   }
 
-  public traeAbierto() {
+  public traeAbierto() {/*
     this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
       this.pedidoAbierto = response;
       console.log(this.pedidoAbierto);
     },
       error => {
         console.error(error);
-      });
+      });*/
   }
 
   public traeCreaAbierto () {
