@@ -1,0 +1,83 @@
+<div class="container-fluid bg-3 text-center">
+    <br>
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let art of allItems">
+            <mat-card class="example-card">
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title><strong>{{ art.id_producto }}</strong></mat-card-title>
+                    <mat-card-subtitle><strong> {{ art.id_aplicacion  }}</strong></mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table-responsive table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="4">Marca y Modelo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <b>{{ art.id_marca }} :</b> {{ art.modelo }}
+                                </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>cm3</th>
+                                <th colspan="3">Motor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ art.cilindrada }}
+                                </td>
+                                <td colspan="3">
+                                    {{ art.motor }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <!-- <img src= '{{ art.img_peq_url }}'   alt="" srcset="">  -->
+                                    <!-- <img src= '{{ art.img_peq_url }}' alt="" srcset=""><br> -->
+                                    <app-carousel-detail [art]='art'></app-carousel-detail>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th nowrap>Codigo Meyro</th>
+                                <th nowrap>Precio de Lista</th>
+                                <th nowrap>Precio de Venta</th>
+                                <th nowrap>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b> {{ art.id_articulo }} </b></td>
+                                <td> {{ art.precio_lista }} </td>
+                                <td> {{ art.stock }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+
+                <hr>
+
+                <div class="container">
+                    <div class="row">
+                        <input routerLink="/detalle" type="button" value="Detalle de Producto" class="col-sm-6 form-control btn btn-outline-danger"> &nbsp;
+                        <input class="col-sm-3 form-control" id="ex1" type="number" placeholder="Cant."> &nbsp;
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-danger"><i
+                    class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </mat-card>
+            <br>
+        </div>
+    </div>
+</div>
