@@ -32,7 +32,7 @@ export class EspecificacionTecnicaComponent implements OnInit {
   }
 
   public traerUno() {
-    this.artService.TraerUno(this.art.id_articulo).subscribe(response => {
+    this.artService.TraerUno().subscribe(response => {
 
         this.art = response;
     },

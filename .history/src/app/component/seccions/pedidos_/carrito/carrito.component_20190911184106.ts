@@ -10,7 +10,7 @@ import { Cliente } from 'src/app/clases/cliente';
 import { AuthService } from '../../../../services/cliente/auth.service';
 import { AbmPedidoDetalleService } from '../../../../services/pedidos/abm-pedido-detalle.service';
 import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
-import { AllArticulosService } from '../../../../services/articulo/articulos.service';
+import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 
 @Component({
   selector: 'app-carrito',

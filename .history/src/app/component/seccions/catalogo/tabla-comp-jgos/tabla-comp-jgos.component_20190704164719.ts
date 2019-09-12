@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AllArticulosService } from '../../../../services/articulo/articulos.service';
+import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 import { Articulo } from 'src/app/clases/articulo';
 
 @Component({

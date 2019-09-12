@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AllArticulosService } from '../../../../services/articulo/articulos.service';
+import { AllArticulosService } from '../../../../services/articulo/consultas-articulos.service';
 import { Articulo } from '../../../../clases/articulo';
 
 @Component({
@@ -32,7 +32,7 @@ export class EspecificacionTecnicaComponent implements OnInit {
   }
 
   public traerUno() {
-    this.artService.TraerUno(this.art.id_articulo).subscribe(response => {
+    this.artService.traerUno().subscribe(response => {
 
         this.art = response;
     },

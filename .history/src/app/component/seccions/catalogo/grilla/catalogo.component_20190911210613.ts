@@ -61,7 +61,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.router.navigate(['especificacion']);
   }
 
-  public traerArt ( id: string) {
+  public traerArt (id: string) {
       this.artService.TraerUno(id).subscribe(response => {
         this.articulo = response;
       },

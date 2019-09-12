@@ -32,7 +32,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public identity: Cliente;
   public app: Aplicacion;
   public pedidoAbierto: Pedido;
-  public articulo: Articulo;
 
   constructor(
     public modalService: NgbModal,
@@ -59,15 +58,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.artService.show = false;
     this.showValue.emit({ show: this.artService.show });  // true, muestra grilla, false, muestra detalle de art
     this.router.navigate(['especificacion']);
-  }
-
-  public traerArt ( id: string) {
-      this.artService.TraerUno(id).subscribe(response => {
-        this.articulo = response;
-      },
-        error => {
-          console.error(error);
-        });
   }
 
   /*
