@@ -11,7 +11,6 @@ import { Pedido } from 'src/app/clases/pedido';
 import { Aplicacion } from 'src/app/clases/aplicacion';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 
-
 // services
 import { AplicacionesService } from 'src/app/services/aplicaciones/aplicaciones.service';
 import { AllArticulosService } from 'src/app/services/articulo/articulos.service';
@@ -61,9 +60,10 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.router.navigate(['especificacion']);
   }
 
-  public traerArt ( id: string) {
-      this.artService.TraerUno(id).subscribe(response => {
+  public traerArt ( item: ArtMarModMot ) {
+      this.artService.TraerUno(item.id_articulo).subscribe(response => {
         this.articulo = response;
+        return this.articulo.id_articulo;
       },
         error => {
           console.error(error);
