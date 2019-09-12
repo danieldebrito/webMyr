@@ -6,7 +6,11 @@
                 <mat-card-header class="card-header">
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title><strong>{{ item.id_producto }}</strong></mat-card-title>
-                    <mat-card-subtitle><strong> {{ item.id_aplicacion  }}</strong></mat-card-subtitle>
+                    <mat-card-subtitle>
+                        <strong> 
+                            {{ item.id_aplicacion  }}
+                        </strong>
+                    </mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                     <table class="table-responsive table-bordered">
@@ -18,7 +22,6 @@
                         <tbody>
                             <tr>
                                 <td colspan="4">
-                                    <b>{{ item.id_marca }} :</b> {{ item.modelo }}
                                     <b>{{ item.id_marca }} :</b> {{ item.modelo }}
                                 </td>
                             </tr>
