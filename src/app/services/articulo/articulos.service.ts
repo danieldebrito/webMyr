@@ -19,10 +19,10 @@ export class AllArticulosService {
     return this.miHttp.httpGetO<Articulo[]>('/articulos/');
   }
   public Baja(id: string): Promise<object> {
-    return this.miHttp.httpDeleteP('/articulos/' + '"' + id + '"');
+    return this.miHttp.httpDeleteP('/articulos/' + id );
   }
   public TraerUno(id: string): Observable<Articulo> {
-    return this.miHttp.httpGetO<Articulo>('/articulos/' + '"' + id + '"');
+    return this.miHttp.httpGetO<Articulo>('/articulos/' +  id );
   }
   public Alta(
     id_articulo: string,

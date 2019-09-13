@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
-// services
 import { HttpClientModule } from '@angular/common/http';
-
+// services //
+import { AuthService } from './services/cliente/auth.service';
+import { AbmPedidosService } from './services/pedidos/abm-pedidos.service';
+import { AbmPedidoDetalleService } from './services/pedidos/abm-pedido-detalle.service';
+import { ConsultasClientesService } from './services/cliente/consultas-clientes.service';
+import { ArtMarModMotService } from './services/articulo/art-mar-mod-mot.service';
+import { AllArticulosService } from './services/articulo/articulos.service';
+import { AplicacionesService } from './services/aplicaciones/aplicaciones.service';
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
-
 // styles
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModule } from './styles/ngBootstrap';
@@ -16,12 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './styles/material';
 import { PrimeNGModule } from './styles/primeNG';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
 // layout
 import { NavbarComponent } from './component/layout/navbar/navbar.component';
 import { BodyComponent } from './component/layout/body/body.component';
 import { FooterComponent } from './component/layout/footer/footer.component';
-
 // seccions
 import { NgbCarouselComponent } from './component/seccions/home/ngb-carousel/ngb-carousel.component';
 import { HomeComponent } from './component/seccions/home/home/home.component';
@@ -49,6 +51,7 @@ import { EspecificacionTecnicaComponent } from './component/seccions/catalogo/es
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
+// pipes
 import { AppPipe } from './pipes/app.pipe';
 
 @NgModule({
@@ -97,7 +100,15 @@ import { AppPipe } from './pipes/app.pipe';
     HttpClientModule,
     AngularFontAwesomeModule
   ],
-providers: [],
-  bootstrap: [AppComponent]
+providers: [
+  AbmPedidoDetalleService,
+  AbmPedidosService,
+  AuthService,
+  ConsultasClientesService,
+  ArtMarModMotService,
+  AllArticulosService,
+  AplicacionesService
+],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -27,6 +27,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
   @Input() allItems: ArtMarModMot[];
   @Output() showValue = new EventEmitter();
 
+  public item: ArtMarModMot;
   public mensaje: any;
   public identity: Cliente;
   public pedidoAbierto: Pedido;
@@ -63,22 +64,13 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public traerArt(item: ArtMarModMot) {
     this.artService.TraerUno(item.id_articulo).subscribe(response => {
       this.articulo = response;
-      // this.app = this.articulo.id_aplicacion;
-      // return this.app;
-      // alert(item.id_articulo);
-      return item.id_articulo;
+
+      // alert(this.articulo.id_articulo);
+      return this.articulo.id_articulo;
     },
       error => {
         console.error(error);
       });
-  }
-
-  public traeArt() {
-    this.artService.TraerUno('01-2610 S').subscribe(response => {
-      alert(response.id_articulo);
-    }, error => {
-      console.error(error);
-    });
   }
 
   /*
@@ -130,9 +122,8 @@ export class CatalogoComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
     this.traeAbierto();
-
-    this.traeArt();
   }
+
 
   ngDoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();
