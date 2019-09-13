@@ -63,9 +63,9 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public traerArt(item: ArtMarModMot) {
     this.artService.TraerUno(item.id_articulo).subscribe(response => {
       this.articulo = response;
-      // this.app = this.articulo.id_aplicacion;
+      //  this.app = this.articulo.id_aplicacion;
       // return this.app;
-      // alert(item.id_articulo);
+      // alert(item.id_articulo + 'art:' + this.articulo.id_articulo);
       return item.id_articulo;
     },
       error => {
@@ -130,8 +130,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
     this.traeAbierto();
-
-    this.traeArt();
   }
 
   ngDoCheck() {

@@ -45,11 +45,11 @@ export class CatalogoComponent implements OnInit, DoCheck {
   }
 
   public readAppID(id: string) {
-    this.appService.readOneApp(id).subscribe(response => {
+    this.appService.readOneApp(id).subscribe( response => {
       return response.aplicacion;
     },
       error => {
-        console.error(error);
+          console.error(error);
       });
   }
 
@@ -60,25 +60,17 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.router.navigate(['especificacion']);
   }
 
-  public traerArt(item: ArtMarModMot) {
-    this.artService.TraerUno(item.id_articulo).subscribe(response => {
-      this.articulo = response;
-      // this.app = this.articulo.id_aplicacion;
-      // return this.app;
-      // alert(item.id_articulo);
-      return item.id_articulo;
-    },
-      error => {
-        console.error(error);
-      });
-  }
-
-  public traeArt() {
-    this.artService.TraerUno('01-2610 S').subscribe(response => {
-      alert(response.id_articulo);
-    }, error => {
-      console.error(error);
-    });
+  public traerArt ( item: ArtMarModMot ) {
+      this.artService.TraerUno(item.id_articulo).subscribe(response => {
+        this.articulo = response;
+      //  this.app = this.articulo.id_aplicacion;
+       // return this.app;
+        alert(item.id_articulo);
+        return item.id_articulo;
+      },
+        error => {
+          console.error(error);
+        });
   }
 
   /*
@@ -112,7 +104,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
       });*/
   }
 
-  public traeCreaAbierto() {
+  public traeCreaAbierto () {
     this.traeAbierto();
     if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
       // this.altaPedido();
@@ -130,8 +122,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
     this.traeAbierto();
-
-    this.traeArt();
   }
 
   ngDoCheck() {

@@ -63,9 +63,9 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public traerArt(item: ArtMarModMot) {
     this.artService.TraerUno(item.id_articulo).subscribe(response => {
       this.articulo = response;
-      // this.app = this.articulo.id_aplicacion;
+      //  this.app = this.articulo.id_aplicacion;
       // return this.app;
-      // alert(item.id_articulo);
+      alert(item.id_articulo);
       return item.id_articulo;
     },
       error => {
