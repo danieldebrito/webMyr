@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from '../component/seccions/page-not-found/page
 import { HomeComponent } from '../component/seccions/home/home/home.component';
 import { FiltroComponent } from '../component/seccions/catalogo/filtro/filtro.component';
 import { DetalleComponent } from '../component/seccions/catalogo/detalle/detalle.component';
+import { EspecificacionTecnicaComponent } from '../component/seccions/catalogo/especificacion-tecnica/especificacion-tecnica.component';
 import { QuienSoyComponent } from '../component/seccions/quien-soy/quien-soy.component';
 import { ContactComponent } from '../component/seccions/contact/contact.component';
 import { DtoTecnicoComponent } from '../component/seccions/dto-tecnico/dto-tecnico.component';
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalogo', component: FiltroComponent },
   { path: 'detalle', component: DetalleComponent },
+  { path: 'especificacion', component: EspecificacionTecnicaComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'pedidos', component: PedidosComponent },
   { path: 'about', component: QuienSoyComponent },
