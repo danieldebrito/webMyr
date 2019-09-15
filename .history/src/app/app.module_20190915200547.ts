@@ -104,7 +104,7 @@ providers: [
   AuthService,
   ConsultasClientesService,
   ArtMarModMotService,
-  ArticulosService,
+  AllArticulosService,
   AplicacionesService
 ],
   bootstrap: [AppComponent],

@@ -36,7 +36,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
 
   constructor(
     public modalService: NgbModal,
-    public artService: ArticulosService,
+    public artService: AllArticulosService,
     public pedidosService: AbmPedidosService,
     private authService: AuthService,
     private appService: AplicacionesService,
