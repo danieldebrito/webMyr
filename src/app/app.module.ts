@@ -82,8 +82,7 @@ import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp
     AbmSucursalesComponent,
     CarouselDetailComponent,
     TablaProdVersionComponent,
-    TablaCompJgosComponent,
-    AppPipe
+    TablaCompJgosComponent
   ],
   imports: [
     BrowserModule,
