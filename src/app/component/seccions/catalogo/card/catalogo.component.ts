@@ -12,9 +12,11 @@ import { Aplicacion } from 'src/app/clases/aplicacion';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 
 // services
-import { AplicacionesService } from 'src/app/services/aplicaciones/aplicaciones.service';
+import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
+import { ProductosService } from 'src/app/services/articulo/productos.service';
 import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
+
 
 @Component({
   selector: 'app-catalogo',
@@ -40,18 +42,10 @@ export class CatalogoComponent implements OnInit, DoCheck {
     public pedidosService: AbmPedidosService,
     private authService: AuthService,
     private appService: AplicacionesService,
+    private prodService: ProductosService,
     private router: Router
   ) {
     this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
-  }
-
-  public readAppID(id: string) {
-    this.appService.readOneApp(id).subscribe(response => {
-      return response.aplicacion;
-    },
-      error => {
-        console.error(error);
-      });
   }
 
   public cambiarVista(art: Articulo) {
@@ -71,6 +65,10 @@ export class CatalogoComponent implements OnInit, DoCheck {
       error => {
         console.error(error);
       });
+  }
+
+  public traerApp () {
+
   }
 
   /*

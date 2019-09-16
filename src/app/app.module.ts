@@ -10,7 +10,7 @@ import { AbmPedidoDetalleService } from './services/pedidos/abm-pedido-detalle.s
 import { ConsultasClientesService } from './services/cliente/consultas-clientes.service';
 import { ArtMarModMotService } from './services/articulo/art-mar-mod-mot.service';
 import { ArticulosService } from './services/articulo/articulos.service';
-import { AplicacionesService } from './services/aplicaciones/aplicaciones.service';
+import { AplicacionesService } from './services/articulo/aplicaciones.service';
 // rutas
 import { AppRoutingModule } from './routes/app-routing.module';
 // styles
@@ -51,7 +51,6 @@ import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
 // pipes
-import { AppPipe } from './pipes/app.pipe';
 
 @NgModule({
   declarations: [

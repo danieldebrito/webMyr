@@ -29,7 +29,7 @@ export class FiltroComponent implements OnInit {
     public id_producto: string;
     public id_aplicacion: string;
 
-    // public allItems: Articulo[];  // todos.
+    public allArticulos: Articulo[] = [];
     public allItems: ArtMarModMot[];
     public filtroItems;
 
@@ -242,6 +242,9 @@ export class FiltroComponent implements OnInit {
     ngOnInit() {
         this.Limpiar();
         this.Filtrar();
+
+        localStorage.clear();
+        this.artService.GuardarArtLocalStorage();
     }
 }
 

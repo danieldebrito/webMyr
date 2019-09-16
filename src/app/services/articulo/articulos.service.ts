@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Articulo } from '../../clases/articulo';
-import { BaseService } from '../base.service';
+import { Articulo } from 'src/app/clases/articulo';
+import { BaseService } from 'src/app/services/base.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 
 export class ArticulosService {
 
+  public allArticulos: Articulo[] = [];
   public artDetalle: Articulo;
   public show: boolean; // true, muestra grilla, false, muestra detalle de art
   public showDetail: boolean; // true, muestra varciones, false, muestra detalle de juego, en detalle de producto
@@ -19,10 +20,10 @@ export class ArticulosService {
     return this.miHttp.httpGetO<Articulo[]>('/articulos/');
   }
   public Baja(id: string): Promise<object> {
-    return this.miHttp.httpDeleteP('/articulos/' + id );
+    return this.miHttp.httpDeleteP('/articulos/' + id);
   }
   public TraerUno(id: string): Observable<Articulo> {
-    return this.miHttp.httpGetO<Articulo>('/articulos/' +  id );
+    return this.miHttp.httpGetO<Articulo>('/articulos/' + id);
   }
   public Alta(
     id_articulo: string,
@@ -115,6 +116,22 @@ export class ArticulosService {
       origen
     };
     return this.miHttp.httpPostP('/articulos/update', request);
+  }
+
+  public GuardarArtLocalStorage() {
+    this.Listar().subscribe(response => {
+      this.allArticulos = response;
+      localStorage.setItem('allArticulos', JSON.stringify(this.allArticulos));
+
+      return this.allArticulos;
+    },
+      error => {
+        console.error(error);
+      });
+  }
+
+  public LeerArtLocalStorage() {
+    this.allArticulos = JSON.parse(localStorage.getItem('allArticulos'));
   }
 }
 
