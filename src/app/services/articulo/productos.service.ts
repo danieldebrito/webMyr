@@ -61,5 +61,16 @@ export class ProductosService {
 
   public LeerArtLocalStorage() {
     this.allProductos = JSON.parse(localStorage.getItem('allProductos'));
+    return this.allProductos;
+  }
+
+  public traerProd ( id: string ) {
+    const tam = this.allProductos.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allProductos[i].id_producto === id) {
+        return this.allProductos[i].producto;
+      }
+    }
   }
 }

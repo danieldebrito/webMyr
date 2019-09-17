@@ -67,9 +67,8 @@ export class CatalogoComponent implements OnInit, DoCheck {
       });
   }
 
-  public traerApp () {
 
-  }
+
 
   /*
   public altaPedido() {
@@ -121,7 +120,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.identity = this.authService.getIdentityLocalStorage();
     this.traeAbierto();
   }
-
 
   ngDoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();

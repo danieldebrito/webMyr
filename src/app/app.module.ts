@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// rutas
+import { AppRoutingModule } from './routes/app-routing.module';
 // services //
 import { AuthService } from './services/cliente/auth.service';
 import { AbmPedidosService } from './services/pedidos/abm-pedidos.service';
@@ -11,8 +13,6 @@ import { ConsultasClientesService } from './services/cliente/consultas-clientes.
 import { ArtMarModMotService } from './services/articulo/art-mar-mod-mot.service';
 import { ArticulosService } from './services/articulo/articulos.service';
 import { AplicacionesService } from './services/articulo/aplicaciones.service';
-// rutas
-import { AppRoutingModule } from './routes/app-routing.module';
 // styles
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BootstrapModule } from './styles/ngBootstrap';
@@ -51,6 +51,8 @@ import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
 // pipes
+import { TraeAppPipe } from './pipes/trae-app.pipe';
+import { TraeProdPipe } from './pipes/trae-prod.pipe';
 
 @NgModule({
   declarations: [
@@ -82,8 +84,10 @@ import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp
     AbmSucursalesComponent,
     CarouselDetailComponent,
     TablaProdVersionComponent,
-    TablaCompJgosComponent
-  ],
+    TablaCompJgosComponent,
+    TraeAppPipe,
+    TraeProdPipe
+    ],
   imports: [
     BrowserModule,
     NgbModule,

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-
-// services
-import { ArticulosService } from 'src/app/services/articulo/articulos.service';
-import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
 // classes
 import { Articulo } from 'src/app/clases/articulo';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
+import { Aplicacion } from 'src/app/clases/aplicacion';
+import { Producto } from 'src/app/clases/producto';
+// services
+import { ArticulosService } from 'src/app/services/articulo/articulos.service';
+import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
+import { ProductosService } from 'src/app/services/articulo/productos.service';
+import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
 
 @Component({
     selector: 'app-filtro',
@@ -33,6 +36,9 @@ export class FiltroComponent implements OnInit {
     public allItems: ArtMarModMot[];
     public filtroItems;
 
+    public app: Aplicacion[] = [];
+    public prod: void[] /*: Producto[] */ = [];
+
     // columnas sin repeticion.
     public columnaLinea: string[];
     public columnaMarca: string[];
@@ -51,6 +57,8 @@ export class FiltroComponent implements OnInit {
 
     constructor(
         private artService: ArticulosService,
+        private appService: AplicacionesService,
+        private prodService: ProductosService,
         private ammmService: ArtMarModMotService
         ) {
         this.show = true;
@@ -86,6 +94,7 @@ export class FiltroComponent implements OnInit {
                 console.error(error);
             });
     }
+
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
             this.filtroItems = response;
@@ -106,6 +115,7 @@ export class FiltroComponent implements OnInit {
                 console.error(error);
             });
     }
+
     public LimpiaColumnas () {
         this.columnaLinea = [];
         this.columnaMarca = [];
@@ -119,6 +129,11 @@ export class FiltroComponent implements OnInit {
 
         this.Colunmas(this.filtroItems);
     }
+
+    public buscarProd () {
+        console.log(this.appService.LeerArtLocalStorage());
+    }
+
     public Filtrar() {
         this.ammmService.FiltrarP(
             this.id_linea,
@@ -142,6 +157,7 @@ export class FiltroComponent implements OnInit {
                 }
             );
     }
+
     public Colunmas(items: ArtMarModMot[]) {
         let arrayAuxLinea: string[] = [];
         let arrayAuxMarca: string[] = [];
@@ -243,8 +259,7 @@ export class FiltroComponent implements OnInit {
         this.Limpiar();
         this.Filtrar();
 
-        localStorage.clear();
-        this.artService.GuardarArtLocalStorage();
+        this.buscarProd();
     }
 }
 

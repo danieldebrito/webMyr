@@ -65,6 +65,19 @@ export class AplicacionesService {
 
   public LeerArtLocalStorage() {
     this.allAplicaciones = JSON.parse(localStorage.getItem('allAplicaciones'));
+    return this.allAplicaciones;
   }
+
+  public traerApp ( id: string ) {
+    const tam = this.allAplicaciones.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allAplicaciones[i].id_aplicacion === id) {
+        return this.allAplicaciones[i].aplicacion;
+      }
+    }
+  }
+
+
 
 }
