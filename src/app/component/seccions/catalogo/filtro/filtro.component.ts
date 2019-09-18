@@ -8,6 +8,9 @@ import { Producto } from 'src/app/clases/producto';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
 import { ProductosService } from 'src/app/services/articulo/productos.service';
+import { MarcasService } from 'src/app/services/articulo/marcas.service';
+import { LineasService } from 'src/app/services/articulo/lineas.service';
+import { CombustiblesService } from 'src/app/services/articulo/combustibles.service';
 import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
 
 @Component({
@@ -59,6 +62,9 @@ export class FiltroComponent implements OnInit {
         private artService: ArticulosService,
         private appService: AplicacionesService,
         private prodService: ProductosService,
+        private marcaService: MarcasService,
+        private combService: CombustiblesService,
+        private lineaService: LineasService,
         private ammmService: ArtMarModMotService
         ) {
         this.show = true;
@@ -130,22 +136,19 @@ export class FiltroComponent implements OnInit {
         this.Colunmas(this.filtroItems);
     }
 
-    public buscarProd () {
-        console.log(this.appService.LeerArtLocalStorage());
-    }
-
     public Filtrar() {
         this.ammmService.FiltrarP(
-            this.id_linea,
-            this.id_marca,
-            this.id_combustible,
+            this.lineaService.traerId(this.id_linea),
+            this.marcaService.traerId(this.id_marca),
+            this.combService.traerId(this.id_combustible),
             this.motor,
             this.modelo,
             this.cilindrada,
             this.competicion,
-            this.id_producto,
-            this.id_aplicacion).then(
+            this.prodService.traerId(this.id_producto),
+            this.appService.traerId(this.id_aplicacion)).then(
                 response => {
+                    // alert(this.prodService.traerId(this.id_producto));
                     this.filtroItems = response;
                     this.allItems = this.filtroItems;
                     this.Colunmas(this.allItems);
@@ -257,9 +260,6 @@ export class FiltroComponent implements OnInit {
 
     ngOnInit() {
         this.Limpiar();
-        this.Filtrar();
-
-        this.buscarProd();
     }
 }
 

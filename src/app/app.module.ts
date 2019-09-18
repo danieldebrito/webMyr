@@ -53,6 +53,9 @@ import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp
 // pipes
 import { TraeAppPipe } from './pipes/trae-app.pipe';
 import { TraeProdPipe } from './pipes/trae-prod.pipe';
+import { TraeMarcaPipe } from './pipes/trae-marca.pipe';
+import { TraeLineaPipe } from './pipes/trae-linea.pipe';
+import { TraeCombPipe } from './pipes/trae-comb.pipe';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,10 @@ import { TraeProdPipe } from './pipes/trae-prod.pipe';
     TablaProdVersionComponent,
     TablaCompJgosComponent,
     TraeAppPipe,
-    TraeProdPipe
+    TraeProdPipe,
+    TraeMarcaPipe,
+    TraeLineaPipe,
+    TraeCombPipe
     ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@ export class MarcasService {
   }
 
   public TraerUno(id: string): Observable<Marca> {
-    return this.miHttp.httpGetO<Marca>('/marcas/' +  id );
+    return this.miHttp.httpGetO<Marca>('/marcas/' + '"' + id + '"' );
   }
 
   public Alta(
@@ -64,12 +64,22 @@ export class MarcasService {
     return this.allMarcas;
   }
 
-  public traerProd ( id: string ) {
+  public traerMarca ( id: string ) {
     const tam = this.allMarcas.length;
 
     for ( let i = 0 ; i < tam ; i++) {
       if (this.allMarcas[i].id_marca === id) {
         return this.allMarcas[i].marca;
+      }
+    }
+  }
+
+  public traerId ( marca: string ) {
+    const tam = this.allMarcas.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allMarcas[i].marca === marca) {
+        return this.allMarcas[i].id_marca;
       }
     }
   }

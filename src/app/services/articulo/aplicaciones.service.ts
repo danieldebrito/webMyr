@@ -78,6 +78,14 @@ export class AplicacionesService {
     }
   }
 
+  public traerId ( aplicacion: string ) {
+    const tam = this.allAplicaciones.length;
 
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allAplicaciones[i].aplicacion === aplicacion) {
+        return this.allAplicaciones[i].id_aplicacion;
+      }
+    }
+  }
 
 }

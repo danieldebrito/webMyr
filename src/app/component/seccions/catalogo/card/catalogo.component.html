@@ -26,7 +26,7 @@
                         <tbody>
                             <tr>
                                 <td colspan="4">
-                                    <b>{{ item.id_marca }} :</b> {{ item.modelo }}
+                                    <b>{{ item.id_marca | traeMarca }} :</b> {{ item.modelo }}
                                 </td>
                             </tr>
                         </tbody>
@@ -47,8 +47,7 @@
                             </tr>
                             <tr>
                                 <td colspan="4">
-                                    <!-- <img src= '{{ art.img_peq_url }}'   alt="" srcset="">  -->
-                                    <!-- <img src= '{{ art.img_peq_url }}' alt="" srcset=""><br> -->
+                                    <img src= {{traeUrlImgArt(item.id_articulo)}} alt="" srcset="">  
                                     <app-carousel-detail [art]='item'></app-carousel-detail>
                                 </td>
                             </tr>

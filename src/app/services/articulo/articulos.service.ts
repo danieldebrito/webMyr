@@ -133,5 +133,15 @@ export class ArticulosService {
   public LeerArtLocalStorage() {
     this.allArticulos = JSON.parse(localStorage.getItem('allArticulos'));
   }
+
+  public traerImgArt ( id: string ) {
+    const tam = this.allArticulos.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allArticulos[i].id_articulo === id) {
+        return this.allArticulos[i].img_peq_url;
+      }
+    }
+  }
 }
 

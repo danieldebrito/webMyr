@@ -73,4 +73,14 @@ export class ProductosService {
       }
     }
   }
+
+  public traerId ( producto: string ) {
+    const tam = this.allProductos.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allProductos[i].producto === producto) {
+        return this.allProductos[i].id_producto;
+      }
+    }
+  }
 }

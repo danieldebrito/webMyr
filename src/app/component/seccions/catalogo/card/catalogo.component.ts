@@ -67,6 +67,9 @@ export class CatalogoComponent implements OnInit, DoCheck {
       });
   }
 
+  public traeUrlImgArt(id: string) {
+    return this.artService.traerImgArt(id);
+  }
 
 
 

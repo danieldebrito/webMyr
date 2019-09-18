@@ -69,7 +69,7 @@
                       <select [(ngModel)]="id_linea" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled>Selecione la Linea</option>
                         <option *ngFor="let art of columnaLinea">
-                          {{ art }}
+                          {{ art | traeLinea  }}
                         </option>
                       </select>
                     </div>
@@ -80,7 +80,7 @@
                       <select [(ngModel)]="id_marca" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled>Selecione la Marca</option>
                         <option *ngFor="let art of columnaMarca">
-                          {{ art }}
+                          {{ art | traeMarca }}
                         </option>
                       </select>
                     </div>
@@ -91,7 +91,7 @@
                       <select [(ngModel)]="id_combustible" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled>Selecione el Combustible</option>
                         <option *ngFor="let art of columnaComb">
-                          {{ art }}
+                          {{ art | traeComb }}
                         </option>
                       </select>
                     </div>
@@ -156,7 +156,7 @@
                       <select [(ngModel)]="id_producto" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled>Selecione el Producto</option>
                         <option *ngFor="let art of columnaProd">
-                          {{ art }}
+                          {{ art  | traeProd }}
                         </option>
                       </select>
                     </div>
@@ -167,7 +167,7 @@
                       <select [(ngModel)]="id_aplicacion" [ngModelOptions]="{standalone: true}">
                         <option value="" disabled>Selecione la Aplicacion</option>
                         <option *ngFor="let art of columnaApp">
-                          {{ art }}
+                          {{ art  | traeApp }}
                         </option>
                       </select>
                     </div>
