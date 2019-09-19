@@ -143,5 +143,16 @@ export class ArticulosService {
       }
     }
   }
+
+  public traerArtLocalStorage ( id: string ) {
+    const tam = this.allArticulos.length;
+
+    for ( let i = 0 ; i < tam ; i++) {
+      if (this.allArticulos[i].id_articulo === id) {
+        return this.allArticulos[i];
+      }
+    }
+  }
+
 }
 

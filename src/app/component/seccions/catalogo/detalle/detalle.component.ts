@@ -22,7 +22,7 @@ export class DetalleComponent implements OnInit {
 
   constructor(private artService: ArticulosService) {
     this.showDetail = false;
-    this.art = new Articulo('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+    this.art = new Articulo('', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '');
   }
 
   cambiaVista() {

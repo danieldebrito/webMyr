@@ -4,8 +4,9 @@ export class Pedido {
         public id_cliente: string,
         public id_sucursal: string,
         public id_expreso: string,
-        public estado: string,    // DEFAULT => 'inhabilitado'
+        public estado: string, // DEFAULT => 'inhabilitado'
+        public envio: string,
         public fecha: string,
-        public observ: string
+        public observaciones: string
     ) { }
 }

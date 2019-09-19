@@ -39,8 +39,8 @@ import { LoginComponent } from './component/seccions/clientes/login/login.compon
 import { RegistroComponent } from './component/seccions/clientes/registro/registro.component';
 import { RecupPasswordComponent } from './component/seccions/clientes/recup-password/recup-password.component';
 import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
-import { CarritoComponent } from './component/seccions/pedidos_/carrito/carrito.component';
-import { PedidosComponent } from './component/seccions/pedidos_/pedidos/pedidos.component';
+import { CarritoComponent } from './component/seccions/pedidos/carrito/carrito.component';
+import { PedidosComponent } from './component/seccions/pedidos/pedidos/pedidos.component';
 import { MisDatosComponent } from './component/seccions/clientes/mis-datos/mis-datos.component';
 import { RegistroUsersComponent } from './component/seccions/users/registro-users/registro-users.component';
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
@@ -56,6 +56,7 @@ import { TraeProdPipe } from './pipes/trae-prod.pipe';
 import { TraeMarcaPipe } from './pipes/trae-marca.pipe';
 import { TraeLineaPipe } from './pipes/trae-linea.pipe';
 import { TraeCombPipe } from './pipes/trae-comb.pipe';
+import { BotonComprarComponent } from './component/seccions/pedidos/boton-comprar/boton-comprar.component';
 
 @NgModule({
   declarations: [
@@ -92,8 +93,8 @@ import { TraeCombPipe } from './pipes/trae-comb.pipe';
     TraeProdPipe,
     TraeMarcaPipe,
     TraeLineaPipe,
-    TraeCombPipe
-    ],
+    TraeCombPipe,
+    BotonComprarComponent    ],
   imports: [
     BrowserModule,
     NgbModule,

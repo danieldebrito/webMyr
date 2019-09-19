@@ -14,8 +14,8 @@ import { LoginComponent } from '../component/seccions/clientes/login/login.compo
 import { RegistroComponent } from '../component/seccions/clientes/registro/registro.component';
 import { RecupPasswordComponent } from '../component/seccions/clientes/recup-password/recup-password.component';
 import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-datos.component';
-import { CarritoComponent } from '../component/seccions/pedidos_/carrito/carrito.component';
-import { PedidosComponent } from '../component/seccions/pedidos_/pedidos/pedidos.component';
+import { CarritoComponent } from '../component/seccions/pedidos/carrito/carrito.component';
+import { PedidosComponent } from '../component/seccions/pedidos/pedidos/pedidos.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from '../component/seccions/clientes/abm-sucursales/abm-sucursales.component';

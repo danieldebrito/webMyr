@@ -3,20 +3,14 @@ import { AuthService } from 'src/app/services/cliente/auth.service';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/carousel-detail/carousel-detail.component';
-
 // class
 import { Articulo } from 'src/app/clases/articulo';
 import { Cliente } from 'src/app/clases/cliente';
 import { Pedido } from 'src/app/clases/pedido';
-import { Aplicacion } from 'src/app/clases/aplicacion';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
-
 // services
-import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
-import { ProductosService } from 'src/app/services/articulo/productos.service';
 import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
-
 
 @Component({
   selector: 'app-catalogo',
@@ -30,19 +24,15 @@ export class CatalogoComponent implements OnInit, DoCheck {
   @Output() showValue = new EventEmitter();
 
   public item: ArtMarModMot;
-  public mensaje: any;
+  public articulo: Articulo;
   public identity: Cliente;
   public pedidoAbierto: Pedido;
-  public articulo: Articulo;
-  public app: string;
 
   constructor(
     public modalService: NgbModal,
     public artService: ArticulosService,
     public pedidosService: AbmPedidosService,
     private authService: AuthService,
-    private appService: AplicacionesService,
-    private prodService: ProductosService,
     private router: Router
   ) {
     this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
@@ -55,16 +45,10 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.router.navigate(['especificacion']);
   }
 
+  /* trae el art por cada item y retorna el precio para usar en el html */
   public traerArt(item: ArtMarModMot) {
-    this.artService.TraerUno(item.id_articulo).subscribe(response => {
-      this.articulo = response;
-
-      // alert(this.articulo.id_articulo);
-      return this.articulo.id_articulo;
-    },
-      error => {
-        console.error(error);
-      });
+    this.articulo = this.artService.traerArtLocalStorage(item.id_articulo);
+    return this.articulo.precio_lista;
   }
 
   public traeUrlImgArt(id: string) {
@@ -121,7 +105,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
-    this.traeAbierto();
   }
 
   ngDoCheck() {

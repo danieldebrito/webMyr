@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <td colspan="4">
-                                    <img src= {{traeUrlImgArt(item.id_articulo)}} alt="" srcset="">  
+                                    <img src={{traeUrlImgArt(item.id_articulo)}} alt="" srcset="">
                                     <app-carousel-detail [art]='item'></app-carousel-detail>
                                 </td>
                             </tr>
@@ -63,8 +63,10 @@
                         <tbody>
                             <tr>
                                 <td><b> {{ item.id_articulo }} </b></td>
-                                <td> {{ '' }} </td>
-                                <td> {{ '' }} </td>
+                                <td> {{ traerArt(item) }} </td>
+                                <td> {{ traerArt(item) * 1.3 }} </td>
+                                <!-- | number: '1.2-2':'fr' -->
+                                <td> {{ articulo.stock }} </td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,15 +76,12 @@
 
                 <div class="container">
                     <div class="row">
-                        <input routerLink="/detalle" type="button" value="Detalle de Producto" class="col-sm-6 form-control btn btn-outline-danger"> &nbsp;
+                        <input routerLink="/detalle" type="button" value="Detalle de Producto"
+                            class="col-sm-6 form-control btn btn-outline-danger"> &nbsp;
                         <input class="col-sm-3 form-control" id="ex1" type="number" placeholder="Cant."> &nbsp;
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-danger"><i
-                    class="fas fa-cart-plus"></i></button>
-                        </div>
+                        <app-boton-comprar></app-boton-comprar>
                     </div>
                 </div>
-
             </mat-card>
             <br>
         </div>
