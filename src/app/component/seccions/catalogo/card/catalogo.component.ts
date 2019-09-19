@@ -6,11 +6,9 @@ import { CarouselDetailComponent } from 'src/app/component/seccions/catalogo/car
 // class
 import { Articulo } from 'src/app/clases/articulo';
 import { Cliente } from 'src/app/clases/cliente';
-import { Pedido } from 'src/app/clases/pedido';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 // services
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
-import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -26,17 +24,13 @@ export class CatalogoComponent implements OnInit, DoCheck {
   public item: ArtMarModMot;
   public articulo: Articulo;
   public identity: Cliente;
-  public pedidoAbierto: Pedido;
 
   constructor(
     public modalService: NgbModal,
     public artService: ArticulosService,
-    public pedidosService: AbmPedidosService,
     private authService: AuthService,
     private router: Router
-  ) {
-    this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
-  }
+  ) { }
 
   public cambiarVista(art: Articulo) {
     this.artService.artDetalle = art;
@@ -53,49 +47,6 @@ export class CatalogoComponent implements OnInit, DoCheck {
 
   public traeUrlImgArt(id: string) {
     return this.artService.traerImgArt(id);
-  }
-
-
-
-  /*
-  public altaPedido() {
-    this.pedidosService.altaPedido(
-      this.identity.id,
-      '',
-      '',
-      this.pedidosService.getfecha(),
-      ''
-    ).then(
-      response => {
-        this.mensaje = response;  //  agregar, no hay nada en el response
-        // this.router.navigate(['home']);  //  redirecciona a HOME
-      }
-    ).catch(
-      error => {
-        console.error('ERROR DEL SERVIDOR', error);
-      }
-    );
-    this.traeAbierto();
-  }*/
-
-  public traeAbierto() {/*
-    this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
-      this.pedidoAbierto = response;
-      console.log(this.pedidoAbierto);
-    },
-      error => {
-        console.error(error);
-      });*/
-  }
-
-  public traeCreaAbierto() {
-    this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
-      // this.altaPedido();
-      this.traeAbierto();
-    } else {
-      // this.traeAbierto();
-    }
   }
 
   open() {

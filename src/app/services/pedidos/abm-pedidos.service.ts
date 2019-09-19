@@ -77,11 +77,7 @@ export class AbmPedidosService {
     return this.miHttp.httpPostP('/pedidos/update', request);
   }
 
-
-
-
-
-  public traerIDpedidoAbierto(id_cliente: string): Observable<Pedido> {
+  public traerpedidoAbierto(id_cliente: string): Observable<Pedido> {
     return this.miHttp.httpGetO<Pedido>('/pedido/abierto/' + id_cliente);
   } // pedido de un mismo cliente abierto
 
@@ -103,26 +99,6 @@ export class AbmPedidosService {
     const ret = this.fecha;
 
     return ret;
-  }
-
-
-
-  public traeAbierto() {
-    this.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
-      this.pedidoAbierto = response;
-      console.log(this.pedidoAbierto);
-    },
-      error => {
-        console.error(error);
-      });
-  }
-
-  public traeCreaAbierto() {
-    this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
-    //  this.altaPedidoP();
-      this.traeAbierto();
-    }
   }
 }
 
