@@ -20,10 +20,10 @@ export class AbmPedidoDetalleService {
         id_articulo: id_articulo,
         cantidad: cantidad
     };
-    return this.miHttp.httpPostP('/pedidos_detalle/', request);
+    return this.miHttp.httpPostP('/pedido_detalle/', request);
   }  // alta
 
   public traerUno(id: string): Observable<PedidoDetalle> {
-    return this.miHttp.httpGetO<PedidoDetalle>('/pedidos_detalle/' + '"' + id + '"');
+    return this.miHttp.httpGetO<PedidoDetalle>('/pedido_detalle/' + '"' + id + '"');
   }  // trae uno por id
 }

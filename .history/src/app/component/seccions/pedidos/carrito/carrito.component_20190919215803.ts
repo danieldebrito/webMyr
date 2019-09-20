@@ -56,7 +56,7 @@ public altaPedido() {
 }*/
 
 public traeAbierto() {
-  this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
+  this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
     this.pedidoAbierto = response;
     console.log(this.pedidoAbierto);
   },
