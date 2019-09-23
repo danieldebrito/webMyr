@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AbmPedidosService } from '../../../../services/pedidos/abm-pedidos.service';
+import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
 import { Cliente } from 'src/app/clases/cliente';
-import { AuthService } from '../../../../services/cliente/auth.service';
+import { AuthService } from 'src/app/services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
 import { Router } from '@angular/router';
 
@@ -28,9 +28,9 @@ export class PedidosComponent implements OnInit {
     private authService: AuthService,
     private router: Router) { }
 
- /* public altaPedido() {
+   /* public altaPedido() {
     if (this.identity) {
-      this.pedidosService.altaPedido(
+      this.pedidosService.alta(
         this.identity.id,
         this.id_sucursal,
         this.id_expreso,
@@ -52,10 +52,12 @@ export class PedidosComponent implements OnInit {
       this.authService.redirectUrl = '/loginUsr';
       this.router.navigate([this.authService.redirectUrl]);  // redirige a login si no esta logueado
     }
-  }*/
+  }
+
+  */
 
   public Listar() {
-    this.pedidosService.ListarO(this.identity.id).subscribe(response => {
+    this.pedidosService.ListarPedidosCliente(this.identity.id).subscribe(response => {
       this.allPedidos = response;
     },
       error => {

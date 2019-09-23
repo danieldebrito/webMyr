@@ -78,11 +78,11 @@ export class AbmPedidosService {
   }
 
   public traerpedidoAbierto(id_cliente: string): Observable<Pedido> {
-    return this.miHttp.httpGetO<Pedido>('/pedidos/abierto/' + id_cliente);
+    return this.miHttp.httpGetO<Pedido>('/pedidos/abierto/' + '"' + id_cliente + '"' );
   } // pedido de un mismo cliente abierto
 
-  public ListarO(id_cliente): Observable<Pedido[]> {
-    return this.miHttp.httpGetO<Pedido[]>('/pedidos/cliente/' + id_cliente);
+  public ListarPedidosCliente(id_cliente): Observable<Pedido[]> {
+    return this.miHttp.httpGetO<Pedido[]>('/pedidos/cliente/' + '"' + id_cliente);
   } // lista todos los pedidos de un cliente
 
   getfecha() {
@@ -105,23 +105,7 @@ export class AbmPedidosService {
 
 /*
 
-  public Listar(): Observable<MaquinaRepuesto[]> {
-    return this.miHttp.httpGetO<MaquinaRepuesto[]>('/maquinaRepuestos/');
-  }
-  public Baja(id: string): Promise<object> {
-    return this.miHttp.httpDeleteP('/maquinaRepuestos/' + '"' + id + '"');
-  }
-  public TraerUno(id: string): Observable<MaquinaRepuesto> {
-    return this.miHttp.httpGetO<MaquinaRepuesto>('/maquinaRepuestos/' + '"' + id + '"');
-  }
-  public Alta( detalle: string, marca: string, codigo: string ): Promise<object> {
-      const request: object = {
-        detalle,
-        marca,
-        codigo
-    };
-      return this.miHttp.httpPostP('/maquinaRepuestos/', request);
-  }
+
   public Update( idRepuesto: string, detalle: string, marca: string, codigo: string ): Promise<object> {
       const request: object = {
         idRepuesto,

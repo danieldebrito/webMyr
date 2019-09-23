@@ -23,13 +23,17 @@ export class BotonComprarComponent implements OnInit, DoCheck {
     private authService: AuthService) { }
 
   public traePedidoAbierto() {
-
     if (this.identity.id === null) {
       alert('debe estar registrado');
     } else {
       this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
         this.pedido = response;
-        alert(this.pedido);
+
+        if (this.pedido) {
+          alert(this.pedido.id_pedido);
+        } else {
+          alert('no hay pedido abierto');
+        }
       },
         error => {
           console.error(error);
