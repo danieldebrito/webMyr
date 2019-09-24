@@ -101,21 +101,3 @@ export class PedidosService {
     return ret;
   }
 }
-
-
-/*
-
-
-  public Update( idRepuesto: string, detalle: string, marca: string, codigo: string ): Promise<object> {
-      const request: object = {
-        idRepuesto,
-        detalle,
-        marca,
-        codigo
-    };
-      return this.miHttp.httpPostP('/maquinaRepuestos/update', request);
-  }
-
-
-
-*/

@@ -17,16 +17,16 @@ import { AuthService } from 'src/app/services/cliente/auth.service';
 export class BotonComprarComponent implements OnInit, DoCheck {
 
   public identity: Cliente;
-  public pedido: Pedido;
-
+  public pedido;
   public articulo: Articulo;
   public cantidad: number;
-
 
   constructor(
     private pedidosService: PedidosService,
     private pedidoDetalleServ: PedidoDetalleService,
-    private authService: AuthService) { }
+    private authService: AuthService) {
+    this.cantidad = 1;
+  }
 
   public traePedidoAbierto() {
     if (this.identity.id === null) {
@@ -34,14 +34,19 @@ export class BotonComprarComponent implements OnInit, DoCheck {
       return -1;
     } else {
       this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
-        this.pedido = response;
 
-        if (this.pedido) {
-          alert(this.pedido.id_pedido);
-          return this.pedido.id_pedido;
+        if (response.id_pedido) {
+          alert('HAY PEDIDO ABIERTO =>' + this.pedido);
+          this.pedido = response.id_pedido;
+          return this.pedido;
         } else {
-          alert('no hay pedido abierto');
-          return this.nuevoPedido();
+          alert('NO HAY PEDIDO ABIERTO');
+
+          this.pedido = this.nuevoPedido();
+
+          alert('NUEVO PEDIDO =>' +  this.pedido );
+
+          return this.pedido;
         }
       },
         error => {
@@ -50,7 +55,7 @@ export class BotonComprarComponent implements OnInit, DoCheck {
     }
   }
 
-  public nuevoPedido () {
+  public nuevoPedido() {
     this.pedidosService.Alta(
       this.identity.id,
       '',
@@ -60,90 +65,43 @@ export class BotonComprarComponent implements OnInit, DoCheck {
       this.pedidosService.getfecha(),
       ''
     ).then(
-            response => {
-          return response;
-            }
-        )
-        .catch(
-            error => {
-                console.error('ERROR DEL SERVIDOR', error);
-            }
-        );
-}
-
-public cargaItem () {
-  this.pedidoDetalleServ.Alta(
-    this.traePedidoAbierto(),
-    this.articulo.id_articulo,
-    this.cantidad
-  ).then(
-          response => {
+      response => {
         return response;
-          }
-      )
-      .catch(
-          error => {
-              console.error('ERROR DEL SERVIDOR', error);
-          }
+      }
+    ).catch(
+        error => {
+          console.error('ERROR DEL SERVIDOR', error, );
+        }
       );
-}
-
-
-
-  ngOnInit() {
-    this.identity = this.authService.getIdentityLocalStorage();
   }
 
+  public cargaItem() {
+    this.traePedidoAbierto();
 
-  ngDoCheck() {
-    this.identity = this.authService.getIdentityLocalStorage();
-  }
+    alert('carga item' + this.pedido);
 
-
-}
-
-
-
-/*
-  public altaPedido() {
-    this.pedidosService.altaPedido(
-      this.identity.id,
-      '',
-      '',
-      this.pedidosService.getfecha(),
-      ''
+    this.pedidoDetalleServ.Alta(
+      this.pedido,
+      /*this.articulo.id_articulo*/'01-2000 S',
+      this.cantidad
     ).then(
       response => {
-        this.mensaje = response;  //  agregar, no hay nada en el response
-        // this.router.navigate(['home']);  //  redirecciona a HOME
+        return response;
       }
     ).catch(
       error => {
         console.error('ERROR DEL SERVIDOR', error);
       }
     );
-    this.traeAbierto();
   }
 
-  public traeAbierto() {
-    this.pedidosService.traerIDpedidoAbierto(this.identity.id).subscribe(response => {
-      this.pedidoAbierto = response;
-      console.log(this.pedidoAbierto);
-    },
-      error => {
-        console.error(error);
-      });
+  ngOnInit() {
+    this.identity = this.authService.getIdentityLocalStorage();
+  //  this.traePedidoAbierto();
+  this.traePedidoAbierto();
   }
 
-  public traeCreaAbierto() {
-    this.traeAbierto();
-    if (this.pedidoAbierto.id_pedido === -1 || this.pedidoAbierto[0] === undefined) {
-      // this.altaPedido();
-      this.traeAbierto();
-    } else {
-      // this.traeAbierto();
-    }
+  ngDoCheck() {
+    this.identity = this.authService.getIdentityLocalStorage();
   }
-
-
-*/
+}
