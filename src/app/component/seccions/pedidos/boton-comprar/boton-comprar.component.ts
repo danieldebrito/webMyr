@@ -2,9 +2,11 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 // class
 import { Cliente } from 'src/app/clases/cliente';
 import { Pedido } from 'src/app/clases/pedido';
+import { Articulo } from 'src/app/clases/articulo';
 
 // servicios
 import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
+import { PedidoDetalleService } from 'src/app/services/pedidos/pedido_detalle.service';
 import { AuthService } from 'src/app/services/cliente/auth.service';
 
 @Component({
@@ -17,14 +19,19 @@ export class BotonComprarComponent implements OnInit, DoCheck {
   public identity: Cliente;
   public pedido: Pedido;
 
+  public articulo: Articulo;
+  public cantidad: number;
+
 
   constructor(
     private pedidosService: PedidosService,
+    private pedidoDetalleServ: PedidoDetalleService,
     private authService: AuthService) { }
 
   public traePedidoAbierto() {
     if (this.identity.id === null) {
       alert('debe estar registrado');
+      return -1;
     } else {
       this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
         this.pedido = response;
@@ -62,6 +69,23 @@ export class BotonComprarComponent implements OnInit, DoCheck {
                 console.error('ERROR DEL SERVIDOR', error);
             }
         );
+}
+
+public cargaItem () {
+  this.pedidoDetalleServ.Alta(
+    this.traePedidoAbierto(),
+    this.articulo.id_articulo,
+    this.cantidad
+  ).then(
+          response => {
+        return response;
+          }
+      )
+      .catch(
+          error => {
+              console.error('ERROR DEL SERVIDOR', error);
+          }
+      );
 }
 
 

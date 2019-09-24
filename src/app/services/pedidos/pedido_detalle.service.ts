@@ -22,7 +22,7 @@ export class PedidoDetalleService {
     return this.miHttp.httpGetO<PedidoDetalle>('/pedidos_detalle/' +  id );
   }
 
-  public altaPedidoDetalle(
+  public Alta(
   id_pedido: number,
   id_articulo: string,
   cantidad: number
