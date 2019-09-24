@@ -35,18 +35,7 @@ export class PedidoDetalleService {
     return this.miHttp.httpPostP('/pedidos_detalle/', request);
   }  // alta
 
-  public Update(
-    id_pedido_detalle: number,
-    id_pedido: number,
-    id_articulo: string,
-    cantidad: number
-  ): Promise<object> {
-    const request: object = {
-      id_pedido_detalle: id_pedido_detalle,
-      id_pedido: id_pedido,
-      id_articulo: id_articulo,
-      cantidad: cantidad
-    };
-    return this.miHttp.httpPostP('/pedidos_detalle/update', request);
-  }
+  public traerUno(id: string): Observable<PedidoDetalle> {
+    return this.miHttp.httpGetO<PedidoDetalle>('/pedidos_detalle/' + '"' + id + '"');
+  }  // trae uno por id
 }

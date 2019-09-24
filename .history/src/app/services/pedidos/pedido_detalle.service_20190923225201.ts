@@ -47,6 +47,6 @@ export class PedidoDetalleService {
       id_articulo: id_articulo,
       cantidad: cantidad
     };
-    return this.miHttp.httpPostP('/pedidos_detalle/update', request);
+    return this.miHttp.httpPostP('/productos/update', request);
   }
 }
