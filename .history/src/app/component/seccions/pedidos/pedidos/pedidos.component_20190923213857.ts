@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
+import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
 import { Cliente } from 'src/app/clases/cliente';
 import { AuthService } from 'src/app/services/cliente/auth.service';
 import { Pedido } from 'src/app/clases/pedido';
@@ -24,7 +24,7 @@ export class PedidosComponent implements OnInit {
   public allPedidos: Pedido[];
 
   constructor(
-    public pedidosService: PedidosService,
+    public pedidosService: AbmPedidosService,
     private authService: AuthService,
     private router: Router) { }
 

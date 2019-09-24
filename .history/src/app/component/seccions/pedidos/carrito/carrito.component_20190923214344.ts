@@ -8,8 +8,8 @@ import { Cliente } from 'src/app/clases/cliente';
 
 // services
 import { AuthService } from '../../../../services/cliente/auth.service';
-import { PedidoDetalleService } from '../../../../services/pedidos/pedido_detalle.service';
-import { PedidosService } from '../../../../services/pedidos/pedidos.service';
+import { AbmPedidoDetalleService } from '../../../../services/pedidos/abm-pedido-detalle.service';
+import { AbmPedidosService } from '../../../../services/pedidos/pedidos.service';
 import { ArticulosService } from '../../../../services/articulo/articulos.service';
 
 @Component({
@@ -27,7 +27,7 @@ public pedidoAbierto: Pedido;
 
 constructor(
   public artService: ArticulosService,
-  public pedidosService: PedidosService,
+  public pedidosService: AbmPedidosService,
   private authService: AuthService
 ) {
   // this.artService = servicioArt;

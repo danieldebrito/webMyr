@@ -4,7 +4,7 @@ import { Cliente } from 'src/app/clases/cliente';
 import { Pedido } from 'src/app/clases/pedido';
 
 // servicios
-import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
+import { AbmPedidosService } from 'src/app/services/pedidos/abm-pedidos.service';
 import { AuthService } from 'src/app/services/cliente/auth.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class BotonComprarComponent implements OnInit, DoCheck {
 
 
   constructor(
-    private pedidosService: PedidosService,
+    private pedidosService: AbmPedidosService,
     private authService: AuthService) { }
 
   public traePedidoAbierto() {

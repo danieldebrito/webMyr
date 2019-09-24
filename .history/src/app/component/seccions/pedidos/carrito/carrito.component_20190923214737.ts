@@ -27,7 +27,7 @@ public pedidoAbierto: Pedido;
 
 constructor(
   public artService: ArticulosService,
-  public pedidosService: PedidosService,
+  public pedidosService: AbmPedidosService,
   private authService: AuthService
 ) {
   // this.artService = servicioArt;

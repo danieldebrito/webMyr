@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routes/app-routing.module';
 // services //
 import { AuthService } from './services/cliente/auth.service';
-import { PedidosService } from './services/pedidos/pedidos.service';
+import { AbmPedidosService } from './services/pedidos/pedidos.service';
 import { PedidoDetalleService } from './services/pedidos/pedido_detalle.service';
 import { ConsultasClientesService } from './services/cliente/consultas-clientes.service';
 import { ArtMarModMotService } from './services/articulo/art-mar-mod-mot.service';
@@ -108,8 +108,8 @@ import { BotonComprarComponent } from './component/seccions/pedidos/boton-compra
     AngularFontAwesomeModule
   ],
 providers: [
-  PedidoDetalleService,
-  PedidosService,
+  AbmPedidoDetalleService,
+  AbmPedidosService,
   AuthService,
   ConsultasClientesService,
   ArtMarModMotService,
