@@ -17,7 +17,7 @@ import { AuthService } from 'src/app/services/cliente/auth.service';
 export class BotonComprarComponent implements OnInit, DoCheck {
 
   public identity: Cliente;
-  public pedido;
+  public id_pedido;
   public articulo: Articulo;
   public cantidad: number;
 
@@ -36,17 +36,18 @@ export class BotonComprarComponent implements OnInit, DoCheck {
       this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
 
         if (response.id_pedido) {
-          alert('HAY PEDIDO ABIERTO =>' + this.pedido);
-          this.pedido = response.id_pedido;
-          return this.pedido;
+
+          // alert('HAY PEDIDO ABIERTO =>' + response.id_pedido);
+          this.id_pedido = response.id_pedido;
+          return response.id_pedido;
+
         } else {
-          alert('NO HAY PEDIDO ABIERTO');
+          // alert('NO HAY PEDIDO ABIERTO');
 
-          this.pedido = this.nuevoPedido();
+          this.id_pedido = this.nuevoPedido();
+          // alert('NUEVO PEDIDO =>' +  response.id_pedido );
+          return response.id_pedido;
 
-          alert('NUEVO PEDIDO =>' +  this.pedido );
-
-          return this.pedido;
         }
       },
         error => {
@@ -76,12 +77,15 @@ export class BotonComprarComponent implements OnInit, DoCheck {
   }
 
   public cargaItem() {
+
+    alert(this.id_pedido);
+
     this.traePedidoAbierto();
 
-    alert('carga item' + this.pedido);
+    alert(this.id_pedido);
 
     this.pedidoDetalleServ.Alta(
-      this.pedido,
+      /*this.id_pedido*/30,
       /*this.articulo.id_articulo*/'01-2000 S',
       this.cantidad
     ).then(
@@ -97,8 +101,8 @@ export class BotonComprarComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.identity = this.authService.getIdentityLocalStorage();
-  //  this.traePedidoAbierto();
-  // this.traePedidoAbierto();
+
+    // this.traePedidoAbierto();
   }
 
   ngDoCheck() {
