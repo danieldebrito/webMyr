@@ -34,19 +34,15 @@ export class PedidosService {
   }
 
   public Alta(
-    id_cliente: string,
-    id_sucursal: string,
-    id_expreso: string,
-    estado: string,
+    id_sucursal: number,
+    id_expreso: number,
     envio: string,
     fecha: string,
-    observaciones: string
+    observaciones: string,
   ): Promise<object> {
     const request: object = {
-      id_cliente,
       id_sucursal,
       id_expreso,
-      estado,
       envio,
       fecha,
       observaciones
@@ -56,27 +52,23 @@ export class PedidosService {
 
   public Update(
     id_pedido: string,
-    id_cliente: string,
-    id_sucursal: string,
-    id_expreso: string,
-    estado: string,
+    id_sucursal: number,
+    id_expreso: number,
     envio: string,
     fecha: string,
-    observaciones: string
+    observaciones: string,
     ): Promise<object> {
     const request: object = {
       id_pedido,
-      id_cliente,
       id_sucursal,
       id_expreso,
-      estado,
       envio,
       fecha,
       observaciones
     };
     return this.miHttp.httpPostP('/pedidos/update', request);
   }
-
+/*
   public traerpedidoAbierto(id_cliente: string): Observable<Pedido> {
     return this.miHttp.httpGetO<Pedido>('/pedidos/abierto/' + '"' + id_cliente + '"' );
   } // pedido de un mismo cliente abierto
@@ -84,6 +76,7 @@ export class PedidosService {
   public ListarPedidosCliente(id_cliente): Observable<Pedido[]> {
     return this.miHttp.httpGetO<Pedido[]>('/pedidos/cliente/' + '"' + id_cliente + '"');
   } // lista todos los pedidos de un cliente
+  */
 
   getfecha() {
     const fechaActual = new Date();

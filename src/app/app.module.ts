@@ -8,7 +8,7 @@ import { AppRoutingModule } from './routes/app-routing.module';
 // services //
 import { AuthService } from './services/cliente/auth.service';
 import { PedidosService } from './services/pedidos/pedidos.service';
-import { PedidoDetalleService } from './services/pedidos/pedido_detalle.service';
+import { PedidoItemService } from './services/pedidos/pedido_item.service';
 import { ConsultasClientesService } from './services/cliente/consultas-clientes.service';
 import { ArtMarModMotService } from './services/articulo/art-mar-mod-mot.service';
 import { ArticulosService } from './services/articulo/articulos.service';
@@ -110,7 +110,7 @@ import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
     AngularFontAwesomeModule
   ],
 providers: [
-  PedidoDetalleService,
+  PedidoItemService,
   PedidosService,
   AuthService,
   ConsultasClientesService,

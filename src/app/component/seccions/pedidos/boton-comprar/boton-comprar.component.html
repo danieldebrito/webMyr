@@ -1,4 +1,15 @@
-<div class="input-group-append">
-  <button type="button" class="btn btn-outline-danger" (click)="cargaItem()"><i
-          class="fas fa-cart-plus"></i></button>
+<div class="container">
+  <div class="row">
+
+    <input routerLink="/detalle" type="button" value="Detalle de Producto"
+      class="col-sm-6 form-control btn btn-outline-danger"> &nbsp;
+
+    <input class="col-sm-3 form-control" id="ex1" type="number" placeholder="Cant."> &nbsp;
+
+    <div class="input-group-append">
+      <button type="button" class="btn btn-outline-danger" (click)="cargaItem()">
+        <i class="fas fa-cart-plus"></i>
+      </button>
+    </div>
+  </div>
 </div>

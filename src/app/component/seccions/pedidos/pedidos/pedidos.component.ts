@@ -28,45 +28,8 @@ export class PedidosComponent implements OnInit {
     private authService: AuthService,
     private router: Router) { }
 
-   /* public altaPedido() {
-    if (this.identity) {
-      this.pedidosService.alta(
-        this.identity.id,
-        this.id_sucursal,
-        this.id_expreso,
-        this.fecha,
-        this.observ
-      ).then(
-        response => {
-          this.mensaje = 'se creo el pedido';  //  agregar, no hay nada en el response
-          // this.router.navigate(['home']);
-          return response;
-        }
-      )
-        .catch(
-          error => {
-            console.error('ERROR DEL SERVIDOR', error);
-          }
-        );
-    } else {
-      this.authService.redirectUrl = '/loginUsr';
-      this.router.navigate([this.authService.redirectUrl]);  // redirige a login si no esta logueado
-    }
-  }
-
-  */
-
-  public Listar() {
-    this.pedidosService.ListarPedidosCliente(this.identity.id).subscribe(response => {
-      this.allPedidos = response;
-    },
-      error => {
-        console.error(error);
-      });
-  }
 
   ngOnInit() {
-    this.Listar();
     this.identity = this.authService.getIdentityLocalStorage();
   }
 }

@@ -8,7 +8,7 @@ import { Cliente } from 'src/app/clases/cliente';
 
 // services
 import { AuthService } from '../../../../services/cliente/auth.service';
-import { PedidoDetalleService } from '../../../../services/pedidos/pedido_detalle.service';
+import { PedidoItemService } from '../../../../services/pedidos/pedido_item.service';
 import { PedidosService } from '../../../../services/pedidos/pedidos.service';
 import { ArticulosService } from '../../../../services/articulo/articulos.service';
 
@@ -29,57 +29,15 @@ constructor(
   public artService: ArticulosService,
   public pedidosService: PedidosService,
   private authService: AuthService
-) {
-  // this.artService = servicioArt;
-  // this.pedidoAbierto = new Pedido(-1, '', '', '', '', '', '');
-}
+) {}
 
-/*
-public altaPedido() {
-  this.pedidosService.altaPedido(
-    this.identity.id,
-    '',
-    '',
-    this.pedidosService.getfecha(),
-    ''
-  ).then(
-    response => {
-      this.mensaje = response;  //  agregar, no hay nada en el response
-      // this.router.navigate(['home']);  //  redirecciona a HOME
-    }
-  ).catch(
-    error => {
-      console.error('ERROR DEL SERVIDOR', error);
-    }
-  );
-  this.traeAbierto();
-}*/
 
-public traeAbierto() {
-  this.pedidosService.traerpedidoAbierto(this.identity.id).subscribe(response => {
-    this.pedidoAbierto = response;
-    console.log(this.pedidoAbierto);
-  },
-    error => {
-      console.error(error);
-    });
-}
 
-public traeCreaAbierto () {
-  this.traeAbierto();
-  if (this.pedidoAbierto.id_pedido === -1 || isUndefined(this.pedidoAbierto[0]) ) {
-    // this.altaPedido();
-    this.traeAbierto();
-  } else {
-    // this.traeAbierto();
-  }
-}
 
 public nuevoPedido () {}
 
 ngOnInit() {
   this.identity = this.authService.getIdentityLocalStorage();
-  this.traeAbierto();
 }
 
 ngDoCheck() {
