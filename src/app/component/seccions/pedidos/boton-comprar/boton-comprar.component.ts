@@ -1,11 +1,9 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
+
 // class
 import { Cliente } from 'src/app/clases/cliente';
-import { Pedido } from 'src/app/clases/pedido';
-import { Articulo } from 'src/app/clases/articulo';
 
 // servicios
-import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
 import { PedidoItemService } from 'src/app/services/pedidos/pedido_item.service';
 import { AuthService } from 'src/app/services/cliente/auth.service';
 
@@ -18,15 +16,31 @@ import { AuthService } from 'src/app/services/cliente/auth.service';
 export class BotonComprarComponent implements OnInit, DoCheck {
 
   public identity: Cliente;
-  public id_pedido;
-  public articulo: Articulo;
+  @Input() id_articulo: string;
   public cantidad: number;
 
   constructor(
-    private pedidosService: PedidosService,
     private pedidoItemServ: PedidoItemService,
     private authService: AuthService) {
     this.cantidad = 1;
+  }
+
+  public cargaItem() {
+    this.pedidoItemServ.Alta(
+      this.identity.id,
+      '-1',
+      this.id_articulo,
+      this.cantidad,
+      'abierto'
+    ).then(
+      response => {
+        return response;
+      }
+    ).catch(
+      error => {
+        console.error('ERROR DEL SERVIDOR', error);
+      }
+    );
   }
 
   ngOnInit() {

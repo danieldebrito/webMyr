@@ -1,16 +1,16 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { isUndefined } from 'util';
 
-// entidades
+// class
+import { PedidoItem } from 'src/app/clases/pedidoItem';
 import { Pedido } from 'src/app/clases/pedido';
 import { Articulo } from 'src/app/clases/articulo';
 import { Cliente } from 'src/app/clases/cliente';
 
 // services
-import { AuthService } from '../../../../services/cliente/auth.service';
-import { PedidoItemService } from '../../../../services/pedidos/pedido_item.service';
-import { PedidosService } from '../../../../services/pedidos/pedidos.service';
-import { ArticulosService } from '../../../../services/articulo/articulos.service';
+import { AuthService } from 'src/app/services/cliente/auth.service';
+import { PedidoItemService } from 'src/app/services/pedidos/pedido_item.service';
+import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
+import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -20,27 +20,47 @@ import { ArticulosService } from '../../../../services/articulo/articulos.servic
 
 export class CarritoComponent implements OnInit, DoCheck {
 
-// artService: AllArticulosService;
-public mensaje: any;
-public identity: Cliente;
-public pedidoAbierto: Pedido;
+  // artService: AllArticulosService;
+  public mensaje: any;
+  public identity: Cliente;
+  public pedidoAbierto: Pedido;
+  public articulo: Articulo;
+  public pedidoItems: PedidoItem[] = [];
 
-constructor(
-  public artService: ArticulosService,
-  public pedidosService: PedidosService,
-  private authService: AuthService
-) {}
+  constructor(
+    private pedidoItemServ: PedidoItemService,
+    public artService: ArticulosService,
+    public pedidosService: PedidosService,
+    private authService: AuthService
+  ) { }
 
+  public nuevoPedido() { }
 
+  public listarPedidoAbierto() {
+    this.pedidoItemServ.traerItemsClienteAbierto(this.identity.id).subscribe(response => {
+      this.pedidoItems = response;
+    },
+      error => {
+        console.error(error);
+      });
+  }
 
+  public traerArticulo(id: string) {
+    this.artService.TraerUno(id).subscribe(response => {
+      this.articulo = response;
+      return response.descripcion_corta;
+    },
+      error => {
+        console.error(error);
+      });
+  }
 
-public nuevoPedido () {}
+  ngOnInit() {
+    this.identity = this.authService.getIdentityLocalStorage();
+    this.listarPedidoAbierto();
+  }
 
-ngOnInit() {
-  this.identity = this.authService.getIdentityLocalStorage();
-}
-
-ngDoCheck() {
-  this.identity = this.authService.getIdentityLocalStorage();
-}
+  ngDoCheck() {
+    this.identity = this.authService.getIdentityLocalStorage();
+  }
 }
