@@ -9,7 +9,7 @@ export class TraeProdPipe implements PipeTransform {
   constructor( private prodService: ProductosService ) {}
 
   transform(value: any, args?: any): any {
-    return this.prodService. traerProd(value);
+    return this.prodService.traerProd(value);
   }
 
 }

@@ -58,6 +58,7 @@ import { TraeMarcaPipe } from './pipes/trae-marca.pipe';
 import { TraeLineaPipe } from './pipes/trae-linea.pipe';
 import { TraeCombPipe } from './pipes/trae-comb.pipe';
 import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
+import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
     TraeLineaPipe,
     TraeCombPipe,
     TraeImgArtPipe,
-    BotonComprarComponent    ],
+    BotonComprarComponent,
+    TraeDescripCortaPipe    ],
   imports: [
     BrowserModule,
     NgbModule,

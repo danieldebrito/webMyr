@@ -134,20 +134,29 @@ export class ArticulosService {
     this.allArticulos = JSON.parse(localStorage.getItem('allArticulos'));
   }
 
-  public traerImgArt ( id: string ) {
+  public traerImgArt(id: string) {
     const tam = this.allArticulos.length;
 
-    for ( let i = 0 ; i < tam ; i++) {
+    for (let i = 0; i < tam; i++) {
       if (this.allArticulos[i].id_articulo === id) {
         return this.allArticulos[i].img_peq_url;
       }
     }
   }
 
-  public traerArtLocalStorage ( id: string ) {
+  public traeDescripCorta(id: string) {
+    return this.TraerUno(id).subscribe(response => {
+      return response.descripcion_corta;
+    },
+      error => {
+        console.error(error);
+      });
+  }
+
+  public traerArtLocalStorage(id: string) {
     const tam = this.allArticulos.length;
 
-    for ( let i = 0 ; i < tam ; i++) {
+    for (let i = 0; i < tam; i++) {
       if (this.allArticulos[i].id_articulo === id) {
         return this.allArticulos[i];
       }
