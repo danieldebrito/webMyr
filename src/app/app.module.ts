@@ -91,14 +91,15 @@ import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
     CarouselDetailComponent,
     TablaProdVersionComponent,
     TablaCompJgosComponent,
+    BotonComprarComponent,
     TraeAppPipe,
     TraeProdPipe,
     TraeMarcaPipe,
     TraeLineaPipe,
     TraeCombPipe,
     TraeImgArtPipe,
-    BotonComprarComponent,
-    TraeDescripCortaPipe    ],
+    TraeDescripCortaPipe
+    ],
   imports: [
     BrowserModule,
     NgbModule,

@@ -5,6 +5,9 @@ export class PedidoItem {
         public id_pedido: number,
         public id_articulo: string,
         public cantidad: number,
-        public estado: string
+        public estado: string,
+        public descripcion_corta: string,
+        public stock: number,
+        public precio_lista: number
     ) { }
 }

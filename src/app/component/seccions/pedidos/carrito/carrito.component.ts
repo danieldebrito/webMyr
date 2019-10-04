@@ -20,7 +20,6 @@ import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 
 export class CarritoComponent implements OnInit, DoCheck {
 
-  // artService: AllArticulosService;
   public mensaje: any;
   public identity: Cliente;
   public pedidoAbierto: Pedido;
@@ -45,7 +44,7 @@ export class CarritoComponent implements OnInit, DoCheck {
       });
   }
 
-  public traerArticulo(id: string) {
+  public traerArticuloDescripcion(id: string) {
     this.artService.TraerUno(id).subscribe(response => {
       this.articulo = response;
       return response.descripcion_corta;
@@ -53,6 +52,10 @@ export class CarritoComponent implements OnInit, DoCheck {
       error => {
         console.error(error);
       });
+  }
+
+  public traerDescripArtLS (id: string) {
+    return this.artService.traerArtLocalStorage(id).descripcion_corta;
   }
 
   ngOnInit() {

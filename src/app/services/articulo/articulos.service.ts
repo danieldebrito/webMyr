@@ -136,7 +136,6 @@ export class ArticulosService {
 
   public traerImgArt(id: string) {
     const tam = this.allArticulos.length;
-
     for (let i = 0; i < tam; i++) {
       if (this.allArticulos[i].id_articulo === id) {
         return this.allArticulos[i].img_peq_url;
@@ -145,23 +144,21 @@ export class ArticulosService {
   }
 
   public traeDescripCorta(id: string) {
-    return this.TraerUno(id).subscribe(response => {
-      return response.descripcion_corta;
-    },
-      error => {
-        console.error(error);
-      });
+    const tam = this.allArticulos.length;
+    for (let i = 0; i < tam; i++) {
+      if (this.allArticulos[i].id_articulo === id) {
+        return this.allArticulos[i].descripcion_corta;
+      }
+    }
   }
 
   public traerArtLocalStorage(id: string) {
     const tam = this.allArticulos.length;
-
     for (let i = 0; i < tam; i++) {
       if (this.allArticulos[i].id_articulo === id) {
         return this.allArticulos[i];
       }
     }
   }
-
 }
 
