@@ -9,6 +9,9 @@ import { Cliente } from 'src/app/clases/cliente';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 // services
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
+import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
+
+
 
 @Component({
   selector: 'app-catalogo',
@@ -29,6 +32,7 @@ export class CatalogoComponent implements OnInit, DoCheck {
     public modalService: NgbModal,
     public artService: ArticulosService,
     private authService: AuthService,
+    private pedidosService: PedidosService,
     private router: Router
   ) { }
 
@@ -37,6 +41,34 @@ export class CatalogoComponent implements OnInit, DoCheck {
     this.artService.show = false;
     this.showValue.emit({ show: this.artService.show });  // true, muestra grilla, false, muestra detalle de art
     this.router.navigate(['especificacion']);
+  }
+
+  public nuevoPedido(
+    id_sucursal: number,
+    id_expreso: number,
+    observaciones: string
+  ) {
+    this.pedidosService.Alta(
+      id_sucursal,
+      id_expreso,
+      'en_curso',
+      this.pedidosService.getfecha(),
+      observaciones
+    ).then(
+        response => {
+          const id_pedido = response;
+          this.updateItems(id_pedido);
+        }
+      )
+      .catch(
+        error => {
+          console.error('ERROR DEL SERVIDOR', error);
+        }
+      );
+  }
+
+  public updateItems(id_pedido: object) {
+    return id_pedido;
   }
 
   /* trae el art por cada item y retorna el precio para usar en el html */

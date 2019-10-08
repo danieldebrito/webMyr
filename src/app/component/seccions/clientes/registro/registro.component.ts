@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
         );
 }
 
-   onSubmit() {
+  onSubmit() {
     this.altaCliente();
 }
 

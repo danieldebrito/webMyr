@@ -37,6 +37,7 @@ export class CarritoComponent implements OnInit, DoCheck {
 
   public listarPedidoAbierto() {
     this.pedidoItemServ.traerItemsClienteAbierto(this.identity.id).subscribe(response => {
+      alert(response);
       this.pedidoItems = response;
     },
       error => {
