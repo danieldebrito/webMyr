@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Articulo } from 'src/app/clases/articulo';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
 import { Aplicacion } from 'src/app/clases/aplicacion';
+import { Producto } from 'src/app/clases/producto';
 // services
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
@@ -35,7 +36,7 @@ export class FiltroComponent implements OnInit {
     public id_aplicacion: string;
 
     public allArticulos: Articulo[] = [];
-    public allItems: ArtMarModMot[];
+    public aallItems: ArtMarModMot[];
     public filtroItems;
 
     public app: Aplicacion[] = [];
@@ -94,7 +95,7 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response.slice(0, 5);   /* VISTA */
+            this.filtroItems = response;
 
             this.id_linea = '';
             this.id_marca = '';
@@ -139,9 +140,10 @@ export class FiltroComponent implements OnInit {
             this.prodService.traerId(this.id_producto),
             this.appService.traerId(this.id_aplicacion)).then(
                 response => {
+                    // alert(this.prodService.traerId(this.id_producto));
                     this.filtroItems = response;
-                    this.allItems = this.filtroItems;
-                    this.Colunmas(this.allItems);
+                    /*this.allItems = this.filtroItems;*/
+                    this.Colunmas(this.filtroItems);
                 }
             )
             .catch(

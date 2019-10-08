@@ -94,7 +94,7 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response.slice(0, 5);   /* VISTA */
+            this.filtroItems = response;
 
             this.id_linea = '';
             this.id_marca = '';
@@ -142,6 +142,7 @@ export class FiltroComponent implements OnInit {
                     this.filtroItems = response;
                     this.allItems = this.filtroItems;
                     this.Colunmas(this.allItems);
+                    this.filtroItems = this.allItems.slice(0, 5);
                 }
             )
             .catch(

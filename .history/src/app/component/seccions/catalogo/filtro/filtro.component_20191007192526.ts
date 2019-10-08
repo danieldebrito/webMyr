@@ -94,7 +94,7 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response.slice(0, 5);   /* VISTA */
+            this.filtroItems = response;
 
             this.id_linea = '';
             this.id_marca = '';
@@ -140,7 +140,7 @@ export class FiltroComponent implements OnInit {
             this.appService.traerId(this.id_aplicacion)).then(
                 response => {
                     this.filtroItems = response;
-                    this.allItems = this.filtroItems;
+                    this.allItems = this.filtroItems.slice(0, 5);
                     this.Colunmas(this.allItems);
                 }
             )
