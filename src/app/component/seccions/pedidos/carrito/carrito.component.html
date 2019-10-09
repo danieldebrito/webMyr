@@ -35,8 +35,6 @@
     </div>
 
     <div class="col-sm-3">
-      <button type="button" class="btn btn-success" (click)="nuevoPedido()">Finalizar Pedido</button>
-      <button type="button" class="btn btn-outline-danger" routerLink="/catalogo"> Ir a catalogo </button> <br>
       <button type="button" class="btn btn-primary">Bajar Excel</button>
       <button type="button" class="btn btn-primary">Bajar PDF</button>
     </div>
@@ -76,6 +74,7 @@
         </table>
       </div>
     </div>
+
     <div class="col-sm-3">
       <table class="table-responsive table-bordered">
         <thead>
@@ -98,7 +97,13 @@
             <td>$ 1000.00</td>
           </tr>
         </tbody>
+        <tfoot> 
+          <td colspan="2">
+              <button type="button" class="btn btn-success btn-block" (click)="nuevoPedido()">Finalizar Pedido</button>
+          </td>
+        </tfoot>
       </table>
+      
     </div>
   </div>
 
