@@ -40,7 +40,6 @@ import { RegistroComponent } from './component/seccions/clientes/registro/regist
 import { RecupPasswordComponent } from './component/seccions/clientes/recup-password/recup-password.component';
 import { DetalleComponent } from './component/seccions/catalogo/detalle/detalle.component';
 import { CarritoComponent } from './component/seccions/pedidos/carrito/carrito.component';
-import { PedidosComponent } from './component/seccions/pedidos/pedidos/pedidos.component';
 import { MisDatosComponent } from './component/seccions/clientes/mis-datos/mis-datos.component';
 import { RegistroUsersComponent } from './component/seccions/users/registro-users/registro-users.component';
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
@@ -50,7 +49,7 @@ import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucurs
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
-import { BotonComprarComponent } from './component/seccions/pedidos/boton-comprar/boton-comprar.component';
+import { BotonComprarComponent } from './component/seccions/catalogo/boton-comprar/boton-comprar.component';
 // pipes
 import { TraeAppPipe } from './pipes/trae-app.pipe';
 import { TraeProdPipe } from './pipes/trae-prod.pipe';
@@ -59,6 +58,8 @@ import { TraeLineaPipe } from './pipes/trae-linea.pipe';
 import { TraeCombPipe } from './pipes/trae-comb.pipe';
 import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
 import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
+import { PedidosTabsComponent } from './component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
+import { PedidosListadoComponent } from './component/seccions/pedidos/pedidos-listado/pedidos-listado.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,6 @@ import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
     RecupPasswordComponent,
     DetalleComponent,
     CarritoComponent,
-    PedidosComponent,
     MisDatosComponent,
     RegistroUsersComponent,
     PanelControlComponent,
@@ -98,7 +98,9 @@ import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
     TraeLineaPipe,
     TraeCombPipe,
     TraeImgArtPipe,
-    TraeDescripCortaPipe
+    TraeDescripCortaPipe,
+    PedidosTabsComponent,
+    PedidosListadoComponent
     ],
   imports: [
     BrowserModule,

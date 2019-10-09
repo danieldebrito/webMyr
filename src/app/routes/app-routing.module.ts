@@ -14,8 +14,8 @@ import { LoginComponent } from '../component/seccions/clientes/login/login.compo
 import { RegistroComponent } from '../component/seccions/clientes/registro/registro.component';
 import { RecupPasswordComponent } from '../component/seccions/clientes/recup-password/recup-password.component';
 import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-datos.component';
-import { CarritoComponent } from '../component/seccions/pedidos/carrito/carrito.component';
-import { PedidosComponent } from '../component/seccions/pedidos/pedidos/pedidos.component';
+// import { CarritoComponent } from '../component/seccions/pedidos/carrito/carrito.component';
+import { PedidosTabsComponent } from '../component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
 import { AbmSucursalesComponent } from '../component/seccions/clientes/abm-sucursales/abm-sucursales.component';
@@ -24,8 +24,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalogo', component: FiltroComponent },
   { path: 'detalle', component: DetalleComponent },
-  { path: 'carrito', component: CarritoComponent },
-  { path: 'pedidos', component: PedidosComponent },
+  // { path: 'carrito', component: CarritoComponent },
+  { path: 'carrito', component: PedidosTabsComponent },
   { path: 'about', component: QuienSoyComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: DtoTecnicoComponent },

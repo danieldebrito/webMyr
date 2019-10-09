@@ -1,3 +1,15 @@
+::ng-deep .nav-fill .nav-link.active {
+    margin-top: -1px;
+    border-top: 2px solid #0599cf;
+}
+
+::ng-deep .nav-pills .nav-link.active, 
+::ng-deep .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: red;
+    margin: 3px;
+}
+
 .filtro {
     padding-left: 1%;
     padding-right: 1%;
@@ -66,4 +78,8 @@ th {
 textarea {
     width: 100%;
     padding: 1%;
+}
+
+.btn {
+    margin: 3px;
 }
