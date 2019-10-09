@@ -13,6 +13,7 @@
 
     <div class="col-sm-3">
       <strong><b>Direccion de Entrega :</b></strong>
+
       <select>
         <!-- [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}" -->
         <option value="" disabled>Selecione la Sucursal</option>
@@ -20,6 +21,14 @@
           <!-- OPCIONES {{ }}  --> Casa Central: Salta 600 (1925 ) Gerli - Buenos Aires
         </option>
       </select>
+
+      <select [(ngModel)]="id_sucursal" [ngModelOptions]="{standalone: true}">
+        <option value="" disabled>Selecione Sucursal</option>
+        <option *ngFor="let art of columnaLinea">
+          {{ art | traeLinea  }}
+        </option>
+      </select>
+
     </div>
 
     <div class="col-sm-3">

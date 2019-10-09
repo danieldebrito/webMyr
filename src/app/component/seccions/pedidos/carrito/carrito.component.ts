@@ -20,11 +20,15 @@ import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 
 export class CarritoComponent implements OnInit, DoCheck {
 
-  public mensaje: any;
   public identity: Cliente;
-  public pedidoAbierto: Pedido;
   public articulo: Articulo;
   public pedidoItems: PedidoItem[] = [];
+
+  public id_sucursal: number;
+  public id_expreso: number;
+  public envio: string;
+  public fecha: string;
+  public observaciones: string;
 
   constructor(
     private pedidoItemServ: PedidoItemService,
@@ -37,7 +41,6 @@ export class CarritoComponent implements OnInit, DoCheck {
 
   public listarPedidoAbierto() {
     this.pedidoItemServ.traerItemsClienteAbierto(this.identity.id).subscribe(response => {
-      alert(response);
       this.pedidoItems = response;
     },
       error => {
@@ -57,6 +60,35 @@ export class CarritoComponent implements OnInit, DoCheck {
 
   public traerDescripArtLS (id: string) {
     return this.artService.traerArtLocalStorage(id).descripcion_corta;
+  }
+
+  public crearPedido () {
+    this.pedidosService.Alta(
+      this.id_sucursal,
+      this.id_expreso,
+      this.envio,
+      this.fecha,
+      this.observaciones).then(
+      response => {
+        return response;
+      }
+    ).catch(
+      error => {
+        console.error('ERROR DEL SERVIDOR', error);
+      }
+    );
+  }
+
+  public cerrarPedido (id_pedido, id_cliente) {
+    this.pedidoItemServ.CerrarPedido(id_pedido, id_cliente).then(
+      response => {
+        return response;
+      }
+    ).catch(
+      error => {
+        console.error('ERROR DEL SERVIDOR', error);
+      }
+    );
   }
 
   ngOnInit() {

@@ -14,7 +14,6 @@ export class PedidosService {
 
   public fecha: string;
   public hora: string;
-  public identity: Cliente;
   public mensaje: any;
   public pedidoAbierto: Pedido;
   public pedido: Pedido;
