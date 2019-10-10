@@ -66,7 +66,7 @@ export class PedidoItemService {
     return this.miHttp.httpPostP('/pedidos_item/update', request);
   }
 
-  public cierraItems(id_pedido: number, id_cliente: string): Promise<object> {
+  public CerrarPedido(id_pedido: number, id_cliente: string): Promise<object> {
     const request: object = {
       id_pedido: id_pedido,
       id_cliente: id_cliente

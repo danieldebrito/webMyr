@@ -69,15 +69,10 @@ export class CarritoComponent implements OnInit, DoCheck {
     );
   }
 
-  /**
-   * EN CONSTRUCCION
-   * LA IDEA ES QUE CREE UN NUEVO PEDIDO TOMANDO LAS VARIABLES DE LA SESION DE USUARIO
-   *        this.id_sucursal,
-            this.id_expreso,
-            this.envio,
-            this.fecha,
-            this.observaciones
-   */
+  /*
+  public traerDescripArtLS (id: string) {
+    return this.artService.traerArtLocalStorage(id).descripcion_corta;
+  }*/
 
   public crearPedido () {
     this.pedidosService.Alta(
@@ -96,14 +91,8 @@ export class CarritoComponent implements OnInit, DoCheck {
     );
   }
 
-
-/**
- *   EN CONSTRUCCION CIERRA LOS ITEMS PARA ARMAR EL PEDIDO, CAMBIA ESTADO A CERRADO Y CARGA NRO DE PEDIDO
- * @param id_pedido 
- * @param id_cliente 
- */
   public cerrarPedido (id_pedido, id_cliente) {
-    this.pedidoItemServ.cierraItems(id_pedido, id_cliente).then(
+    this.pedidoItemServ.CerrarPedido(id_pedido, id_cliente).then(
       response => {
         return response;
       }

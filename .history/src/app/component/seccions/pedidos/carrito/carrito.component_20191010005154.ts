@@ -98,7 +98,7 @@ export class CarritoComponent implements OnInit, DoCheck {
 
 
 /**
- *   EN CONSTRUCCION CIERRA LOS ITEMS PARA ARMAR EL PEDIDO, CAMBIA ESTADO A CERRADO Y CARGA NRO DE PEDIDO
+ *   EN CONSTRUCCION
  * @param id_pedido 
  * @param id_cliente 
  */
