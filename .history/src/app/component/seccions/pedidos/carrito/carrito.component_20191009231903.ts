@@ -51,7 +51,6 @@ export class CarritoComponent implements OnInit, DoCheck {
   public borrarItem (id: string) {
     this.pedidoItemServ.Baja(id).then(
       response => {
-        this.listarPedidoAbierto();
         return response;
       }
     ).catch(
