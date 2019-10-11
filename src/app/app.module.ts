@@ -24,6 +24,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NavbarComponent } from './component/layout/navbar/navbar.component';
 import { BodyComponent } from './component/layout/body/body.component';
 import { FooterComponent } from './component/layout/footer/footer.component';
+// pipes
+import { TraeAppPipe } from './pipes/trae-app.pipe';
+import { TraeProdPipe } from './pipes/trae-prod.pipe';
+import { TraeMarcaPipe } from './pipes/trae-marca.pipe';
+import { TraeLineaPipe } from './pipes/trae-linea.pipe';
+import { TraeCombPipe } from './pipes/trae-comb.pipe';
+import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
+import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
 // seccions
 import { NgbCarouselComponent } from './component/seccions/home/ngb-carousel/ngb-carousel.component';
 import { HomeComponent } from './component/seccions/home/home/home.component';
@@ -45,19 +53,11 @@ import { RegistroUsersComponent } from './component/seccions/users/registro-user
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
 import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
-import { AbmSucursalesComponent } from './component/seccions/clientes/abm-sucursales/abm-sucursales.component';
+import { AbmSucursalesComponent } from './component/seccions/clientes/sucursales/abm-sucursales.component';
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
 import { BotonComprarComponent } from './component/seccions/catalogo/boton-comprar/boton-comprar.component';
-// pipes
-import { TraeAppPipe } from './pipes/trae-app.pipe';
-import { TraeProdPipe } from './pipes/trae-prod.pipe';
-import { TraeMarcaPipe } from './pipes/trae-marca.pipe';
-import { TraeLineaPipe } from './pipes/trae-linea.pipe';
-import { TraeCombPipe } from './pipes/trae-comb.pipe';
-import { TraeImgArtPipe } from './pipes/trae-ImgArt.pipe';
-import { TraeDescripCortaPipe } from './pipes/trae-descrip-corta.pipe';
 import { PedidosTabsComponent } from './component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PedidosListadoComponent } from './component/seccions/pedidos/pedidos-listado/pedidos-listado.component';
 

@@ -94,7 +94,7 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response.slice(0, 5);   /* VISTA */
+            this.filtroItems = response.slice(0, 50);   /* VISTA */
 
             this.id_linea = '';
             this.id_marca = '';

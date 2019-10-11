@@ -18,7 +18,7 @@ import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-
 import { PedidosTabsComponent } from '../component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
-import { AbmSucursalesComponent } from '../component/seccions/clientes/abm-sucursales/abm-sucursales.component';
+import { AbmSucursalesComponent } from '../component/seccions/clientes/sucursales/abm-sucursales.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
