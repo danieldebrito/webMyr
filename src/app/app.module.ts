@@ -38,7 +38,7 @@ import { HomeComponent } from './component/seccions/home/home/home.component';
 import { PageNotFoundComponent } from './component/seccions/page-not-found/page-not-found.component';
 import { QuienSoyComponent } from './component/seccions/quien-soy/quien-soy.component';
 import { PreFooterComponent } from './component/layout/footer/pre-footer/pre-footer.component';
-import { CatalogoComponent } from './component/seccions/catalogo/card/catalogo.component';
+import { CatalogoComponent } from './component/seccions/catalogo/card/card.component';
 import { FiltroComponent } from './component/seccions/catalogo/filtro/filtro.component';
 import { PreNavComponent } from './component/layout/navbar/pre-nav/pre-nav.component';
 import { ContactComponent } from './component/seccions/contact/contact.component';
