@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/cliente/auth.service';
 import { PedidoItemService } from 'src/app/services/pedidos/pedido_item.service';
 import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
+import { SucursalesService } from 'src/app/services/cliente/sucursales.service';
 
 @Component({
   selector: 'app-carrito',

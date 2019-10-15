@@ -60,6 +60,8 @@ import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp
 import { BotonComprarComponent } from './component/seccions/catalogo/boton-comprar/boton-comprar.component';
 import { PedidosTabsComponent } from './component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PedidosListadoComponent } from './component/seccions/pedidos/pedidos-listado/pedidos-listado.component';
+import { ClienteTabsComponent } from './component/seccions/clientes/cliente-tabs/cliente-tabs.component';
+import { SucursalesListadoComponent } from './component/seccions/clientes/sucursales-listado/sucursales-listado.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,9 @@ import { PedidosListadoComponent } from './component/seccions/pedidos/pedidos-li
     TraeImgArtPipe,
     TraeDescripCortaPipe,
     PedidosTabsComponent,
-    PedidosListadoComponent
+    PedidosListadoComponent,
+    ClienteTabsComponent,
+    SucursalesListadoComponent
     ],
   imports: [
     BrowserModule,

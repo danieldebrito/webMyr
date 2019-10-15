@@ -13,8 +13,7 @@ import { DtoTecnicoComponent } from '../component/seccions/dto-tecnico/dto-tecni
 import { LoginComponent } from '../component/seccions/clientes/login/login.component';
 import { RegistroComponent } from '../component/seccions/clientes/registro/registro.component';
 import { RecupPasswordComponent } from '../component/seccions/clientes/recup-password/recup-password.component';
-import { MisDatosComponent } from '../component/seccions/clientes/mis-datos/mis-datos.component';
-// import { CarritoComponent } from '../component/seccions/pedidos/carrito/carrito.component';
+import { ClienteTabsComponent } from '../component/seccions/clientes/cliente-tabs/cliente-tabs.component';
 import { PedidosTabsComponent } from '../component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
@@ -32,7 +31,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'recupPass', component: RecupPasswordComponent },
-  { path: 'misDatos', component: MisDatosComponent },
+  { path: 'misDatos', component: ClienteTabsComponent },
   { path: 'control', component: PanelControlComponent },
   { path: 'loginUsr', component: LoginUsuarioComponent },
   { path: 'sucursal', component: AbmSucursalesComponent },

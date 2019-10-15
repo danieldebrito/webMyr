@@ -13,8 +13,7 @@
 
         <label for="lname">e-mail :</label>
         <input type="email" name="email" #nombre="ngModel" [(ngModel)]="cliente.email" placeholder="Ingrese su e-mail..." required>
-        <br> <br>
-        <button routerLink="/sucursal">Ingresar Dirección y/o Sucursales</button>
+
       </form>
     </div>
   </div>
@@ -31,7 +30,7 @@
           <input type="password" name="clave" #nombre="ngModel" [(ngModel)]="cliente.clave" placeholder="Ingrese Clave de 6 caracteres..." required>
 
           <br> <br>
-          <input type="submit" value="Modificar Datos">
+          <input type="submit" value="Guardar Cambios">
         </form>
       </div>
     </div>

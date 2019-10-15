@@ -1,0 +1,32 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID Sucursal</th>
+      <th scope="col">Calle</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Localidad</th>
+      <th scope="col">Codigo Postal</th>
+      <th scope="col">Provincia</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Acción</th>
+
+    </tr>
+  </thead>
+  <tbody >  <!-- *ngFor="let repuesto of repuestosList" -->
+    <tr>
+      <td>01</td>
+      <td>Jose Ingenieros</td>
+      <td>2215</td>
+      <td>Burzaco</td>
+      <td>1852</td>
+      <td>Buenos Aires</td>
+      <td>54-911- 4238-8215</td>
+      <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary"
+            (click)="mostrarDetalle(repuesto)">Detalle</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
