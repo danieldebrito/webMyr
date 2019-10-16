@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// class
 import { Cliente } from 'src/app/clases/cliente';
+import { Sucursal } from 'src/app/clases/sucursal';
 
 
 @Component({
@@ -9,10 +11,14 @@ import { Cliente } from 'src/app/clases/cliente';
 })
 export class AbmSucursalesComponent implements OnInit {
 
+  public sucursal: Sucursal;
   public cliente: Cliente;
 
+  constructor() {
+    this.sucursal = new Sucursal(0, '', '', '', 0, '', '', '');
+   }
 
-  constructor() { }
+
 
 
   onSubmit() {}
