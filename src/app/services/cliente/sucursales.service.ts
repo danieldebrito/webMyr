@@ -16,6 +16,10 @@ export class SucursalesService {
     return this.miHttp.httpGetO<Sucursal[]>('/cliente_sucursales/');
   }
 
+  public ListarPorCliente(id: string): Observable<Sucursal[]> {
+    return this.miHttp.httpGetO<Sucursal[]>('/cliente_sucursales/sucursales/' + '"' + id + '"');
+  }
+
   public Baja(id: string): Promise<object> {
     return this.miHttp.httpDeleteP('/cliente_sucursales/' + '"' + id + '"');
   }

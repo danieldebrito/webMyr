@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // class
-import { Cliente } from 'src/app/clases/cliente';
 import { Sucursal } from 'src/app/clases/sucursal';
-
 
 @Component({
   selector: 'app-abm-sucursales',
@@ -12,18 +10,12 @@ import { Sucursal } from 'src/app/clases/sucursal';
 export class AbmSucursalesComponent implements OnInit {
 
   public sucursal: Sucursal;
-  public cliente: Cliente;
 
   constructor() {
-    this.sucursal = new Sucursal(0, '', '', '', 0, '', '', '');
+    this.sucursal = JSON.parse(localStorage.getItem('sucursalDetalle'));
    }
-
-
-
 
   onSubmit() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { this.sucursal = JSON.parse(localStorage.getItem('sucursalDetalle')); }
 }
