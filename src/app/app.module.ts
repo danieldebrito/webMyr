@@ -53,7 +53,7 @@ import { RegistroUsersComponent } from './component/seccions/users/registro-user
 import { PanelControlComponent } from './component/seccions/users/panel-control/panel-control.component';
 import { AbmExpresosComponent } from './component/seccions/users/abm-expresos/abm-expresos.component';
 import { LoginUsuarioComponent } from './component/seccions/users/login-usuario/login-usuario.component';
-import { AbmSucursalesComponent } from './component/seccions/clientes/sucursales/abm-sucursales.component';
+import { SucursalesDetalleComponent } from './component/seccions/clientes/sucursales-detalle/sucursales-detalle.component';
 import { CarouselDetailComponent } from './component/seccions/catalogo/carousel-detail/carousel-detail.component';
 import { TablaProdVersionComponent } from './component/seccions/catalogo/tabla-prod-version/tabla-prod-version.component';
 import { TablaCompJgosComponent } from './component/seccions/catalogo/tabla-comp-jgos/tabla-comp-jgos.component';
@@ -62,6 +62,7 @@ import { PedidosTabsComponent } from './component/seccions/pedidos/pedidos-tabs/
 import { PedidosListadoComponent } from './component/seccions/pedidos/pedidos-listado/pedidos-listado.component';
 import { ClienteTabsComponent } from './component/seccions/clientes/cliente-tabs/cliente-tabs.component';
 import { SucursalesListadoComponent } from './component/seccions/clientes/sucursales-listado/sucursales-listado.component';
+import { SucursalesNuevaComponent } from './component/seccions/clientes/sucursales-nueva/sucursales-nueva.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,6 @@ import { SucursalesListadoComponent } from './component/seccions/clientes/sucurs
     PanelControlComponent,
     AbmExpresosComponent,
     LoginUsuarioComponent,
-    AbmSucursalesComponent,
     CarouselDetailComponent,
     TablaProdVersionComponent,
     TablaCompJgosComponent,
@@ -104,7 +104,9 @@ import { SucursalesListadoComponent } from './component/seccions/clientes/sucurs
     PedidosTabsComponent,
     PedidosListadoComponent,
     ClienteTabsComponent,
-    SucursalesListadoComponent
+    SucursalesDetalleComponent,
+    SucursalesListadoComponent,
+    SucursalesNuevaComponent
     ],
   imports: [
     BrowserModule,

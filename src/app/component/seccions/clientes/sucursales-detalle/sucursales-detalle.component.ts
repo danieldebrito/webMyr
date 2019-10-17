@@ -4,10 +4,10 @@ import { Sucursal } from 'src/app/clases/sucursal';
 
 @Component({
   selector: 'app-abm-sucursales',
-  templateUrl: './abm-sucursales.component.html',
-  styleUrls: ['./abm-sucursales.component.css']
+  templateUrl: './sucursales-detalle.component.html',
+  styleUrls: ['./sucursales-detalle.component.css']
 })
-export class AbmSucursalesComponent implements OnInit {
+export class SucursalesDetalleComponent implements OnInit {
 
   public sucursal: Sucursal;
 

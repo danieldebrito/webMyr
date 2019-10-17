@@ -30,7 +30,7 @@ export class SucursalesService {
 
   public Alta(
     id_cliente: string,
-    nombre_sucursal: number,
+    nombre_sucursal: string,
     calle: string,
     numero: number,
     cp: string,
@@ -52,7 +52,7 @@ export class SucursalesService {
   public Update(
     id_sucursal: number,
     id_cliente: string,
-    nombre_sucursal: number,
+    nombre_sucursal: string,
     calle: string,
     numero: number,
     cp: string,

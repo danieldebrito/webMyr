@@ -17,13 +17,13 @@ import { ClienteTabsComponent } from '../component/seccions/clientes/cliente-tab
 import { PedidosTabsComponent } from '../component/seccions/pedidos/pedidos-tabs/pedidos-tabs.component';
 import { PanelControlComponent } from '../component/seccions/users/panel-control/panel-control.component';
 import { LoginUsuarioComponent } from '../component/seccions/users/login-usuario/login-usuario.component';
-import { AbmSucursalesComponent } from '../component/seccions/clientes/sucursales/abm-sucursales.component';
+import { SucursalesDetalleComponent, } from '../component/seccions/clientes/sucursales-detalle/sucursales-detalle.component';
+import { SucursalesNuevaComponent } from '../component/seccions/clientes/sucursales-nueva/sucursales-nueva.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalogo', component: FiltroComponent },
   { path: 'detalle', component: DetalleComponent },
-  // { path: 'carrito', component: CarritoComponent },
   { path: 'carrito', component: PedidosTabsComponent },
   { path: 'about', component: QuienSoyComponent },
   { path: 'contact', component: ContactComponent },
@@ -34,7 +34,8 @@ const appRoutes: Routes = [
   { path: 'misDatos', component: ClienteTabsComponent },
   { path: 'control', component: PanelControlComponent },
   { path: 'loginUsr', component: LoginUsuarioComponent },
-  { path: 'sucursal', component: AbmSucursalesComponent },
+  { path: 'sucursal', component: SucursalesDetalleComponent },
+  { path: 'sucursalNueva', component: SucursalesNuevaComponent },
   {
     path: '',
     redirectTo: '/home',
