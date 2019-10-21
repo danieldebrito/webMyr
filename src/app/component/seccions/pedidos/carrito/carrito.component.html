@@ -15,9 +15,8 @@
             <strong><b>Direccion de Entrega :</b></strong>
 
             <select [(ngModel)]="id_sucursal" [ngModelOptions]="{standalone: true}">
-        <option value="" disabled>Sucursal </option>
-        <option>
-          {{ ''  }}
+        <option *ngFor="let sucursal of sucursales">
+          {{ sucursal.nombre_sucursal }}
         </option>
       </select>
 

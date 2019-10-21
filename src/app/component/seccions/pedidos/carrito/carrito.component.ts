@@ -24,6 +24,7 @@ export class CarritoComponent implements OnInit, DoCheck {
   public identity: Cliente;
   public articulo: Articulo;
   public pedidoItems: PedidoItem[] = [];
+  public sucursales = [];
 
   public id_sucursal: number;
   public id_expreso: number;
@@ -35,6 +36,7 @@ export class CarritoComponent implements OnInit, DoCheck {
     private pedidoItemServ: PedidoItemService,
     public artService: ArticulosService,
     public pedidosService: PedidosService,
+    private sucursalesService: SucursalesService,
     private authService: AuthService
   ) { }
 
@@ -68,6 +70,16 @@ export class CarritoComponent implements OnInit, DoCheck {
         console.error('ERROR DEL SERVIDOR', error);
       }
     );
+  }
+
+  /**
+   * Carga las sucursales del cliente en sesion
+   * debe seleccionar una para aher el pedido.
+   */
+  cargarListaPorCliente() {
+    this.sucursalesService.ListarPorCliente(this.identity.id).subscribe(response => {
+      this.sucursales = response;
+    });
   }
 
   /**
@@ -122,5 +134,6 @@ export class CarritoComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();
+    this.cargarListaPorCliente();
   }
 }
