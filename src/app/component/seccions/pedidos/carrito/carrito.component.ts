@@ -12,6 +12,7 @@ import { PedidoItemService } from 'src/app/services/pedidos/pedido_item.service'
 import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 import { SucursalesService } from 'src/app/services/cliente/sucursales.service';
+import { ExpresosService } from 'src/app/services/expresos/expresos.service';
 
 @Component({
   selector: 'app-carrito',
@@ -25,6 +26,7 @@ export class CarritoComponent implements OnInit, DoCheck {
   public articulo: Articulo;
   public pedidoItems: PedidoItem[] = [];
   public sucursales = [];
+  public expresos = [];
 
   public id_sucursal: number;
   public id_expreso: number;
@@ -37,6 +39,8 @@ export class CarritoComponent implements OnInit, DoCheck {
     public artService: ArticulosService,
     public pedidosService: PedidosService,
     private sucursalesService: SucursalesService,
+    private expresosService: ExpresosService,
+    
     private authService: AuthService
   ) { }
 
@@ -54,12 +58,12 @@ export class CarritoComponent implements OnInit, DoCheck {
       });
   }
 
- /**
-  *
-  * @param id de la entidad
-  * borra un item de la entidad mediante id
-  */
-  public borrarItem (id: string) {
+  /**
+   *
+   * @param id de la entidad
+   * borra un item de la entidad mediante id
+   */
+  public borrarItem(id: string) {
     this.pedidoItemServ.Baja(id).then(
       response => {
         this.listarPedidoAbierto();
@@ -73,12 +77,22 @@ export class CarritoComponent implements OnInit, DoCheck {
   }
 
   /**
-   * Carga las sucursales del cliente en sesion
-   * debe seleccionar una para aher el pedido.
+   * LISTA las sucursales del cliente en sesion
+   * debe seleccionar una para cerrar el pedido.
    */
-  cargarListaPorCliente() {
+  listaPorCliente() {
     this.sucursalesService.ListarPorCliente(this.identity.id).subscribe(response => {
       this.sucursales = response;
+    });
+  }
+
+  /**
+ * LISTA los expresos
+ * debe seleccionar uno para cerrar el pedido.
+ */
+  listaExpresos() {
+    this.expresosService.Listar().subscribe(response => {
+      this.expresos = response;
     });
   }
 
@@ -92,30 +106,30 @@ export class CarritoComponent implements OnInit, DoCheck {
             this.observaciones
    */
 
-  public crearPedido () {
+  public crearPedido() {
     this.pedidosService.Alta(
       this.id_sucursal,
       this.id_expreso,
       this.envio,
       this.fecha,
       this.observaciones).then(
-      response => {
-        return response;
-      }
-    ).catch(
-      error => {
-        console.error('ERROR DEL SERVIDOR', error);
-      }
-    );
+        response => {
+          return response;
+        }
+      ).catch(
+        error => {
+          console.error('ERROR DEL SERVIDOR', error);
+        }
+      );
   }
 
 
-/**
- *   EN CONSTRUCCION CIERRA LOS ITEMS PARA ARMAR EL PEDIDO, CAMBIA ESTADO A CERRADO Y CARGA NRO DE PEDIDO
- * @param id_pedido => id de pedido
- * @param id_cliente => id de cliente
- */
-  public cerrarPedido (id_pedido, id_cliente) {
+  /**
+   *   EN CONSTRUCCION CIERRA LOS ITEMS PARA ARMAR EL PEDIDO, CAMBIA ESTADO A CERRADO Y CARGA NRO DE PEDIDO
+   * @param id_pedido => id de pedido
+   * @param id_cliente => id de cliente
+   */
+  public cerrarPedido(id_pedido, id_cliente) {
     this.pedidoItemServ.cierraItems(id_pedido, id_cliente).then(
       response => {
         return response;
@@ -134,6 +148,7 @@ export class CarritoComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.identity = this.authService.getIdentityLocalStorage();
-    this.cargarListaPorCliente();
+    this.listaPorCliente();
+    this.listaExpresos();
   }
 }
