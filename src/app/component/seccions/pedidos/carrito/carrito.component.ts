@@ -13,6 +13,8 @@ import { PedidosService } from 'src/app/services/pedidos/pedidos.service';
 import { ArticulosService } from 'src/app/services/articulo/articulos.service';
 import { SucursalesService } from 'src/app/services/cliente/sucursales.service';
 import { ExpresosService } from 'src/app/services/expresos/expresos.service';
+import { Sucursal } from 'src/app/clases/sucursal';
+import { Expreso } from 'src/app/clases/expreso';
 
 @Component({
   selector: 'app-carrito',
@@ -27,6 +29,9 @@ export class CarritoComponent implements OnInit, DoCheck {
   public pedidoItems: PedidoItem[] = [];
   public sucursales = [];
   public expresos = [];
+  public expreso: Expreso;   // opcion elegida en select
+  public sucursal: Sucursal; // opcion elegida en select
+
 
   public id_sucursal: number;
   public id_expreso: number;
