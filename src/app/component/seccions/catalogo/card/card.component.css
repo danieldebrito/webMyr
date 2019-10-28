@@ -10,6 +10,11 @@ th {
     height: 100%;
 }
 
+.img-responsive {
+    width: 100%;
+    height: auto;
+  }
+
 .example-header-image {
     background-image: url("../../../../../assets/logo_meyro/iso_logo.jpg");
     background-size: cover;
