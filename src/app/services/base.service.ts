@@ -14,10 +14,10 @@ export class BaseService {
 
 
     // localhost
-    // this.urlBase = 'http://localhost/api_myr_web/app/index.php';
+    this.urlBase = 'http://localhost/api_myr_web/app/index.php';
 
     // towebs
-    this.urlBase = 'http://danieldebrito.com.ar/api/api_myr_web/app/index.php';
+    // this.urlBase = 'http://danieldebrito.com.ar/api/api_myr_web/app/index.php';
   }
 
 
