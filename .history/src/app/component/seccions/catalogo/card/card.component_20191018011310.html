@@ -1,7 +1,7 @@
 <div class="container-fluid bg-3 text-center">
     <br>
     <div class="row">
-        <div class="col-sm-3" *ngFor="let item of allItems">
+        <div class="col-sm-4" *ngFor="let item of allItems">
             <mat-card class="example-card">
                 <mat-card-header class="card-header">
                     <div mat-card-avatar class="example-header-image"></div>
@@ -71,11 +71,11 @@
                         </tbody>
                     </table>
                 </mat-card-content>
-
+                
                 <hr>
-
-                <app-boton-comprar [id_articulo]='item.id_articulo'></app-boton-comprar>
-
+                
+                <app-boton-comprar [id_articulo]='item.id_articulo' ></app-boton-comprar>
+                
             </mat-card>
             <br>
         </div>

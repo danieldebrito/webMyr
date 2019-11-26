@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-// services
-import { AllArticulosService } from 'src/app/services/articulo/consultas-articulos.service';
-import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
 // classes
 import { Articulo } from 'src/app/clases/articulo';
 import { ArtMarModMot } from 'src/app/clases/ArtMarModMot';
+import { Aplicacion } from 'src/app/clases/aplicacion';
+// services
+import { ArticulosService } from 'src/app/services/articulo/articulos.service';
+import { AplicacionesService } from 'src/app/services/articulo/aplicaciones.service';
+import { ProductosService } from 'src/app/services/articulo/productos.service';
+import { MarcasService } from 'src/app/services/articulo/marcas.service';
+import { LineasService } from 'src/app/services/articulo/lineas.service';
+import { CombustiblesService } from 'src/app/services/articulo/combustibles.service';
+import { ArtMarModMotService } from 'src/app/services/articulo/art-mar-mod-mot.service';
 
 @Component({
     selector: 'app-filtro',
@@ -28,9 +34,12 @@ export class FiltroComponent implements OnInit {
     public id_producto: string;
     public id_aplicacion: string;
 
-    // public allItems: Articulo[];  // todos.
+    public allArticulos: Articulo[] = [];
     public allItems: ArtMarModMot[];
     public filtroItems;
+
+    public app: Aplicacion[] = [];
+    public prod: void[] /*: Producto[] */ = [];
 
     // columnas sin repeticion.
     public columnaLinea: string[];
@@ -49,7 +58,12 @@ export class FiltroComponent implements OnInit {
     public isCollapsed3 = true;
 
     constructor(
-        private artService: AllArticulosService,
+        private artService: ArticulosService,
+        private appService: AplicacionesService,
+        private prodService: ProductosService,
+        private marcaService: MarcasService,
+        private combService: CombustiblesService,
+        private lineaService: LineasService,
         private ammmService: ArtMarModMotService
         ) {
         this.show = true;
@@ -77,18 +91,10 @@ export class FiltroComponent implements OnInit {
         this.isCollapsed3 = false;
     }
 
-    public Listar() {
-        this.ammmService.ListarO().subscribe(response => {
-            this.allItems = response;
-        },
-            error => {
-                console.error(error);
-            });
-    }
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response;
+            this.filtroItems = response.slice(0, 5055550);   /* VISTA */
 
             this.id_linea = '';
             this.id_marca = '';
@@ -122,27 +128,16 @@ export class FiltroComponent implements OnInit {
     }
 
     public Filtrar() {
-        /*alert(
-            this.id_linea +
-            this.id_marca +
-            this.id_combustible +
-            this.motor +
-            this.modelo +
-            this.cilindrada +
-            this.competicion +
-            this.id_producto +
-            this.id_aplicacion
-        );*/
         this.ammmService.FiltrarP(
-            this.id_linea,
-            this.id_marca,
-            this.id_combustible,
+            this.lineaService.traerId(this.id_linea),
+            this.marcaService.traerId(this.id_marca),
+            this.combService.traerId(this.id_combustible),
             this.motor,
             this.modelo,
             this.cilindrada,
             this.competicion,
-            this.id_producto,
-            this.id_aplicacion).then(
+            this.prodService.traerId(this.id_producto),
+            this.appService.traerId(this.id_aplicacion)).then(
                 response => {
                     this.filtroItems = response;
                     this.allItems = this.filtroItems;
@@ -255,7 +250,6 @@ export class FiltroComponent implements OnInit {
 
     ngOnInit() {
         this.Limpiar();
-        this.Filtrar();
     }
 }
 

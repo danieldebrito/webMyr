@@ -21,7 +21,8 @@ export class FiltroComponent implements OnInit {
 
     // anternar entre grilla y detalle, true muestra grilla.
     public show: boolean;
-    public showValue: boolean;
+
+    // public showValue: boolean;
 
     // valores de los selects.
     public id_linea: string;
@@ -94,7 +95,7 @@ export class FiltroComponent implements OnInit {
 
     public Limpiar() {
         this.ammmService.ListarO().subscribe(response => {
-            this.filtroItems = response.slice(0, 50);   /* VISTA */
+            this.filtroItems = response.slice(0, 5055550);   /* VISTA */
 
             this.id_linea = '';
             this.id_marca = '';
