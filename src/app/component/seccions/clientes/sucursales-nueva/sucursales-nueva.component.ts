@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // class
 import { Sucursal } from 'src/app/clases/sucursal';
@@ -19,10 +20,12 @@ export class SucursalesNuevaComponent implements OnInit {
   public identity: Cliente;
   public sucursal: Sucursal;
   public id_sucursal_alta;
+  public redirectURL: string;
 
   constructor(
     private sucursalesService: SucursalesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.identity = this.authService.getIdentityLocalStorage();
     this.sucursal = new Sucursal(0, '', '', '', 0, '', '', '');
@@ -40,6 +43,9 @@ export class SucursalesNuevaComponent implements OnInit {
     ).then(
         response => {
           this.id_sucursal_alta = response;
+          this.redirectURL = '/misDatos';
+          this.router.navigate([this.redirectURL]);
+          this.limpiarForm ();
         }
       )
       .catch(
@@ -47,7 +53,6 @@ export class SucursalesNuevaComponent implements OnInit {
           console.error('ERROR DEL SERVIDOR', error);
         }
       );
-      this.limpiarForm ();
   }
 
   public limpiarForm () {
